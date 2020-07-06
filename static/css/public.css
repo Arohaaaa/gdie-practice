@@ -1,292 +1,292 @@
 @font-face {
-    font-family: "MF LangQian";
-    src: url("../font/MFLangQian_Noncommercial-regular.otf");
-  }
-  
-  /* 绝对定位垂直居中 */
-  .abs_vertical_center {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .wh_33 {
-    width: 33%;
-  }
-  .wh_25 {
-    width: 25%;
-  }
-  .wh {
-      width: 100%;
-  }
-  /* 头部样式开始*/
-  .header {
-    display: flex;
-    background-color: rgba(80, 119, 170, 1);
-    width: 100%;
-    height: 60px;
-  }
-  
-  .header_left {
-    position: relative;
-    height: 100%;
-    width: 20%;
-  }
-  .header_left .logo {
-    left: 20px;
-    width: 43.1px;
-    height: 32.81px;
-  }
-  /* 存疑 */
-  .header_left .logo_top {
-    position: absolute;
-    left: 63.1px;
-    top: 10px;
-    border-radius: 50%;
-    width: 9.5px;
-    height: 9.2px;
-  }
-  .header_left .title {
-    left: 75px;
-    font-family: "MF LangQian";
-    font-size: 22px;
-    color: white;
-  }
-  .header_left::after {
-    content: "";
-    position: absolute;
-    top: 13px;
-    right: 0;
-    width: 1px;
-    height: 35px;
-    background-color: #81a5c6;
-  }
-  
-  .header_right {
-    position: relative;
-    width: 80%;
-  }
-  .header_right .title_box {
-    left: 13px;
-    font-size: 20px;
-    color: white;
-  }
-  .header_right .login_box {
-    right: 17px;
-    display: flex;
-  }
-  .header_right .login_box .avatar {
-    margin-right: 10px;
-    width: 33px;
-    height: 33px;
-  }
-  .header_right .login_box .role {
-    align-self: center;
-    margin-right: 30px;
-    color: white;
-    font-size: 14px;
-  }
-  .header_right .login_box .login_btn {
-    align-self: center;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: white;
-    font-size: 14px;
-  }
-  /* 头部样式结束 */
-  
-  .container {
-    display: flex;
-    width: 100%;
-    height: 840px;
-  }
-  /* 侧边栏开始 */
-  .aside {
-    background-color: #fff;
-    width: 20%;
-    height: 100%;
-  }
-  .aside .aside_title {
-    position: relative;
-    width: 100%;
-    height: 60px;
-    text-align: center;
-    line-height: 60px;
-    border-bottom: 1px solid #d8e0e5;
-    color: rgba(99, 115, 129, 1);
-  }
-  .aside .aside_title::before,
-  .aside .aside_title::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 1px;
-    background-color: #ecf1f4;
-  }
-  .aside .aside_title::before {
-    left: 30px;
-  }
-  .aside .aside_title::after {
-    right: 30px;
-  }
-  .aside .aside_menu .menu_item {
-    position: relative;
-  }
-  .menu_item .menu_tab {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 48px;
-  }
-  
-  .menu_item .menu_tab .menu_item_title {
-    display: flex;
-    align-items: center;
-    margin-left: 42px;
-    height: 24px;
-    font-size: 18px;
-    color: rgba(33, 43, 54, 1);
-  }
-  .menu_tab .menu_item_title .icon-gear {
-    width: 24px;
-    height: 24px;
-    }
-  .menu_tab .menu_item_title .item_title {
-    margin-left: 14px;
-  }
-  /* 存疑 */
-  .menu_item .menu_tab .triangle_box {
-    margin-right: 12px;
-    width: 26px;
-    height: 26px;
-    text-align: center;
-    line-height: 26px;
-  }
-  .menu_item .menu_tab .triangle_box .triangle {
-    display: inline-block;
-    width: 9px;
-    height: 9px;
-    border-left: 2px solid #1d2b36;
-    border-bottom: 2px solid #1d2b36;
-    transform: rotate(135deg);
-  }
-  .menu_item .submenu {
-    display: block;
-  }
-  .menu_item .submenu .subitem {
-    position: relative;
-    padding-left: 100px;
-    height: 48px;
-    line-height: 48px;
-    font-size: 16px;
-  }
-  .menu_item .submenu .subitem::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 82px;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    background-color: #d2d2d2;
-    border-radius: 50%;
-  }
-  .menu_item .submenu .subitem_selected {
-    background-color: #edf4fd;
-    border-right: 4px solid rgba(2, 112, 224, 1);
-    color: rgba(1, 102, 222, 1);
-  }
-  .menu_item .submenu .subitem_selected::before {
-    background-color: rgba(2, 112, 224, 1);
-  }
-  .main {
-    width: 80%;
-    height: 100%;
-  }
-  .main .tabBar {
-    display: flex;
-    width: 100%;
-    height: 44px;
-  }
-  .tabBar .tabBar_icon {
-    display: flex;
-  }
-  .tabBar .tabBar_icon .tabBar_icon_box {
-    height: 43px;
-    line-height: 43px;
-    padding: 0 15px;
-    border-left: 1px solid #dae0e5;
-    border-bottom: 1px solid #dae0e5;
-  }
-  .tabBar_icon .tabBar_icon_box .tabBar_icon_task {
-    width: 12px;
-    height: 10px;
-  }
-  .tabBar_icon .tabBar_icon_box .tabBar_icon_refresh {
-    width: 12px;
-    height: 12px;
-  }
-  .tabBar_icon .tabBar_icon_box .tabBar_icon_back,
-  .tabBar_icon .tabBar_icon_box .tabBar_icon_forward {
-    position: relative;
-    top: 6px;
-    width: 15px;
-    height: 22px;
-  }
-  .tabBar_icon .tabBar_close {
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    border-left: 1px solid #dae0e5;
-    border-bottom: 1px solid #dae0e5;
-  }
-  .tabBar_icon .tabBar_close .close {
-    width: 66px;
-    font-size: 14px;
-    color: rgba(145, 158, 171, 1);
-  }
-  .triangle {
-    margin-left: 4px;
-    width: 6px;
-    height: 4px;
-  }
-  .tabBar .tabBar_nav {
-    flex-grow: 1;
-    display: flex;
-    overflow: hidden;
-  }
-  .tabBar_nav .nav_active {
-    background-color: rgba(245, 245, 245, 1);
-    width: 134px;
-    height: 46px;
-    border-left: 1px solid #dae0e5;
-    text-align: center;
-    line-height: 46px;
-    font-size: 14px;
-    color: rgba(2, 112, 224, 1);
-  }
-  .tabBar_nav .nav_others {
-    flex-grow: 1;
-    display: flex;
-    flex-wrap: nowrap;
-    border-bottom: 1px solid #dae0e5;
-    overflow: hidden;
-  }
-  .nav_others .nav_others_item {
-    border-left: 1px solid #dae0e5;
-    height: 43px;
-    min-width: 114px;
-    line-height: 43px;
-  }
-  .nav_others .nav_others_item .nav_others_title {
-    margin-left: 43px;
-    font-size: 14px;
-    color: rgba(33, 43, 54, 1);
-  }
-  .nav_others .nav_others_item .nav_others_icon {
-    margin-left: 8px;
-    width: 10px;
-    height: 10px;
-  }
+  font-family: "MF LangQian";
+  src: url("../font/MFLangQian_Noncommercial-regular.otf");
+}
+
+/* 绝对定位垂直居中 */
+.abs_vertical_center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.wh_33 {
+  width: 33%;
+}
+.wh_25 {
+  width: 25%;
+}
+.wh {
+  width: 100%;
+}
+/* 头部样式开始*/
+.header {
+  display: flex;
+  background-color: rgba(80, 119, 170, 1);
+  width: 100%;
+  height: 60px;
+}
+
+.header_left {
+  position: relative;
+  height: 100%;
+  width: 20%;
+}
+.header_left .logo {
+  left: 20px;
+  width: 43.1px;
+  height: 32.81px;
+}
+/* 存疑 */
+.header_left .logo_top {
+  position: absolute;
+  left: 63.1px;
+  top: 10px;
+  border-radius: 50%;
+  width: 9.5px;
+  height: 9.2px;
+}
+.header_left .title {
+  left: 75px;
+  font-family: "MF LangQian";
+  font-size: 22px;
+  color: white;
+}
+.header_left::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  right: 0;
+  width: 1px;
+  height: 35px;
+  background-color: #81a5c6;
+}
+
+.header_right {
+  position: relative;
+  width: 80%;
+}
+.header_right .title_box {
+  left: 13px;
+  font-size: 20px;
+  color: white;
+}
+.header_right .login_box {
+  right: 17px;
+  display: flex;
+}
+.header_right .login_box .avatar {
+  margin-right: 10px;
+  width: 33px;
+  height: 33px;
+}
+.header_right .login_box .role {
+  align-self: center;
+  margin-right: 30px;
+  color: white;
+  font-size: 14px;
+}
+.header_right .login_box .login_btn {
+  align-self: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 14px;
+}
+/* 头部样式结束 */
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 840px;
+}
+/* 侧边栏开始 */
+.aside {
+  background-color: #fff;
+  width: 20%;
+  height: 100%;
+}
+.aside .aside_title {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  border-bottom: 1px solid #d8e0e5;
+  color: rgba(99, 115, 129, 1);
+}
+.aside .aside_title::before,
+.aside .aside_title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 1px;
+  background-color: #ecf1f4;
+}
+.aside .aside_title::before {
+  left: 30px;
+}
+.aside .aside_title::after {
+  right: 30px;
+}
+.aside .aside_menu .menu_item {
+  position: relative;
+}
+.menu_item .menu_tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+}
+
+.menu_item .menu_tab .menu_item_title {
+  display: flex;
+  align-items: center;
+  margin-left: 42px;
+  height: 24px;
+  font-size: 18px;
+  color: rgba(33, 43, 54, 1);
+}
+.menu_tab .menu_item_title .icon-gear {
+  width: 24px;
+  height: 24px;
+}
+.menu_tab .menu_item_title .item_title {
+  margin-left: 14px;
+}
+/* 存疑 */
+.menu_item .menu_tab .triangle_box {
+  margin-right: 12px;
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+}
+.menu_item .menu_tab .triangle_box .triangle {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-left: 2px solid #1d2b36;
+  border-bottom: 2px solid #1d2b36;
+  transform: rotate(135deg);
+}
+.menu_item .submenu {
+  display: block;
+}
+.menu_item .submenu .subitem {
+  position: relative;
+  padding-left: 100px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
+}
+.menu_item .submenu .subitem::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 82px;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #d2d2d2;
+  border-radius: 50%;
+}
+.menu_item .submenu .subitem_selected {
+  background-color: #edf4fd;
+  border-right: 4px solid rgba(2, 112, 224, 1);
+  color: rgba(1, 102, 222, 1);
+}
+.menu_item .submenu .subitem_selected::before {
+  background-color: rgba(2, 112, 224, 1);
+}
+.main {
+  width: 80%;
+  height: 100%;
+}
+.main .tabBar {
+  display: flex;
+  width: 100%;
+  height: 44px;
+}
+.tabBar .tabBar_icon {
+  display: flex;
+}
+.tabBar .tabBar_icon .tabBar_icon_box {
+  height: 43px;
+  line-height: 43px;
+  padding: 0 15px;
+  border-left: 1px solid #dae0e5;
+  border-bottom: 1px solid #dae0e5;
+}
+.tabBar_icon .tabBar_icon_box .tabBar_icon_task {
+  width: 12px;
+  height: 10px;
+}
+.tabBar_icon .tabBar_icon_box .tabBar_icon_refresh {
+  width: 12px;
+  height: 12px;
+}
+.tabBar_icon .tabBar_icon_box .tabBar_icon_back,
+.tabBar_icon .tabBar_icon_box .tabBar_icon_forward {
+  position: relative;
+  top: 6px;
+  width: 15px;
+  height: 22px;
+}
+.tabBar_icon .tabBar_close {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  border-left: 1px solid #dae0e5;
+  border-bottom: 1px solid #dae0e5;
+}
+.tabBar_icon .tabBar_close .close {
+  width: 66px;
+  font-size: 14px;
+  color: rgba(145, 158, 171, 1);
+}
+.triangle {
+  margin-left: 4px;
+  width: 6px;
+  height: 4px;
+}
+.tabBar .tabBar_nav {
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+}
+.tabBar_nav .nav_active {
+  background-color: rgba(245, 245, 245, 1);
+  width: 134px;
+  height: 46px;
+  border-left: 1px solid #dae0e5;
+  text-align: center;
+  line-height: 46px;
+  font-size: 14px;
+  color: rgba(2, 112, 224, 1);
+}
+.tabBar_nav .nav_others {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #dae0e5;
+  overflow: hidden;
+}
+.nav_others .nav_others_item {
+  border-left: 1px solid #dae0e5;
+  height: 43px;
+  min-width: 114px;
+  line-height: 43px;
+}
+.nav_others .nav_others_item .nav_others_title {
+  margin-left: 43px;
+  font-size: 14px;
+  color: rgba(33, 43, 54, 1);
+}
+.nav_others .nav_others_item .nav_others_icon {
+  margin-left: 8px;
+  width: 10px;
+  height: 10px;
+}

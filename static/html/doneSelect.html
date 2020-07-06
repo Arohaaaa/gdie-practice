@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>统一待办PC端</title>
-    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/public.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/reset.css" />
   </head>
@@ -92,12 +92,9 @@
           <div class="content">
             <div class="content_aside">
               <div class="content_aside_search">
-                  <div class="aside_search_input">
-                    <input
-                    placeholder="请输入分类名称进行搜索"
-                    type="text"
-                   />
-                  </div>
+                <div class="aside_search_input">
+                  <input placeholder="请输入分类名称进行搜索" type="text" />
+                </div>
                 <div class="aside_search_btn">
                   <span class="aside_search_title">搜索</span>
                 </div>
@@ -264,31 +261,55 @@
                   <img class="search_arrow" src="../img/箭头（下）@2X.png" />
                 </div>
                 <div class="search_select_hidden">
-                    <div class="select_hidden_titleBox">
-                        <div class="hidden_title">筛选</div>
-                        <img class="hidden_icon_close" src="../img/关闭@2X.png">
+                  <div class="select_hidden_titleBox">
+                    <div class="hidden_title">筛选</div>
+                    <img class="hidden_icon_close" src="../img/关闭@2X.png" />
+                  </div>
+                  <div class="select_hidden_formBox">
+                    <label for="classify">分类</label>
+                    <div class="hidden_form_inputBox">
+                      <input
+                        id="classify"
+                        class="hidden_form_input"
+                        type="text"
+                        placeholder="请选择分类"
+                      />
+                      <img
+                        class="hidden_icon_triangle"
+                        src="../img/多边形 1@2X.png"
+                      />
                     </div>
-                    <div class="select_hidden_formBox">
-                        <label for="classify">分类</label>
-                        <div class="hidden_form_inputBox">
-                            <input id="classify" class="hidden_form_input" type="text" placeholder="请选择分类">
-                            <img class="hidden_icon_triangle" src="../img/多边形 1@2X.png" />
-                        </div>
-                        <label for="state">状态</label>
-                        <div class="hidden_form_inputBox">
-                            <input id="state" class="hidden_form_input" type="text" placeholder="请选择分类">
-                            <img class="hidden_icon_triangle" src="../img/多边形 1@2X.png" />
-                        </div>
-                        <label for="createtime">创建时间</label>
-                        <div class="hidden_form_inputBox">
-                            <input id="createtime" class="hidden_form_input" type="text" placeholder="开始时间 - 结束时间">
-                            <img class="hidden_icon_calendar" src="../img/日历@2X.png"/>
-                        </div>
+                    <label for="state">状态</label>
+                    <div class="hidden_form_inputBox">
+                      <input
+                        id="state"
+                        class="hidden_form_input"
+                        type="text"
+                        placeholder="请选择分类"
+                      />
+                      <img
+                        class="hidden_icon_triangle"
+                        src="../img/多边形 1@2X.png"
+                      />
                     </div>
-                    <div class="select_hidden_btnBox">
-                        <button class="hidden_btn">确定</button>
-                        <button class="hidden_btn">取消</button>
+                    <label for="createtime">创建时间</label>
+                    <div class="hidden_form_inputBox">
+                      <input
+                        id="createtime"
+                        class="hidden_form_input"
+                        type="text"
+                        placeholder="开始时间 - 结束时间"
+                      />
+                      <img
+                        class="hidden_icon_calendar"
+                        src="../img/日历@2X.png"
+                      />
                     </div>
+                  </div>
+                  <div class="select_hidden_btnBox">
+                    <button class="hidden_btn">确定</button>
+                    <button class="hidden_btn">取消</button>
+                  </div>
                 </div>
               </div>
               <div class="content_table">
@@ -308,9 +329,9 @@
                     <td>OA系统</td>
                     <td>内务</td>
                     <td>
-                        <span class="td_handled">
-                            已处理
-                        </span>
+                      <span class="td_handled">
+                        已处理
+                      </span>
                     </td>
                     <td>
                       2020-04-22 17:50
@@ -323,9 +344,9 @@
                     <td>采购系统</td>
                     <td>市场</td>
                     <td>
-                        <span class="td_abolish">
-                            已废弃  
-                        </span>
+                      <span class="td_abolish">
+                        已废弃
+                      </span>
                     </td>
                     <td>2020-04-22 17:50</td>
                     <td>查看</td>
@@ -336,9 +357,9 @@
                     <td>OA系统</td>
                     <td>内务</td>
                     <td>
-                        <span class="td_handled">
-                            已处理
-                        </span>
+                      <span class="td_handled">
+                        已处理
+                      </span>
                     </td>
                     <td>
                       2020-04-22 17:50
@@ -351,9 +372,9 @@
                     <td>采购系统</td>
                     <td>市场</td>
                     <td>
-                        <span class="td_abolish">
-                            已废弃
-                        </span>
+                      <span class="td_abolish">
+                        已废弃
+                      </span>
                     </td>
                     <td>2020-04-22 17:50</td>
                     <td>查看</td>
@@ -364,9 +385,9 @@
                     <td>OA系统</td>
                     <td>内务</td>
                     <td>
-                        <span class="td_handled">
-                            已处理
-                        </span>
+                      <span class="td_handled">
+                        已处理
+                      </span>
                     </td>
                     <td>
                       2020-04-22 17:50
@@ -379,9 +400,9 @@
                     <td>采购系统</td>
                     <td>市场</td>
                     <td>
-                        <span class="td_abolish">
-                            已废弃
-                        </span>
+                      <span class="td_abolish">
+                        已废弃
+                      </span>
                     </td>
                     <td>2020-04-22 17:50</td>
                     <td>查看</td>
@@ -392,9 +413,9 @@
                     <td>OA系统</td>
                     <td>内务</td>
                     <td>
-                        <span class="td_handled">
-                            已处理
-                        </span>
+                      <span class="td_handled">
+                        已处理
+                      </span>
                     </td>
                     <td>
                       2020-04-22 17:50
@@ -407,9 +428,9 @@
                     <td>采购系统</td>
                     <td>市场</td>
                     <td>
-                        <span class="td_abolish">
-                            已废弃
-                        </span>
+                      <span class="td_abolish">
+                        已废弃
+                      </span>
                     </td>
                     <td>2020-04-22 17:50</td>
                     <td>查看</td>
