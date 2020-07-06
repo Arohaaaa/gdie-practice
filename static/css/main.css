@@ -413,8 +413,7 @@
     background-color: #fff;
     box-shadow: -2px 2px 2px rgba(63, 63, 68, 0.16);
     width: 350px;
-    height: 296px;
-    visibility: hidden;
+    visibility: visible;
 }
 .content_search .search_select_hidden .select_hidden_titleBox {
     display: flex;
@@ -471,7 +470,7 @@
     align-items: center;
     justify-content: flex-end;
     border-top: 1px solid rgba(217, 217, 217, 1);
-    padding: 16px 24px 0 0;
+    padding: 16px 24px 16px 0;
 }
 .select_hidden_btnBox .hidden_btn {
     padding: 8px 22px;
