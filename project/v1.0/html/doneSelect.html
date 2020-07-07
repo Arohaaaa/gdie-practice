@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>统一待办PC端</title>
+    <link rel="stylesheet" href="../css/public.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="header_left">
+        <img
+          class="logo abs_vertical_center"
+          src="../img/logo@2X.png"
+          alt="省信LOGO"
+        />
+        <img class="logo_top" src="../img/R.png" />
+        <span class="title abs_vertical_center">省信一体化平台</span>
+      </div>
+      <div class="header_right">
+        <div class="title_box abs_vertical_center">
+          <span>统一待办</span>
+        </div>
+        <div class="login_box abs_vertical_center">
+          <img class="avatar" src="../img/avatar9@2X.png" alt="头像" />
+          <span class="role">管理员</span>
+          <button class="login_btn">退出</button>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="aside">
+        <div class="aside_title">
+          <span>统一待办</span>
+        </div>
+        <div class="aside_menu">
+          <div class="menu_item">
+            <div class="menu_tab">
+              <div class="menu_item_title">
+                <img class="icon-gear" src="../img/peizhi@2X.png" alt="配置" />
+                <span class="item_title">统一待办</span>
+              </div>
+              <div class="triangle_box">
+                <i class="triangle"></i>
+              </div>
+            </div>
+            <div class="submenu">
+              <ul>
+                <li class="subitem">待办</li>
+                <li class="subitem subitem_selected">已办</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="tabBar">
+          <div class="tabBar_icon">
+            <div class="tabBar_icon_box">
+              <img class="tabBar_icon_task" src="../img/icon 2 – 41@2X.png" />
+            </div>
+            <div class="tabBar_icon_box">
+              <img class="tabBar_icon_back" src="../img/后退.png" />
+            </div>
+          </div>
+          <div class="tabBar_nav">
+            <span class="nav_active">已办</span>
+            <ul class="nav_others">
+              <li class="nav_others_item">
+                <span class="nav_others_title">待办</span>
+                <img class="nav_others_icon" src="../img/叉.png" />
+              </li>
+            </ul>
+          </div>
+          <div class="tabBar_icon">
+            <div class="tabBar_icon_box">
+              <img class="tabBar_icon_forward" src="../img/快进.png" />
+            </div>
+            <div class="tabBar_icon_box">
+              <img class="tabBar_icon_refresh" src="../img/刷新@2X.png" />
+            </div>
+            <div class="tabBar_close">
+              <span class="close">关闭操作</span>
+              <img class="triangle" src="../img/多边形 1@2X.png" />
+            </div>
+          </div>
+        </div>
+        <div class="content_box">
+          <div class="content_title"><span>待办</span></div>
+          <div class="content">
+            <div class="content_aside">
+              <div class="content_aside_search">
+                <div class="aside_search_input">
+                  <input placeholder="请输入分类名称进行搜索" type="text" />
+                </div>
+                <div class="aside_search_btn">
+                  <span class="aside_search_title">搜索</span>
+                </div>
+              </div>
+              <div class="content_aside_nav">
+                <div class="aside_sort">
+                  <div class="aside_icon_box">
+                    <img class="triangle" src="../img/多边形 1@2X.png" />
+                    <img class="file" src="../img/文件夹.png" />
+                  </div>
+                  <span class="aside_sort_title">分类</span>
+                </div>
+                <ul class="aside_sort_list">
+                  <li class="sort_list_item">
+                    <div class="aside_sort">
+                      <div class="aside_icon_box">
+                        <img class="triangle" src="../img/多边形 1@2X.png" />
+                        <img class="file" src="../img/文件夹.png" />
+                      </div>
+                      <span class="aside_sort_title">一级分类</span>
+                    </div>
+                    <ul class="aside_sort_sublist">
+                      <li class="sort_sublist_item">
+                        <img
+                          class="sort_sublist_icon"
+                          src="../img/文件-2@2X.png"
+                        />
+                        <span class="sort_sublist_title">
+                          二级分类名称
+                        </span>
+                      </li>
+                      <li class="sort_sublist_item">
+                        <img
+                          class="sort_sublist_icon"
+                          src="../img/文件-2@2X.png"
+                        />
+                        <span class="sort_sublist_title">
+                          二级分类名称
+                        </span>
+                      </li>
+                      <li class="sort_sublist_item">
+                        <img
+                          class="sort_sublist_icon"
+                          src="../img/文件-2@2X.png"
+                        />
+                        <span class="sort_sublist_title">
+                          二级分类名称
+                        </span>
+                      </li>
+                      <li class="sort_sublist_item">
+                        <img
+                          class="sort_sublist_icon"
+                          src="../img/文件-2@2X.png"
+                        />
+                        <span class="sort_sublist_title">
+                          二级分类名称
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="sort_list_item">
+                    <div class="aside_sort">
+                      <div class="aside_icon_box">
+                        <img class="triangle" src="../img/多边形 1@2X.png" />
+                        <img class="file" src="../img/文件夹.png" />
+                      </div>
+                      <span class="aside_sort_title">一级分类</span>
+                    </div>
+                    <ul class="aside_sort_sublist">
+                      <li class="sort_sublist_item">
+                        <img
+                          class="sort_sublist_icon"
+                          src="../img/文件-2@2X.png"
+                        />
+                        <span class="sort_sublist_title">
+                          二级分类名称
+                        </span>
+                      </li>
+                      <li class="sort_sublist_item">
+                        <img
+                          class="sort_sublist_icon"
+                          src="../img/文件-2@2X.png"
+                        />
+                        <span class="sort_sublist_title">
+                          二级分类名称
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="sort_list_item">
+                    <div class="aside_sort">
+                      <div class="aside_icon_box">
+                        <img class="triangle" src="../img/多边形 1@2X.png" />
+                        <img class="file" src="../img/文件夹.png" />
+                      </div>
+                      <span class="aside_sort_title">一级分类</span>
+                    </div>
+                    <ul class="aside_sort_sublist">
+                      <li class="sort_sublist_item">
+                        <img
+                          class="sort_sublist_icon"
+                          src="../img/文件-2@2X.png"
+                        />
+                        <span class="sort_sublist_title">
+                          二级分类名称
+                        </span>
+                      </li>
+                      <li class="sort_sublist_item">
+                        <img
+                          class="sort_sublist_icon"
+                          src="../img/文件-2@2X.png"
+                        />
+                        <span class="sort_sublist_title">
+                          二级分类名称
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="sort_list_item">
+                    <div class="aside_sort">
+                      <div class="aside_icon_box">
+                        <img class="triangle" src="../img/多边形 1@2X.png" />
+                        <img class="file" src="../img/文件夹.png" />
+                      </div>
+                      <span class="aside_sort_title">一级分类</span>
+                    </div>
+                    <ul class="aside_sort_sublist">
+                      <li class="sort_sublist_item">
+                        <img
+                          class="sort_sublist_icon"
+                          src="../img/文件-2@2X.png"
+                        />
+                        <span class="sort_sublist_title">
+                          二级分类名称
+                        </span>
+                      </li>
+                      <li class="sort_sublist_item">
+                        <img
+                          class="sort_sublist_icon"
+                          src="../img/文件-2@2X.png"
+                        />
+                        <span class="sort_sublist_title">
+                          二级分类名称
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="content_table_wrapper">
+              <div class="content_search">
+                <div class="content_search_input">
+                  <img class="search_icon" src="../img/搜索.png" />
+                  <input
+                    class="search_input"
+                    placeholder="请输入标题/环节/应用名称进行搜索"
+                    type="text"
+                  />
+                </div>
+                <div class="content_search_select">
+                  <img class="search_select" src="../img/筛选.png" />
+                  <span class="select_title">筛选</span>
+                  <img class="search_arrow" src="../img/箭头（下）@2X.png" />
+                </div>
+                <div class="search_select_hidden">
+                  <div class="select_hidden_titleBox">
+                    <div class="hidden_title">筛选</div>
+                    <img class="hidden_icon_close" src="../img/关闭@2X.png" />
+                  </div>
+                  <div class="select_hidden_formBox">
+                    <label for="classify">分类</label>
+                    <div class="hidden_form_inputBox">
+                      <input
+                        id="classify"
+                        class="hidden_form_input"
+                        type="text"
+                        placeholder="请选择分类"
+                      />
+                      <img
+                        class="hidden_icon_triangle"
+                        src="../img/多边形 1@2X.png"
+                      />
+                    </div>
+                    <label for="state">状态</label>
+                    <div class="hidden_form_inputBox">
+                      <input
+                        id="state"
+                        class="hidden_form_input"
+                        type="text"
+                        placeholder="请选择分类"
+                      />
+                      <img
+                        class="hidden_icon_triangle"
+                        src="../img/多边形 1@2X.png"
+                      />
+                    </div>
+                    <label for="createtime">创建时间</label>
+                    <div class="hidden_form_inputBox">
+                      <input
+                        id="createtime"
+                        class="hidden_form_input"
+                        type="text"
+                        placeholder="开始时间 - 结束时间"
+                      />
+                      <img
+                        class="hidden_icon_calendar"
+                        src="../img/日历@2X.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="select_hidden_btnBox">
+                    <button class="hidden_btn">确定</button>
+                    <button class="hidden_btn">取消</button>
+                  </div>
+                </div>
+              </div>
+              <div class="content_table">
+                <table>
+                  <tr class="td_handled">
+                    <td>标题</td>
+                    <td>环节</td>
+                    <td>应用</td>
+                    <td>分类</td>
+                    <td>状态</td>
+                    <td>处理时间</td>
+                    <td>操作</td>
+                  </tr>
+                  <tr>
+                    <td>请假审批</td>
+                    <td>领导审批</td>
+                    <td>OA系统</td>
+                    <td>内务</td>
+                    <td>
+                      <span class="td_handled">
+                        已处理
+                      </span>
+                    </td>
+                    <td>
+                      2020-04-22 17:50
+                    </td>
+                    <td>查看</td>
+                  </tr>
+                  <tr>
+                    <td>采购审批</td>
+                    <td>领导审批</td>
+                    <td>采购系统</td>
+                    <td>市场</td>
+                    <td>
+                      <span class="td_abolish">
+                        已废弃
+                      </span>
+                    </td>
+                    <td>2020-04-22 17:50</td>
+                    <td>查看</td>
+                  </tr>
+                  <tr>
+                    <td>请假审批</td>
+                    <td>领导审批</td>
+                    <td>OA系统</td>
+                    <td>内务</td>
+                    <td>
+                      <span class="td_handled">
+                        已处理
+                      </span>
+                    </td>
+                    <td>
+                      2020-04-22 17:50
+                    </td>
+                    <td>查看</td>
+                  </tr>
+                  <tr>
+                    <td>采购审批</td>
+                    <td>领导审批</td>
+                    <td>采购系统</td>
+                    <td>市场</td>
+                    <td>
+                      <span class="td_abolish">
+                        已废弃
+                      </span>
+                    </td>
+                    <td>2020-04-22 17:50</td>
+                    <td>查看</td>
+                  </tr>
+                  <tr>
+                    <td>请假审批</td>
+                    <td>领导审批</td>
+                    <td>OA系统</td>
+                    <td>内务</td>
+                    <td>
+                      <span class="td_handled">
+                        已处理
+                      </span>
+                    </td>
+                    <td>
+                      2020-04-22 17:50
+                    </td>
+                    <td>查看</td>
+                  </tr>
+                  <tr>
+                    <td>采购审批</td>
+                    <td>领导审批</td>
+                    <td>采购系统</td>
+                    <td>市场</td>
+                    <td>
+                      <span class="td_abolish">
+                        已废弃
+                      </span>
+                    </td>
+                    <td>2020-04-22 17:50</td>
+                    <td>查看</td>
+                  </tr>
+                  <tr>
+                    <td>请假审批</td>
+                    <td>领导审批</td>
+                    <td>OA系统</td>
+                    <td>内务</td>
+                    <td>
+                      <span class="td_handled">
+                        已处理
+                      </span>
+                    </td>
+                    <td>
+                      2020-04-22 17:50
+                    </td>
+                    <td>查看</td>
+                  </tr>
+                  <tr>
+                    <td>采购审批</td>
+                    <td>领导审批</td>
+                    <td>采购系统</td>
+                    <td>市场</td>
+                    <td>
+                      <span class="td_abolish">
+                        已废弃
+                      </span>
+                    </td>
+                    <td>2020-04-22 17:50</td>
+                    <td>查看</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="content_pageIndex">
+                <div class="pageNum">
+                  <span class="pageNum_title">10条/页</span>
+                  <img class="triangle" src="../img/多边形 1@2X.png" />
+                </div>
+                <div class="pageSize">
+                  <ul class="pageSize_list">
+                    <li>
+                      <img class="pageSize_icon" src="../img/左.png" />
+                    </li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>...</li>
+                    <li>100</li>
+                    <li>
+                      <img class="pageSize_icon" src="../img/右.png" />
+                    </li>
+                  </ul>
+                </div>
+                <div class="pageInto"></div>
+                <span class="pageInto_title">跳转</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
