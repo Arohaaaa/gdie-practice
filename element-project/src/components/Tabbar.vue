@@ -10,9 +10,9 @@
         </div>
       </div>
       <div class="tabBar_nav">
-        <span class="nav_active">{{navBarActiveItem.name}}</span>
+        <span class="nav_active">{{navBarListSorted[0].name}}</span>
         <ul class="nav_others">
-          <li class="nav_others_item" v-for="item in navBarList">
+          <li class="nav_others_item" v-for="item in navBarListSorted.slice(1)">
             <span class="nav_others_title">{{item.name}}</span>
             <img class="nav_others_icon" src="../assets/img/叉.png" />
           </li>
@@ -41,21 +41,24 @@ export default {
   ],
   data () {
     return {
-      'navBarActiveItem': '',
-      'navBarOthersItem': ''
+
     }
   },
-  updated () {
-    this.navBarActiveItem = this.navBarList.filter(item => item.active == true)[0]
-    console.log(this.navBarActiveItem)
-    this.navBarOthersItem = this.navBarList.filter(item => item.active !== true)
-    console.log(this.navBarOthersItem)
-  },
   methods: {
-
+    sortBy (key) {
+      return function (obj1,obj2) {
+        return obj1[key] - obj2[key]
+      }
+    }
   },
   computed: {
-
+    // 根据active排序。
+    navBarListSorted: function () {
+      if(this.navBarList.length == 0) {
+        this.navBarList = [{name:'待办',active:1}]
+      }
+      return this.navBarList.sort(this.sortBy('active'))
+    }
   },
   watch: {
     navBarList: {

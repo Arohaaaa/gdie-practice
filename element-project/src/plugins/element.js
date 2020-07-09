@@ -1,6 +1,10 @@
 import Vue from 'vue'
 
-import { Container, Header, Aside, Main, Collapse, CollapseItem } from 'element-ui'
+import {
+  Container, Header, Aside, Main, Collapse, CollapseItem, Card, Input,
+  Menu, MenuItem, Submenu, MenuItemGroup, Col, Row, Table, TableColumn, Pagination,
+  Form, FormItem, Button, Dialog, Dropdown, DropdownItem, DropdownMenu
+} from 'element-ui'
 
 Vue.use(Container)
 Vue.use(Header)
@@ -8,3 +12,23 @@ Vue.use(Aside)
 Vue.use(Main)
 Vue.use(Collapse)
 Vue.use(CollapseItem)
+Vue.use(Card)
+Vue.use(Input)
+Vue.use(Menu)
+Vue.use(MenuItem)
+Vue.use(Submenu)
+Vue.use(MenuItemGroup)
+Vue.use(Col)
+Vue.use(Row)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Pagination)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Button)
+Vue.use(Dialog)
+Vue.use(Dropdown)
+Vue.use(DropdownItem)
+Vue.use(DropdownMenu)
+
+
