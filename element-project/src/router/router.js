@@ -5,6 +5,8 @@ import Todo from '../pages/Todo.vue'
 import Done from '../pages/Done.vue'
 import TodoDetail from '../pages/TodoDetail.vue'
 import DoneDetail from '../pages/DoneDetail.vue'
+import TodoTable from '../pages/TodoTable.vue'
+import DoneTable from '../pages/DoneTable.vue'
 
 Vue.use(VueRouter)
 
@@ -15,10 +17,23 @@ const routes = [
     component: Index,
     redirect: '/todo',
     children: [
-      { path: '/todo', component: Todo },
-      { path: '/done', component: Done },
-      { path: '/tododetail', component: TodoDetail },
-      { path: '/donedetail', component: DoneDetail }]
+      {
+        path: '/todo',
+        component: Todo,
+        redirect: '/todo/todotable',
+        children:
+          [{ path: '/todo/tododetail', component: TodoDetail },
+          { path: '/todo/todotable', component: TodoTable }]
+      },
+      {
+        path: '/done',
+        component: Done,
+        redirect: '/done/donetable',
+        children:
+          [{ path: '/done/donedetail', component: DoneDetail },
+          { path: '/done/donetable', component: DoneTable }]
+      },
+    ]
   },
 
 ]

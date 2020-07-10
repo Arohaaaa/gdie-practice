@@ -9,7 +9,10 @@ import 'element-ui/lib/theme-chalk/index.css'
 // 导入插件
 // 导入element.js
 import './plugins/element.js'
+// 导入VueCookies
+import cookies from 'vue-cookie'
 
+Vue.prototype.$cookies = cookies;
 Vue.config.productionTip = false
 
 new Vue({

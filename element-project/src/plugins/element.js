@@ -3,7 +3,8 @@ import Vue from 'vue'
 import {
   Container, Header, Aside, Main, Collapse, CollapseItem, Card, Input,
   Menu, MenuItem, Submenu, MenuItemGroup, Col, Row, Table, TableColumn, Pagination,
-  Form, FormItem, Button, Dialog, Dropdown, DropdownItem, DropdownMenu
+  Form, FormItem, Button, Dialog, Dropdown, DropdownItem, DropdownMenu, Breadcrumb, BreadcrumbItem,
+  Steps, Step, Select, Option, DatePicker
 } from 'element-ui'
 
 Vue.use(Container)
@@ -30,5 +31,12 @@ Vue.use(Dialog)
 Vue.use(Dropdown)
 Vue.use(DropdownItem)
 Vue.use(DropdownMenu)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Steps)
+Vue.use(Step)
+Vue.use(Select)
+Vue.use(Option)
+Vue.use(DatePicker)
 
 

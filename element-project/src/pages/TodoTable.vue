@@ -1,103 +1,10 @@
 <template>
-  <div id="body">
+  <div id="main">
     <div class="title">
-      <span>{{title}}</span>
+      <span>待办</span>
     </div>
     <div class="content">
-      <div class="aside">
-        <el-aside>
-          <el-input placeholder="请输入分类名称进行搜索">
-            <template slot="append">
-              <span class="search-input">搜索</span>
-            </template>
-          </el-input>
-          <div class="menu">
-            <el-menu
-              default-active="2"
-              background-color="#ffffff"
-              text-color="#212b36"
-              active-text-color="#ffd04b"
-              :default-openeds="openedMenuArrays"
-            >
-              <el-submenu class="el-submenu" index="1">
-                <template slot="title">
-                  <img class="el-submenu__triangle" src="../assets/img/多边形 1@2X.png" />
-                  <img class="el-submenu__fileFolder" src="../assets/img/文件夹.png" />
-                  <span>分类</span>
-                </template>
-                <el-menu-item-group>
-                  <template slot="title" class="el-submenu__top">
-                    <img class="el-submenu__triangle" src="../assets/img/多边形 1@2X.png" />
-                    <img class="el-submenu__fileFolder" src="../assets/img/文件夹.png" />
-                    <span>一级分类</span>
-                  </template>
-                  <el-menu-item class="el-submenu__subTitle" index="1-1">
-                    <img class="el-submenu__file" src="../assets/img/文件-2@2X.png" />
-                    <span class="title">二级分类名称</span>
-                  </el-menu-item>
-                  <el-menu-item class="el-submenu__subTitle" index="1-2">
-                    <img class="el-submenu__file" src="../assets/img/文件-2@2X.png" />
-                    <span class="title">二级分类名称</span>
-                  </el-menu-item>
-                  <el-menu-item class="el-submenu__subTitle" index="1-3">
-                    <img class="el-submenu__file" src="../assets/img/文件-2@2X.png" />
-                    <span class="title">二级分类名称</span>
-                  </el-menu-item>
-                  <el-menu-item class="el-submenu__subTitle" index="1-4">
-                    <img class="el-submenu__file" src="../assets/img/文件-2@2X.png" />
-                    <span class="title">二级分类名称</span>
-                  </el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group>
-                  <template slot="title">
-                    <img class="el-submenu__triangle" src="../assets/img/多边形 1@2X.png" />
-                    <img class="el-submenu__fileFolder" src="../assets/img/文件夹.png" />
-                    <span>一级分类</span>
-                  </template>
-                  <el-menu-item class="el-submenu__subTitle" index="1-5">
-                    <img class="el-submenu__file" src="../assets/img/文件-2@2X.png" />
-                    <span class="title">二级分类名称</span>
-                  </el-menu-item>
-                  <el-menu-item class="el-submenu__subTitle" index="1-6">
-                    <img class="el-submenu__file" src="../assets/img/文件-2@2X.png" />
-                    <span class="title">二级分类名称</span>
-                  </el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group>
-                  <template slot="title">
-                    <img class="el-submenu__triangle" src="../assets/img/多边形 1@2X.png" />
-                    <img class="el-submenu__fileFolder" src="../assets/img/文件夹.png" />
-                    <span>一级分类</span>
-                  </template>
-                  <el-menu-item class="el-submenu__subTitle" index="1-7">
-                    <img class="el-submenu__file" src="../assets/img/文件-2@2X.png" />
-                    <span class="title">二级分类名称</span>
-                  </el-menu-item>
-                  <el-menu-item class="el-submenu__subTitle" index="1-8">
-                    <img class="el-submenu__file" src="../assets/img/文件-2@2X.png" />
-                    <span class="title">二级分类名称</span>
-                  </el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group>
-                  <template slot="title">
-                    <img class="el-submenu__triangle" src="../assets/img/多边形 1@2X.png" />
-                    <img class="el-submenu__fileFolder" src="../assets/img/文件夹.png" />
-                    <span>一级分类</span>
-                  </template>
-                  <el-menu-item class="el-submenu__subTitle" index="1-9">
-                    <img class="el-submenu__file" src="../assets/img/文件-2@2X.png" />
-                    <span class="title">二级分类名称</span>
-                  </el-menu-item>
-                  <el-menu-item class="el-submenu__subTitle" index="1-a">
-                    <img class="el-submenu__file" src="../assets/img/文件-2@2X.png" />
-                    <span class="title">二级分类名称</span>
-                  </el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-            </el-menu>
-          </div>
-        </el-aside>
-      </div>
+      <v-aside></v-aside>
       <el-main>
         <div class="table-search-wrapper">
           <div class="search-input-box">
@@ -150,7 +57,6 @@
               <td>环节</td>
               <td>应用</td>
               <td>分类</td>
-              <td>状态</td>
               <td>处理时间</td>
               <td>操作</td>
             </tr>
@@ -159,9 +65,6 @@
               <td>领导审批</td>
               <td>OA系统</td>
               <td>内务</td>
-              <td>
-                <span class="td_handled">已处理</span>
-              </td>
               <td>2020-04-22 17:50</td>
               <td @click="viewDetail('/todo/tododetail')">查看</td>
             </tr>
@@ -170,31 +73,6 @@
               <td>领导审批</td>
               <td>采购系统</td>
               <td>市场</td>
-              <td>
-                <span class="td_abolish">已废弃</span>
-              </td>
-              <td>2020-04-22 17:50</td>
-              <td @click="viewDetail('/done/donedetail')">查看</td>
-            </tr>
-            <tr>
-              <td>请假审批</td>
-              <td>领导审批</td>
-              <td>OA系统</td>
-              <td>内务</td>
-              <td>
-                <span class="td_handled">已处理</span>
-              </td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>采购审批</td>
-              <td>领导审批</td>
-              <td>采购系统</td>
-              <td>市场</td>
-              <td>
-                <span class="td_abolish">已废弃</span>
-              </td>
               <td>2020-04-22 17:50</td>
               <td>查看</td>
             </tr>
@@ -203,9 +81,6 @@
               <td>领导审批</td>
               <td>OA系统</td>
               <td>内务</td>
-              <td>
-                <span class="td_handled">已处理</span>
-              </td>
               <td>2020-04-22 17:50</td>
               <td>查看</td>
             </tr>
@@ -214,9 +89,6 @@
               <td>领导审批</td>
               <td>采购系统</td>
               <td>市场</td>
-              <td>
-                <span class="td_abolish">已废弃</span>
-              </td>
               <td>2020-04-22 17:50</td>
               <td>查看</td>
             </tr>
@@ -225,9 +97,6 @@
               <td>领导审批</td>
               <td>OA系统</td>
               <td>内务</td>
-              <td>
-                <span class="td_handled">已处理</span>
-              </td>
               <td>2020-04-22 17:50</td>
               <td>查看</td>
             </tr>
@@ -236,9 +105,22 @@
               <td>领导审批</td>
               <td>采购系统</td>
               <td>市场</td>
-              <td>
-                <span class="td_abolish">已废弃</span>
-              </td>
+              <td>2020-04-22 17:50</td>
+              <td>查看</td>
+            </tr>
+            <tr>
+              <td>请假审批</td>
+              <td>领导审批</td>
+              <td>OA系统</td>
+              <td>内务</td>
+              <td>2020-04-22 17:50</td>
+              <td>查看</td>
+            </tr>
+            <tr>
+              <td>采购审批</td>
+              <td>领导审批</td>
+              <td>采购系统</td>
+              <td>市场</td>
               <td>2020-04-22 17:50</td>
               <td>查看</td>
             </tr>
@@ -261,32 +143,24 @@
         </div>
       </el-main>
     </div>
+
+    <!-- <maintable :tableData="tableData" title="待办"></maintable> -->
   </div>
 </template>
 
 <script>
+import Aside from '../components/Aside.vue'
 export default {
-  props: ["tableData","title"],
-  data() {
+
+  data () {
     return {
-      openedMenuArrays: ["1"],
-      tableDatas: this.tableData,
       dialogFormVisible: true,
       options: [{
         value: '选项1',
-        label: '黄金糕'
+        label: '分类一'
       }, {
         value: '选项2',
-        label: '双皮奶'
-      }, {
-        value: '选项3',
-        label: '蚵仔煎'
-      }, {
-        value: '选项4',
-        label: '龙须面'
-      }, {
-        value: '选项5',
-        label: '北京烤鸭'
+        label: '分类二'
       }],
       value: ''
     };
@@ -296,15 +170,18 @@ export default {
       this.$router.push(url)
     }
   },
-};
+  components: {
+    'v-aside': Aside
+  }
+}
 </script>
 
 <style scoped>
-#body {
+#main {
   background-color: #f5f5f5;
   padding: 20px 30px 60px 30px;
 }
-#body > .title {
+#main > .title {
   font-size: 26px;
 }
 .title {
@@ -316,9 +193,6 @@ export default {
   background-color: #fff;
   border-radius: 4px;
   box-shadow: 0px 0px 3px#dae0e5;
-}
-.search-input {
-  color: #212b36;
 }
 
 .table-search-wrapper {
@@ -501,6 +375,7 @@ export default {
 }
 </style>
 
+
 <style>
 /* 
   通过写在无scoped的style元素里的样式来覆盖
@@ -568,58 +443,6 @@ export default {
 .search__hiddenItem .el-option {
   z-index: 2021;
 }
-/* .table .el-table--border {
-  border: 0;
-}
-.table .el-table--group,
-.table .el-table--border {
-  border-top: 1px solid #dae0e5;
-}
-.table .el-table--border::after,
-.table .el-table--group::after {
-  width: 0;
-}
-.table .el-table thead {
-  font-size: 12px;
-  font-weight: normal;
-  background-color: #637381;
-}
-.table .el-table th.is-leaf {
-  background-color: #eef1f4;
-}
-.table .el-table--striped .el-table__body tr.el-table__row--striped td {
-  background-color: #f5f7fa;
-}
-.table .el-table td {
-  padding: 20px 0;
-}
-.table .el-table th.is-leaf {
-  border-color: #dae0e5 !important;
-}
-.table .el-table--border th {
-  border-right: 1px solid #dae0e5 !important;
-}
-.table .el-table__row td:nth-last-child(1) {
-  color: #0270e0;
-}
-.doneTable .el-table__row td:nth-child(5) .cell {
-  display: inline;
-  margin-left: 15px;
-  padding: 6px 12px;
-  border-radius: 2px;
-  font-size: 12px;
-}
-.doneTable .el-table__row:nth-child(odd) td:nth-child(5) .cell {
-  background-color: #f0f9eb;
-  border: 1px solid #e1f3d8;
-  color: #67c23a;
-}
-.doneTable .el-table__row:nth-child(even) td:nth-child(5) .cell {
-  background-color: #f4f4f5;
-  border: 1px solid #e9e9eb;
-  color: #919eab;
-} */
-
 .table-pagination-wrapper {
   margin: 20px 20px 12px 0;
   display: flex;
