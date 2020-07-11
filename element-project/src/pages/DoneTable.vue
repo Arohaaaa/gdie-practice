@@ -50,107 +50,7 @@
             </div>
           </div>
         </div>
-        <div class="content_table">
-          <table>
-            <tr class="td_handled">
-              <td>标题</td>
-              <td>环节</td>
-              <td>应用</td>
-              <td>分类</td>
-              <td>状态</td>
-              <td>处理时间</td>
-              <td>操作</td>
-            </tr>
-            <tr>
-              <td>请假审批</td>
-              <td>领导审批</td>
-              <td>OA系统</td>
-              <td>内务</td>
-              <td>
-                <span class="td_handled">已处理</span>
-              </td>
-              <td>2020-04-22 17:50</td>
-              <td @click="viewDetail('/done/donedetail')">查看</td>
-            </tr>
-            <tr>
-              <td>采购审批</td>
-              <td>领导审批</td>
-              <td>采购系统</td>
-              <td>市场</td>
-              <td>
-                <span class="td_abolish">已废弃</span>
-              </td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>请假审批</td>
-              <td>领导审批</td>
-              <td>OA系统</td>
-              <td>内务</td>
-              <td>
-                <span class="td_handled">已处理</span>
-              </td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>采购审批</td>
-              <td>领导审批</td>
-              <td>采购系统</td>
-              <td>市场</td>
-              <td>
-                <span class="td_abolish">已废弃</span>
-              </td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>请假审批</td>
-              <td>领导审批</td>
-              <td>OA系统</td>
-              <td>内务</td>
-              <td>
-                <span class="td_handled">已处理</span>
-              </td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>采购审批</td>
-              <td>领导审批</td>
-              <td>采购系统</td>
-              <td>市场</td>
-              <td>
-                <span class="td_abolish">已废弃</span>
-              </td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>请假审批</td>
-              <td>领导审批</td>
-              <td>OA系统</td>
-              <td>内务</td>
-              <td>
-                <span class="td_handled">已处理</span>
-              </td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>采购审批</td>
-              <td>领导审批</td>
-              <td>采购系统</td>
-              <td>市场</td>
-              <td>
-                <span class="td_abolish">已废弃</span>
-              </td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-          </table>
-        </div>
+        <v-table :tableData="tableData"></v-table>
         <div class="table-pagination-wrapper">
           <el-pagination
             :page-sizes="[10, 30, 50, 100]"
@@ -168,13 +68,12 @@
         </div>
       </el-main>
     </div>
-
-    <!-- <maintable :tableData="tableData" title="待办"></maintable> -->
   </div>
 </template>
 
 <script>
 import Aside from '../components/Aside.vue'
+import Table from '../components/Table.vue'
 export default {
 
   data () {
@@ -187,7 +86,80 @@ export default {
         value: '选项2',
         label: '分类二'
       }],
-      value: ''
+      value: '',
+      tableData: [{
+        'title': '标题',
+        'segment': '环节',
+        'application': '应用',
+        'category': '分类',
+        'state': '状态',
+        'handleTime': '处理时间',
+        'operation': '操作'
+      },{
+        'title': '请假审批',
+        'segment': '领导审批',
+        'application': 'OA系统',
+        'category': '内务',
+        'state': '已处理',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '采购审批',
+        'segment': '领导审批',
+        'application': '采购系统',
+        'category': '市场',
+        'state': '已废弃',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '请假审批',
+        'segment': '领导审批',
+        'application': 'OA系统',
+        'category': '内务',
+        'state': '已处理',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '采购审批',
+        'segment': '领导审批',
+        'application': '采购系统',
+        'category': '市场',
+        'state': '已废弃',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '请假审批',
+        'segment': '领导审批',
+        'application': 'OA系统',
+        'category': '内务',
+        'state': '已处理',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '采购审批',
+        'segment': '领导审批',
+        'application': '采购系统',
+        'category': '市场',
+        'state': '已废弃',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '请假审批',
+        'segment': '领导审批',
+        'application': 'OA系统',
+        'category': '内务',
+        'state': '已废弃',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '采购审批',
+        'segment': '领导审批',
+        'application': '采购系统',
+        'category': '市场',
+        'state': '已处理',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      }]
     };
   },
   methods: {
@@ -196,7 +168,8 @@ export default {
     }
   },
   components: {
-    'v-aside': Aside
+    'v-aside': Aside,
+    'v-table': Table
   }
 }
 </script>
@@ -341,62 +314,6 @@ export default {
 .hiddenItem-btn-box .btn:nth-child(1) {
   background-color: #0270e0;
   color: #fff;
-}
-.content_table table {
-  border-top: 1px solid #dae0e5;
-  border-bottom: 1px solid #dae0e5;
-  width: 100%;
-}
-.content_table table tr td {
-  padding-left: 12px;
-  vertical-align: middle;
-}
-.content_table table tr:nth-child(1) {
-  width: 100%;
-  height: 42px;
-  font-size: 12px;
-}
-.content_table table tr:nth-child(1) td {
-  color: rgba(99, 115, 129, 1);
-}
-.content_table table tr:nth-child(n + 2) {
-  width: 100%;
-  height: 60px;
-}
-.content_table table tr:nth-child(n + 2) td {
-  font-size: 14px;
-  color: rgba(33, 43, 54, 1);
-}
-.content_table table tr:nth-child(odd) {
-  background-color: rgba(238, 241, 244, 1);
-}
-.content_table table tr:nth-child(even) {
-  background-color: rgba(255, 255, 255, 1);
-}
-
-.content_table table tr td:nth-child(n + 2) {
-  border-left: 1px solid #dae0e5;
-}
-.content_table table tr:nth-child(n + 2) td:nth-last-child(1) {
-  color: rgba(2, 112, 224, 1);
-  border-right: 1px solid #dae0e5;
-  cursor: pointer;
-}
-.content_table table .td_handled {
-  padding: 6px 12px;
-  background-color: #f0f9eb;
-  border: 1px solid #e1f3d8;
-  border-radius: 2px;
-  font-size: 12px;
-  color: #67c23a;
-}
-.content_table table .td_abolish {
-  padding: 6px 12px;
-  background-color: #f4f4f5;
-  border: 1px solid #e9e9eb;
-  border-radius: 2px;
-  font-size: 12px;
-  color: #919eab;
 }
 </style>
 

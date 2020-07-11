@@ -108,7 +108,6 @@ export default {
 }
 .aside {
   background-color: #fff;
-  flex-shrink: 0;
 }
 .aside__title {
   position: relative;
@@ -192,5 +191,9 @@ export default {
 }
 .container .el-main {
   padding: 0;
+  overflow: hidden;
+}
+.container > .el-main {
+  border-left: 0;
 }
 </style>

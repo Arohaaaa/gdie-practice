@@ -50,82 +50,7 @@
             </div>
           </div>
         </div>
-        <div class="content_table">
-          <table>
-            <tr class="td_handled">
-              <td>标题</td>
-              <td>环节</td>
-              <td>应用</td>
-              <td>分类</td>
-              <td>处理时间</td>
-              <td>操作</td>
-            </tr>
-            <tr>
-              <td>请假审批</td>
-              <td>领导审批</td>
-              <td>OA系统</td>
-              <td>内务</td>
-              <td>2020-04-22 17:50</td>
-              <td @click="viewDetail('/todo/tododetail')">查看</td>
-            </tr>
-            <tr>
-              <td>采购审批</td>
-              <td>领导审批</td>
-              <td>采购系统</td>
-              <td>市场</td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>请假审批</td>
-              <td>领导审批</td>
-              <td>OA系统</td>
-              <td>内务</td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>采购审批</td>
-              <td>领导审批</td>
-              <td>采购系统</td>
-              <td>市场</td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>请假审批</td>
-              <td>领导审批</td>
-              <td>OA系统</td>
-              <td>内务</td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>采购审批</td>
-              <td>领导审批</td>
-              <td>采购系统</td>
-              <td>市场</td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>请假审批</td>
-              <td>领导审批</td>
-              <td>OA系统</td>
-              <td>内务</td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-            <tr>
-              <td>采购审批</td>
-              <td>领导审批</td>
-              <td>采购系统</td>
-              <td>市场</td>
-              <td>2020-04-22 17:50</td>
-              <td>查看</td>
-            </tr>
-          </table>
-        </div>
+        <v-table :tableData="tableData"></v-table>
         <div class="table-pagination-wrapper">
           <el-pagination
             :page-sizes="[10, 30, 50, 100]"
@@ -143,13 +68,12 @@
         </div>
       </el-main>
     </div>
-
-    <!-- <maintable :tableData="tableData" title="待办"></maintable> -->
   </div>
 </template>
 
 <script>
 import Aside from '../components/Aside.vue'
+import Table from '../components/Table.vue'
 export default {
 
   data () {
@@ -162,7 +86,71 @@ export default {
         value: '选项2',
         label: '分类二'
       }],
-      value: ''
+      value: '',
+      tableData: [{
+        'title': '标题',
+        'segment': '环节',
+        'application': '应用',
+        'category': '分类',
+        'handleTime': '处理时间',
+        'operation': '操作'
+      },{
+        'title': '请假审批',
+        'segment': '领导审批',
+        'application': 'OA系统',
+        'category': '内务',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '采购审批',
+        'segment': '领导审批',
+        'application': '采购系统',
+        'category': '市场',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '请假审批',
+        'segment': '领导审批',
+        'application': 'OA系统',
+        'category': '内务',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '采购审批',
+        'segment': '领导审批',
+        'application': '采购系统',
+        'category': '市场',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '请假审批',
+        'segment': '领导审批',
+        'application': 'OA系统',
+        'category': '内务',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '采购审批',
+        'segment': '领导审批',
+        'application': '采购系统',
+        'category': '市场',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '请假审批',
+        'segment': '领导审批',
+        'application': 'OA系统',
+        'category': '内务',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      },{
+        'title': '采购审批',
+        'segment': '领导审批',
+        'application': '采购系统',
+        'category': '市场',
+        'handleTime': '2020-04-22',
+        'operation': '查看'
+      }]
     };
   },
   methods: {
@@ -171,7 +159,8 @@ export default {
     }
   },
   components: {
-    'v-aside': Aside
+    'v-aside': Aside,
+    'v-table': Table
   }
 }
 </script>
