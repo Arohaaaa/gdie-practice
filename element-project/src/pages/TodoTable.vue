@@ -40,8 +40,13 @@
               </div>
               <label for="createtime">创建时间</label>
               <div class="form__input-box">
-                <input id="createtime" type="text" placeholder="开始时间 - 结束时间" />
-                <img class="icon-calendar" src="../assets/img/日历@2X.png" />
+                <el-date-picker
+                  v-model="value1"
+                  type="daterange"
+                  range-separator="至"
+                  start-placeholder="开始日期"
+                  end-placeholder="结束日期"
+                ></el-date-picker>
               </div>
             </div>
             <div class="hiddenItem-btn-box">
@@ -72,7 +77,7 @@
 </template>
 
 <script>
-import Aside from '../components/Aside.vue'
+import TableAside from '../components/TableAside.vue'
 import Table from '../components/Table.vue'
 export default {
 
@@ -93,63 +98,71 @@ export default {
         'application': '应用',
         'category': '分类',
         'handleTime': '处理时间',
-        'operation': '操作'
+        'operation': '操作',
       },{
         'title': '请假审批',
         'segment': '领导审批',
         'application': 'OA系统',
         'category': '内务',
         'handleTime': '2020-04-22',
-        'operation': '查看'
+        'operation': '查看',
+        'url': '/todo/tododetail'
       },{
         'title': '采购审批',
         'segment': '领导审批',
         'application': '采购系统',
         'category': '市场',
         'handleTime': '2020-04-22',
-        'operation': '查看'
+        'operation': '查看',
+        'url': '/todo/tododetail'
       },{
         'title': '请假审批',
         'segment': '领导审批',
         'application': 'OA系统',
         'category': '内务',
         'handleTime': '2020-04-22',
-        'operation': '查看'
+        'operation': '查看',
+        'url': '/todo/tododetail'
       },{
         'title': '采购审批',
         'segment': '领导审批',
         'application': '采购系统',
         'category': '市场',
         'handleTime': '2020-04-22',
-        'operation': '查看'
+        'operation': '查看',
+        'url': '/todo/tododetail'
       },{
         'title': '请假审批',
         'segment': '领导审批',
         'application': 'OA系统',
         'category': '内务',
         'handleTime': '2020-04-22',
-        'operation': '查看'
+        'operation': '查看',
+        'url': '/todo/tododetail'
       },{
         'title': '采购审批',
         'segment': '领导审批',
         'application': '采购系统',
         'category': '市场',
         'handleTime': '2020-04-22',
-        'operation': '查看'
+        'operation': '查看',
+        'url': '/todo/tododetail'
       },{
         'title': '请假审批',
         'segment': '领导审批',
         'application': 'OA系统',
         'category': '内务',
         'handleTime': '2020-04-22',
-        'operation': '查看'
+        'operation': '查看',
+        'url': '/todo/tododetail'
       },{
         'title': '采购审批',
         'segment': '领导审批',
         'application': '采购系统',
         'category': '市场',
         'handleTime': '2020-04-22',
-        'operation': '查看'
+        'operation': '查看',
+        'url': '/todo/tododetail'
       }]
     };
   },
@@ -159,7 +172,7 @@ export default {
     }
   },
   components: {
-    'v-aside': Aside,
+    'v-aside': TableAside,
     'v-table': Table
   }
 }
@@ -234,7 +247,7 @@ export default {
   background-color: #fff;
   box-shadow: -2px 2px 2px rgba(63, 63, 68, 0.16);
   width: 350px;
-  z-index: 2020;
+  z-index: 2008;
 }
 .hiddenItem-title-box {
   display: flex;
@@ -262,14 +275,7 @@ export default {
   margin-bottom: 8px;
 }
 .form__input-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-bottom: 16px;
-  width: 100%;
-  height: 36px;
-  border: 1px solid rgba(196, 205, 213, 1);
-  border-radius: 5px;
 }
 .form__input-box input {
   border: none;
@@ -431,6 +437,9 @@ export default {
 }
 .search__hiddenItem .el-option {
   z-index: 2021;
+}
+.search__hiddenItem .el-date-editor--daterange.el-input__inner {
+  width: 100%;
 }
 .table-pagination-wrapper {
   margin: 20px 20px 12px 0;

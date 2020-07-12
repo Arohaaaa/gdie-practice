@@ -1,10 +1,8 @@
 <template>
   <div>
-    <!-- 顶部组件 -->
     <v-header></v-header>
 
     <div class="container">
-      <!-- 侧边栏开始 -->
       <div class="aside">
         <div class="aside__title-wrapper">
           <span class="aside__title">统一待办</span>
@@ -29,39 +27,49 @@
           </el-collapse-item>
         </el-collapse>
       </div>
-      <!-- 侧边栏结束 -->
-
-      <!-- 主体部分开始 -->
       <el-main>
-        <!-- 主体部分导航栏组件 -->
-        <v-tabbar :navBarList="asideClickItems"></v-tabbar>
+        <v-tabbar></v-tabbar>
         <router-view></router-view>
       </el-main>
-      <!-- 主体部分结束 -->
     </div>
   </div>
 </template>
 
 <script>
 import Header from "../components/Header.vue";
-import Tabbar from "../components/Tabbar";
+import Tabbar from "../components/Tabbar.vue";
+import TodoTable from "../pages/TodoTable.vue"
+import DoneTable from "../pages/DoneTable.vue"
 export default {
   data() {
     return {
-      asideClickItems: [{ name: "待办", active: 1 }],
-      active: 1,
+      asideClickItems: [],
+      TabsObj: [
+          {name:'待办',active: 1,url:'/todo'}, 
+          {name:'已办',active: 1,url:'/done'}
+      ]
     };
+  },
+  mounted () {
+    let path = this.$route.path
+    this.TabsObj.forEach(item => {
+      if(path.includes(item.url)) {
+        this.asideClickItems.push(item)
+      }
+    })
+    this.$cookies.set('activeTabs',JSON.stringify(this.asideClickItems))
   },
   methods: {
     addAsideClickItem() {
+      let text = event.target.innerText
       // 获取兄弟节点个数，由于该组件渲染出来之后外层多包裹了一个div，因此要获取两次parentNode
       let menuItemLen = event.target.parentNode.parentNode.childNodes.length;
       let asideClickItemsLen = this.asideClickItems.length;
       // 如果没有点击，则侧边栏点击过的项目列表为空，直接添加点击对象
       if (asideClickItemsLen == 0) {
         let clickItem = {};
-        clickItem.name = event.target.innerText;
-        clickItem.active = this.active;
+        clickItem.name = text;
+        clickItem.active = 1;
         this.asideClickItems.push(clickItem);
       }
       // 如果列表里有值：判断是否已经超出菜单项目的个数，如果超出，则不添加
@@ -69,28 +77,31 @@ export default {
       // 将正在点击的项目active设置为1，其他设置为每点击一次就加1。
       else if (asideClickItemsLen <= menuItemLen) {
         let temp = this.asideClickItems.filter((item) => {
-          return item.name == event.target.innerText;
+          return item.name == text;
         });
         if (temp.length == 0) {
           let clickItem = {};
-          clickItem.name = event.target.innerText;
-          clickItem.active = this.active;
+          clickItem.name = text;
+          clickItem.active = 1;
           this.asideClickItems.push(clickItem);
         }
       }
       this.asideClickItems.map((item) => {
-        if (item.name == event.target.innerText) {
+        if (item.name == text) {
           item.active = 1;
         } else {
           item.active += 1;
         }
       });
+      this.$cookies.set('activeTabs',JSON.stringify(this.asideClickItems))
     },
   },
   computed: {},
   components: {
     "v-header": Header,
     "v-tabbar": Tabbar,
+    'v-donetable': DoneTable,
+    'v-todotable': TodoTable
   },
 };
 </script>
@@ -148,8 +159,6 @@ export default {
 .title-box__title {
   font-size: 18px;
   margin-left: 14px;
-}
-.collapse-subitem__title {
 }
 .collapse-subitem__title {
   display: block;

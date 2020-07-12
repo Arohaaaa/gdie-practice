@@ -13,6 +13,7 @@ import './plugins/element.js'
 import cookies from 'vue-cookie'
 
 Vue.prototype.$cookies = cookies;
+Vue.prototype.$eventBus = new Vue()
 Vue.config.productionTip = false
 
 new Vue({

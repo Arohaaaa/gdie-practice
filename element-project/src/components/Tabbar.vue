@@ -10,9 +10,9 @@
         </div>
       </div>
       <div class="tabBar-nav">
-        <span class="nav__item--active">{{ navBarListSorted[0].name }}</span>
+        <span class="nav__item--active">{{ tabs[0].name }}</span>
         <ul class="nav__item-wrapper">
-          <li class="nav__item" v-for="item in navBarListSorted.slice(1)">
+          <li class="nav__item" v-for="item in tabs.slice(1)">
             <span class="nav__item__title">{{ item.name }}</span>
             <img class="nav__item__title" src="../assets/img/叉.png" />
           </li>
@@ -27,10 +27,7 @@
         </div>
         <div class="tabBar-close">
           <span class="tabBar-close__title">关闭操作</span>
-          <img
-            class="tabBar-close__triangle"
-            src="../assets/img/多边形 1@2X.png"
-          />
+          <img class="tabBar-close__triangle" src="../assets/img/多边形 1@2X.png" />
         </div>
       </div>
     </div>
@@ -38,10 +35,18 @@
 </template>
 
 <script>
+
 export default {
-  props: ["navBarList"],
+  // props: {
+  //   activeTabs: {
+  //     type: Array,
+  //     required: true
+  //   }
+  // },
   data() {
-    return {};
+    return {
+      tabs: []
+    };
   },
   methods: {
     sortBy(key) {
@@ -50,26 +55,12 @@ export default {
       };
     },
   },
-  computed: {
-    // 根据active排序。
-    navBarListSorted: function() {
-      if (this.navBarList.length == 0) {
-        this.navBarList = [{ name: "待办", active: 1 }];
-      }
-      return this.navBarList.sort(this.sortBy("active"));
-    },
-  },
-  watch: {
-    navBarList: {
-      handler(newValue, oldValue) {
-        for (let i = 0; i < newValue.length; i++) {
-          if (oldValue[i] != newValue[i]) {
-          }
-        }
-      },
-      deep: true,
-    },
-  },
+  created () {
+    this.tabs = JSON.parse(this.$cookies.get('activeTabs'))
+    this.tabs.sort(this.sortBy("active"))
+    console.log('执行了created')
+    console.log(this.tabs)
+  }
 };
 </script>
 

@@ -20,7 +20,7 @@
             <span :class="[item.state=='已处理'?'td_handled':'td_abolish']">{{item.state}}</span>
           </td>
           <td>{{item.handleTime}}</td>
-          <td>{{item.operation}}</td>
+          <td @click="goto(item.url)">{{item.operation}}</td>
         </tr>
       </table>
     </div>
@@ -35,6 +35,11 @@ export default {
   data () {
     return {
       data: this.tableData
+    }
+  },
+  methods: {
+    goto(url){
+      this.$router.push(url)
     }
   }
 }
