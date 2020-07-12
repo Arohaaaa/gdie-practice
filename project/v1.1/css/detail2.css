@@ -262,16 +262,17 @@
 }
 .content_item_suggestions .suggestions {
   margin-top: 8px;
-  background-color: #eef1f4;
   height: 108px;
   border: 1px solid #c4cdd5;
   border-radius: 4px;
+}
+.content_item_suggestions .suggestions--disabled {
+  background-color: #eef1f4;
 }
 .content_item_suggestions .suggestions .suggestions_input {
   padding: 10px 0 0 10px;
   background-color: transparent;
   width: 80%;
-  height: 80%;
   color: #919eab;
   border: none;
   outline: none;
