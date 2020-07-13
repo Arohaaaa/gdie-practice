@@ -1,0 +1,326 @@
+.content--wrapper {
+  background-color: #f5f5f5;
+  padding: 20px 30px 100px 30px;
+}
+.content__title {
+  font-size: 26px;
+  color: #212b36;
+}
+.content {
+  display: flex;
+  margin-top: 18px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 3px#dae0e5;
+}
+.classify-menu--wrapper {
+  border-right: 1px solid #dae0e5;
+}
+.classify-menu {
+  margin: 24px;
+  font-size: 14px;
+}
+.classify-menu__searchBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 34px;
+  border: 1px solid #dae0e5;
+  border-radius: 4px;
+}
+.classify-menu__search {
+  margin-left: 10px;
+}
+.classify-menu__search input {
+  border: none;
+  color: #919eab;
+}
+.classify-menu__btnBox {
+  border-left: 1px solid #dae0e5;
+  border-radius: 0 4px 4px 0;
+  background-color: #eef1f4;
+  color: #212b36;
+  flex-shrink: 0;
+}
+.classify-menu__btn {
+  line-height: 36px;
+  margin: 0 14px;
+}
+/* 存疑 */
+.classify-menu__nav {
+  margin-top: 20px;
+}
+.classify-menu--titleBox {
+  display: flex;
+  height: 28px;
+  align-items: center;
+}
+.classify-menu--iconBox {
+  display: flex;
+  align-items: center;
+}
+.classify-menu__triangle {
+  margin-left: 8px;
+  width: 8px;
+  height: 6px;
+}
+.classify-menu__file {
+  margin-left: 10px;
+  width: 14px;
+}
+.classify-menu__title {
+  margin-left: 6px;
+  color: #212b36;
+  font-size: 14px;
+}
+.classify-menu__navList-item {
+  margin-left: 24px;
+}
+.classify-menu__sublist {
+  margin-left: 52px;
+}
+.classify-menu__sublist-item {
+  margin: 10px 0;
+}
+.classify-menu__sublist-file {
+  width: 10px;
+  height: 12px;
+}
+.classify-menu__sublist-title {
+  font-size: 14px;
+  color: #212b36;
+}
+.content-table--wrapper {
+  flex-grow: 1;
+}
+.table-search--wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  height: 82px;
+}
+.table-search--searchBox,
+.table-search--selectBox {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #dae0e5;
+}
+.table-search--selectBox {
+  cursor: pointer
+}
+.table-search__searchImg {
+  margin-left: 12px;
+  width: 14px;
+  height: 14px;
+}
+.table-search__input {
+  margin: 0 42px 0 12px;
+  border: none;
+  outline: none;
+  color: rgba#919eab;
+  font-size: 14px;
+}
+.table-search__icon-select {
+  margin-left: 12px;
+  width: 16px;
+  height: 16px;
+}
+.table-search__select-title {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #212b36;
+}
+.table-search__icon-arrow {
+  margin: 0 12px 0 8px;
+  width: 10px;
+  height: 6px;
+}
+.table-search--hidden {
+  visibility: hidden;
+}
+.select-form {
+  position: absolute;
+  top: 84px;
+  background-color: #fff;
+  box-shadow: -2px 2px 2px #2d363f;
+  width: 350px;
+}
+.select-form--titleBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+  margin-top: 18px;
+}
+.select-form__title {
+  font-weight: bold;
+  font-size: 16px;
+  color: #212b36;
+}
+.select-form__icon-close {
+  width: 12px;
+  height: 12px;
+}
+.select-form__input--wrapper {
+  margin-top: 33px;
+  padding: 0 24px;
+  font-size: 14px;
+}
+.select-form__input--wrapper label {
+  display: block;
+  color: #212b36;
+  margin-bottom: 8px;
+}
+.select-form__inputBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  width: 100%;
+  height: 36px;
+  border: 1px solid #c4cdd5;
+  border-radius: 5px;
+}
+.select-form__inputBox input {
+  border: none;
+  margin-left: 10px;
+  color: #919eab;
+}
+.select-form__icon-triangle {
+  margin-right: 12px;
+  width: 8px;
+  height: 6px;
+}
+.select-form__icon-calendar {
+  margin-right: 12px;
+  width: 16px;
+  height: 16px;
+}
+.select-form--btnBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid #d9d9d9;
+  padding: 16px 24px 16px 0;
+}
+.select-form--btnBox .btn {
+  padding: 8px 22px;
+  margin-left: 10px;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #c4cdd5;
+  border-radius: 4px;
+}
+.select-form--btnBox btn:nth-child(1) {
+  background-color: #0270e0;
+  color: #fff;
+}
+
+.content-table table {
+  border-top: 1px solid #dae0e5;
+  border-bottom: 1px solid #dae0e5;
+  width: 100%;
+}
+.content-table table tr td {
+  padding-left: 12px;
+  vertical-align: middle;
+}
+.content-table table tr:nth-child(1) {
+  width: 100%;
+  height: 42px;
+  font-size: 12px;
+  background-color: #edf1f4 !important;
+}
+.content-table table tr:nth-child(1) td {
+  color: #637381;
+}
+.content-table table tr:nth-child(n + 2) {
+  width: 100%;
+  height: 60px;
+}
+.content-table table tr:nth-child(n + 2) td {
+  font-size: 14px;
+  color: #212b36;
+}
+.content-table table tr:nth-child(odd) {
+  background-color: #f4f7fa;
+}
+.content-table table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.content-table table tr td:nth-child(n + 2) {
+  border-left: 1px solid #dae0e5;
+}
+.content-table table tr:nth-child(n + 2) td:nth-last-child(1) {
+  color: #0270e0;
+}
+.content-table table .td_handled {
+  padding: 6px 12px;
+  background-color: #f0f9eb;
+  border: 1px solid #e1f3d8;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #67c23a;
+}
+.content-table table .td_abolish {
+  padding: 6px 12px;
+  background-color: #f4f4f5;
+  border: 1px solid #e9e9eb;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #919eab;
+}
+.pageIndex {
+  float: right;
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 20px 20px 0;
+  height: 28px;
+}
+.pageIndex__num {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.pageIndex__num-title {
+  color: #637381;
+  font-size: 14px;
+  margin-right: 4px;
+}
+.pageIndex__icon-triangle {
+  margin-right: 6px;
+  width: 8px;
+  height: 6px;
+}
+.pageIndex__size-list {
+  height: 28px;
+}
+.pageIndex__size-list li {
+  float: left;
+  padding: 0 11px;
+  line-height: 28px;
+  font-size: 14px;
+  color: #5077aa;
+}
+.pageIndex__size-list li:nth-child(2) {
+  background-color: #5077aa;
+  color: white;
+  border-radius: 5px;
+}
+.pageIndex__icon-left,
+.pageIndex__icon-right{
+  height: 10px;
+}
+.pageIndex__jump {
+  background-color: #fff;
+  width: 35px;
+  height: 28px;
+  border: 1px solid #d6dbe0;
+  border-radius: 5px;
+}
+.pageIndex__jump-title {
+  margin-left: 6px;
+  line-height: 28px;
+  font-size: 14px;
+  color: #5077aa;
+}

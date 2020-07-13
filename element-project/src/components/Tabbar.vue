@@ -58,8 +58,6 @@ export default {
   created () {
     this.tabs = JSON.parse(this.$cookies.get('activeTabs'))
     this.tabs.sort(this.sortBy("active"))
-    console.log('执行了created')
-    console.log(this.tabs)
   }
 };
 </script>

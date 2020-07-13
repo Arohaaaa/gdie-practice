@@ -1,0 +1,278 @@
+@font-face {
+  font-family: "MF LangQian";
+  src: url("../font/MFLangQian_Noncommercial-regular.otf");
+}
+
+.triangle {
+  margin-left: 4px;
+  width: 6px;
+  height: 4px;
+}
+.wh_33 {
+  width: 33%;
+}
+.wh_25 {
+  width: 25%;
+}
+.wh {
+  width: 100%;
+}
+/* 头部样式开始*/
+.header {
+  display: flex;
+  background-color: #5077aa;
+  height: 60px;
+}
+
+.header-left {
+  position: relative;
+  display: flex;
+}
+.header-left--wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+.header-left--logoBox {
+  position: relative;
+}
+.header-left__logo {
+  width: 44px;
+  height: 32px;
+}
+.header-left__logoTop {
+  position: absolute;
+  top: -6px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+.header-left__title {
+  margin-left: 12px;
+  font-family: "MF LangQian";
+  font-size: 22px;
+  color: white;
+}
+.header-left::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 35px;
+  background-color: #81a5c6;
+}
+
+.header-right {
+  flex-grow: 1;
+}
+.header-right--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  margin: 0 18px;
+}
+.header-right__title {
+  font-size: 20px;
+  color: #fff;
+}
+.header-right--loginBox {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+.header-right__avatar {
+  margin-right: 10px;
+  width: 34px;
+  height: 34px;
+}
+.header-right__role {
+  margin-right: 30px;
+}
+
+/* 头部样式结束 */
+
+/* 侧边和主体部分样式开始 */
+.container {
+  display: flex;
+}
+/* 侧边栏开始 */
+.aside {
+  background-color: #fff;
+  flex-shrink: 0;
+}
+.aside--titleBox {
+  width: 100%;
+  border-bottom: 1px solid #dae0e5;
+}
+.aside__title {
+  position: relative;
+  display: block;
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  color: #637381;
+}
+.aside__title::before,
+.aside__title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 1px;
+  background-color: #ecf1f4;
+}
+.aside__title::before {
+  left: 10px;
+}
+.aside__title::after {
+  right: 10px;
+}
+.aside__menu-item {
+  position: relative;
+}
+.aside__menu-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+}
+.aside__menu-titleBox {
+  display: flex;
+  align-items: center;
+  margin-left: 42px;
+  font-size: 18px;
+  color: #212b36;
+}
+.aside__menu-gear {
+  width: 24px;
+  height: 24px;
+}
+.aside__menu-title {
+  margin-left: 14px;
+}
+.triangle_box {
+  margin-right: 12px;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+}
+.triangle {
+  width: 9px;
+  height: 9px;
+}
+.aside__submenu {
+  display: block;
+}
+/* flex布局用padding对齐将导致放大后内容区宽度被压缩 */
+.aside__submenu-item  {
+  position: relative;
+  padding: 0 114px 0 100px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
+}
+.aside__submenu-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 82px;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #d2d2d2;
+  border-radius: 50%;
+}
+.aside__submenu-selected {
+  background-color: #edf4fd;
+  border-right: 4px solid #0270e0;
+  color: #0166de;
+}
+.aside__submenu-selected::before {
+  background-color: #0270e0;
+}
+/* 侧边栏结束 */
+
+/* 主体部分开始 */
+.main {
+  flex-grow: 1;
+}
+.tabBar {
+  display: flex;
+  font-size: 14px;
+  height: 44px;
+}
+.tabBar__icon--wrapper {
+  display: flex;
+}
+.tabBar__iconBox {
+  height: 43px;
+  line-height: 43px;
+  padding: 0 15px;
+  border-left: 1px solid #dae0e5;
+  border-bottom: 1px solid #dae0e5;
+}
+.tabBar__icon-task {
+  width: 12px;
+  height: 10px;
+}
+.tabBar__icon-refresh {
+  width: 12px;
+  height: 12px;
+}
+.tabBar__icon-back,
+.tabBar__icon-forward {
+  position: relative;
+  top: 6px;
+  width: 15px;
+  height: 22px;
+}
+.tabBar__close {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  border-left: 1px solid #dae0e5;
+  border-bottom: 1px solid #dae0e5;
+}
+.tabBar__close-title {
+  color: #919eab;
+}
+
+.tabBar__nav {
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+}
+.tabBar__nav--active {
+  background-color: #f5f5f5;
+  width: 134px;
+  border-left: 1px solid #dae0e5;
+  text-align: center;
+  line-height: 46px;
+  color: #0270e0;
+}
+.tabBar__nav--others {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #dae0e5;
+  overflow: hidden;
+}
+.tabBar__nav-item {
+  border-left: 1px solid #dae0e5;
+  height: 43px;
+  line-height: 43px;
+}
+.tabBar__nav-title {
+  margin-left: 43px;
+  color: #212b36;
+}
+.tabBar__nav-close {
+  margin-left: 8px;
+  width: 10px;
+  height: 10px;
+}

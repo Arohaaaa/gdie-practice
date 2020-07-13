@@ -29,9 +29,9 @@
             <div class="hiddenItem-form-box">
               <label for="classify">分类</label>
               <div class="form__input-box">
-                <el-select v-model="value" clearable placeholder="请选择分类">
+                <el-select v-model="categoryValue" clearable placeholder="请选择分类">
                   <el-option
-                    v-for="item in options"
+                    v-for="item in categories"
                     :key="item.value"
                     :label="item.label"
                     :value="item.value"
@@ -41,7 +41,7 @@
               <label for="createtime">创建时间</label>
               <div class="form__input-box">
                 <el-date-picker
-                  v-model="value1"
+                  v-model="createValue"
                   type="daterange"
                   range-separator="至"
                   start-placeholder="开始日期"
@@ -84,14 +84,15 @@ export default {
   data () {
     return {
       dialogFormVisible: true,
-      options: [{
+      categories: [{
         value: '选项1',
         label: '分类一'
       }, {
         value: '选项2',
         label: '分类二'
       }],
-      value: '',
+      categoryValue: '',
+      createValue: '',
       tableData: [{
         'title': '标题',
         'segment': '环节',
@@ -435,8 +436,8 @@ export default {
 .search__hiddenItem .el-select {
   width: 100%;
 }
-.search__hiddenItem .el-option {
-  z-index: 2021;
+.el-select-dropdown {
+  z-index: 2021 !important;
 }
 .search__hiddenItem .el-date-editor--daterange.el-input__inner {
   width: 100%;
