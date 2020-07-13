@@ -55,7 +55,7 @@ export default {
       };
     },
   },
-  created () {
+  mounted () {
     this.tabs = JSON.parse(this.$cookies.get('activeTabs'))
     this.tabs.sort(this.sortBy("active"))
   }

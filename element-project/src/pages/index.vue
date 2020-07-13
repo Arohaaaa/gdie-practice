@@ -38,8 +38,6 @@
 <script>
 import Header from "../components/Header.vue";
 import Tabbar from "../components/Tabbar.vue";
-import TodoTable from "../pages/TodoTable.vue"
-import DoneTable from "../pages/DoneTable.vue"
 export default {
   data() {
     return {
@@ -100,8 +98,6 @@ export default {
   components: {
     "v-header": Header,
     "v-tabbar": Tabbar,
-    'v-donetable': DoneTable,
-    'v-todotable': TodoTable
   },
 };
 </script>
