@@ -10,19 +10,24 @@
         </div>
       </div>
       <div class="tabBar-nav">
-        <span class="nav__item--active" v-if="tabs.length > 0">{{
-          tabs[0].name
-        }}</span>
-        <ul class="nav__item-wrapper" v-if="tabs.length > 1">
-          <li class="nav__item" v-for="item in tabs.slice(1)">
-            <span class="nav__item__title">{{ item.name }}</span>
-            <img
-              class="nav__item__close"
-              src="../assets/img/叉.png"
-              @click="closeTab"
-            />
-          </li>
-        </ul>
+        <div class="nav__item-wrapper">
+          <div class="nav__item" v-for="item in tabs">
+            <template v-if="item.active !== 1">
+              <div class="nav__item--others" @click="enableActive(item)">
+                <span class="nav__item__title">{{ item.name }}</span>
+                <img
+                  class="nav__item__close"
+                  src="../assets/img/叉.png"
+                  @click.stop="closeTab"
+                />
+              </div>
+            </template>
+            <template v-else>
+              <span class="nav__item--active">{{ item.name }}</span>
+            </template>
+          </div>
+          <div class="nav--border-bottom"></div>
+        </div>
       </div>
       <div class="tabBar-icon-wrapper">
         <div class="tabBar-icon-box">
@@ -64,6 +69,18 @@ export default {
       });
       this.$session.set("activeTabs", this.tabs);
     },
+    enableActive(obj) {
+      this.tabs.map((item) => {
+        if (item.name == obj.name) {
+          item.active = 1;
+        } else {
+          item.active += 1;
+        }
+      });
+      console.log(obj.url);
+      this.$router.push(obj.url);
+      this.$session.set("activeTabs", this.tabs);
+    },
     sortBy(key) {
       return function(obj1, obj2) {
         return obj1[key] - obj2[key];
@@ -81,27 +98,23 @@ export default {
       return obj;
     },
   },
-  created() {},
+  mounted() {
+    var activeTabsFromSession = {};
+    if (typeof this.$session.get("activeTabs") == "string") {
+      activeTabsFromSession = JSON.parse(this.$session.get("activeTabs"));
+    } else {
+      activeTabsFromSession = this.$session.get("activeTabs");
+    }
+    this.tabs = activeTabsFromSession;
+  },
   computed: {},
   watch: {
     // 通过对父组件传来的activeTabs进行侦听，一旦值发生变化则触发回调函数
-    // 回调函数主要作用如下：
-    // 1. 将activeTabs进行排序并赋值给tabs
-    // 2. 针对冷启动从session中获取activeTabs并排序后赋值给tabs
     activeTabs: {
       handler(newValue, oldValue) {
-        var activeTabsSessionLen = this.$session.get("activeTabs")
-          ? this.$session.get("activeTabs").length
-          : "";
-        if (this.activeTabs.length < activeTabsSessionLen) {
-          var tempArr = JSON.parse(this.$session.get("activeTabs"));
-          this.tabs = tempArr.sort(this.sortBy("active"));
-        } else {
-          // 如果直接使用activeTabs则会导致该回调无限循环
-          var activeTabsCopyObj = this.copy(this.activeTabs);
-          var activeTabsCopyArr = Object.values(activeTabsCopyObj);
-          this.tabs = activeTabsCopyArr.sort(this.sortBy("active"));
-        }
+        // 如果直接使用activeTabs则会导致该回调无限循环
+        var activeTabsCopyObj = this.copy(this.activeTabs);
+        this.tabs = Object.values(activeTabsCopyObj);
       },
       deep: true,
     },
@@ -148,20 +161,10 @@ export default {
   display: flex;
   overflow: hidden;
 }
-.nav__item--active {
-  background-color: #f5f5f5;
-  width: 134px;
-  flex-shrink: 0;
-  border-left: 1px solid #dae0e5;
-  text-align: center;
-  line-height: 46px;
-  color: #0270e0;
-}
 .nav__item-wrapper {
   flex-grow: 1;
   display: flex;
   flex-wrap: nowrap;
-  border-bottom: 1px solid #dae0e5;
   overflow: hidden;
 }
 .nav__item {
@@ -169,7 +172,23 @@ export default {
   flex-shrink: 0;
   height: 43px;
   line-height: 43px;
+}
+.nav--border-bottom {
+  flex: 1;
+  border-bottom: 1px solid #dae0e5;
+}
+.nav__item--active {
+  display: block;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+  width: 134px;
+  flex-shrink: 0;
+  text-align: center;
+  color: #0270e0;
+}
+.nav__item--others {
   padding: 0 12px 0 42px;
+  border-bottom: 1px solid #dae0e5;
 }
 .nav__item__title {
   color: #212b36;

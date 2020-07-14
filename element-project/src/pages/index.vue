@@ -8,7 +8,7 @@
           <span class="aside__title">统一待办</span>
         </div>
         <!-- 折叠面板组件 -->
-        <el-collapse value="1">
+        <el-collapse value="1" accordion>
           <el-collapse-item class="collapse_item" name="1">
             <template slot="title">
               <div class="aside__title-box">
@@ -20,16 +20,80 @@
                 <span class="title-box__title">统一待办</span>
               </div>
             </template>
-
             <div class="collapse-subitem" @click="addAsideClickItem()">
               <router-link class="collapse-subitem__title" to="/todo"
                 >待办</router-link
               >
             </div>
-
             <div class="collapse-subitem" @click="addAsideClickItem()">
               <router-link class="collapse-subitem__title" to="/done"
                 >已办</router-link
+              >
+            </div>
+          </el-collapse-item>
+          <el-collapse-item class="collapse_item" name="2">
+            <template slot="title">
+              <div class="aside__title-box">
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span class="title-box__title">测试一</span>
+              </div>
+            </template>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test1"
+                >选项一</router-link
+              >
+            </div>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test2"
+                >选项二</router-link
+              >
+            </div>
+          </el-collapse-item>
+          <el-collapse-item class="collapse_item" name="3">
+            <template slot="title">
+              <div class="aside__title-box">
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span class="title-box__title">测试二</span>
+              </div>
+            </template>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test3"
+                >选项三</router-link
+              >
+            </div>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test4"
+                >选项四</router-link
+              >
+            </div>
+          </el-collapse-item>
+          <el-collapse-item class="collapse_item" name="4">
+            <template slot="title">
+              <div class="aside__title-box">
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span class="title-box__title">测试三</span>
+              </div>
+            </template>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test5"
+                >选项五</router-link
+              >
+            </div>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test6"
+                >选项六</router-link
               >
             </div>
           </el-collapse-item>
@@ -53,44 +117,46 @@ export default {
       TabsObj: [
         { name: "待办", active: 1, url: "/todo" },
         { name: "已办", active: 1, url: "/done" },
+        { name: "选项一", active: 1, url: "/test1" },
+        { name: "选项二", active: 1, url: "/test2" },
+        { name: "选项三", active: 1, url: "/test3" },
+        { name: "选项四", active: 1, url: "/test4" },
+        { name: "选项五", active: 1, url: "/test5" },
+        { name: "选项六", active: 1, url: "/test6" },
       ],
     };
   },
   mounted() {
     // 初次加载页面时将默认激活的tabs加入到asideClickItems中并设置session
-    let path = this.$route.path;
-    this.TabsObj.forEach((item) => {
-      if (path.includes(item.url)) {
-        this.asideClickItems.push(item);
-      }
-    });
     // 防止以后刷新后session被重置
     if (this.$session.get("activeTabs") == undefined) {
+      let path = this.$route.path;
+      this.TabsObj.forEach((item) => {
+        if (path.includes(item.url)) {
+          this.asideClickItems.push(item);
+        }
+      });
       this.$session.set("activeTabs", JSON.stringify(this.asideClickItems));
     }
   },
   methods: {
     // addAsideClickItem主要功能：将点击过的tab添加到asideClickItems中并设置到session
     addAsideClickItem() {
-      this.asideClickItems =
-        this.$session.get("activeTabs").length > 1
-          ? JSON.parse(this.$session.get("activeTabs"))
-          : this.$session.get("activeTabs");
+      let activeTabsFromSession = [];
       let text = event.target.innerText;
-      // 获取兄弟节点个数，由于该组件渲染出来之后外层多包裹了一个div，因此要获取两次parentNode
-      let menuItemLen = event.target.parentNode.parentNode.childNodes.length;
+      let menuItemLen = document.getElementsByClassName("collapse-subitem")
+        .length;
       let asideClickItemsLen = this.asideClickItems.length;
-      // 如果没有点击，则侧边栏点击过的项目列表为空，直接添加点击对象
-      if (asideClickItemsLen == 0) {
-        let clickItem = {};
-        clickItem.name = text;
-        clickItem.active = 1;
-        this.asideClickItems.push(clickItem);
+
+      if (typeof this.$session.get("activeTabs") == "string") {
+        activeTabsFromSession = JSON.parse(this.$session.get("activeTabs"));
+      } else {
+        activeTabsFromSession = this.$session.get("activeTabs");
       }
-      // 如果列表里有值：判断是否已经超出菜单项目的个数，如果超出，则不添加
-      // 如果未超出，则进行第二次判断，判断添加的点击项是否已存在，若不存在则添加，存在则不做操作。
-      // 将正在点击的项目active设置为1，其他设置为每点击一次就加1。
-      else if (asideClickItemsLen <= menuItemLen) {
+      this.asideClickItems = activeTabsFromSession;
+
+      // 当已点击项目长度小于项目总长度时，添加已点击项目中不存在的项
+      if (asideClickItemsLen <= menuItemLen) {
         let temp = this.asideClickItems.filter((item) => {
           return item.name == text;
         });
@@ -98,9 +164,14 @@ export default {
           let clickItem = {};
           clickItem.name = text;
           clickItem.active = 1;
+          clickItem.url = this.TabsObj.filter((item) => {
+            return item.name == text;
+          })[0].url;
+          console.log(clickItem.url);
           this.asideClickItems.push(clickItem);
         }
       }
+
       // 设置active方便排序，点击的tab设置为1，未点击的则加1
       this.asideClickItems.map((item) => {
         if (item.name == text) {
