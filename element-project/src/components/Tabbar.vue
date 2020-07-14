@@ -10,11 +10,17 @@
         </div>
       </div>
       <div class="tabBar-nav">
-        <span class="nav__item--active">{{ tabs[0].name }}</span>
-        <ul class="nav__item-wrapper">
+        <span class="nav__item--active" v-if="tabs.length > 0">{{
+          tabs[0].name
+        }}</span>
+        <ul class="nav__item-wrapper" v-if="tabs.length > 1">
           <li class="nav__item" v-for="item in tabs.slice(1)">
             <span class="nav__item__title">{{ item.name }}</span>
-            <img class="nav__item__title" src="../assets/img/叉.png" />
+            <img
+              class="nav__item__close"
+              src="../assets/img/叉.png"
+              @click="closeTab"
+            />
           </li>
         </ul>
       </div>
@@ -27,7 +33,10 @@
         </div>
         <div class="tabBar-close">
           <span class="tabBar-close__title">关闭操作</span>
-          <img class="tabBar-close__triangle" src="../assets/img/多边形 1@2X.png" />
+          <img
+            class="tabBar-close__triangle"
+            src="../assets/img/多边形 1@2X.png"
+          />
         </div>
       </div>
     </div>
@@ -35,30 +44,68 @@
 </template>
 
 <script>
-
 export default {
-  // props: {
-  //   activeTabs: {
-  //     type: Array,
-  //     required: true
-  //   }
-  // },
+  props: {
+    activeTabs: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
-      tabs: []
+      tabs: [],
     };
   },
   methods: {
+    closeTab() {
+      var tabName = event.target.previousSibling.innerText;
+      this.tabs = this.tabs.filter((item) => {
+        return item.name != tabName;
+      });
+      this.$session.set("activeTabs", this.tabs);
+    },
     sortBy(key) {
       return function(obj1, obj2) {
         return obj1[key] - obj2[key];
       };
     },
+    copy(ladel) {
+      var obj = {};
+      for (var i in ladel) {
+        if (typeof ladel[i] == "object") {
+          obj[i] = this.copy(ladel[i]); //递归
+        } else {
+          obj[i] = ladel[i];
+        }
+      }
+      return obj;
+    },
   },
-  mounted () {
-    this.tabs = JSON.parse(this.$cookies.get('activeTabs'))
-    this.tabs.sort(this.sortBy("active"))
-  }
+  created() {},
+  computed: {},
+  watch: {
+    // 通过对父组件传来的activeTabs进行侦听，一旦值发生变化则触发回调函数
+    // 回调函数主要作用如下：
+    // 1. 将activeTabs进行排序并赋值给tabs
+    // 2. 针对冷启动从session中获取activeTabs并排序后赋值给tabs
+    activeTabs: {
+      handler(newValue, oldValue) {
+        var activeTabsSessionLen = this.$session.get("activeTabs")
+          ? this.$session.get("activeTabs").length
+          : "";
+        if (this.activeTabs.length < activeTabsSessionLen) {
+          var tempArr = JSON.parse(this.$session.get("activeTabs"));
+          this.tabs = tempArr.sort(this.sortBy("active"));
+        } else {
+          // 如果直接使用activeTabs则会导致该回调无限循环
+          var activeTabsCopyObj = this.copy(this.activeTabs);
+          var activeTabsCopyArr = Object.values(activeTabsCopyObj);
+          this.tabs = activeTabsCopyArr.sort(this.sortBy("active"));
+        }
+      },
+      deep: true,
+    },
+  },
 };
 </script>
 
@@ -127,10 +174,11 @@ export default {
 .nav__item__title {
   color: #212b36;
 }
-.nav__item__title {
+.nav__item__close {
   margin-left: 10px;
   width: 10px;
   height: 10px;
+  cursor: pointer;
 }
 
 .tabBar-close {

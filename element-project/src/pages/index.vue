@@ -12,23 +12,31 @@
           <el-collapse-item class="collapse_item" name="1">
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
                 <span class="title-box__title">统一待办</span>
               </div>
             </template>
 
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/todo">待办</router-link>
+              <router-link class="collapse-subitem__title" to="/todo"
+                >待办</router-link
+              >
             </div>
 
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/done">已办</router-link>
+              <router-link class="collapse-subitem__title" to="/done"
+                >已办</router-link
+              >
             </div>
           </el-collapse-item>
         </el-collapse>
       </div>
       <el-main>
-        <v-tabbar></v-tabbar>
+        <v-tabbar :activeTabs="asideClickItems"></v-tabbar>
         <router-view></router-view>
       </el-main>
     </div>
@@ -43,23 +51,32 @@ export default {
     return {
       asideClickItems: [],
       TabsObj: [
-          {name:'待办',active: 1,url:'/todo'}, 
-          {name:'已办',active: 1,url:'/done'}
-      ]
+        { name: "待办", active: 1, url: "/todo" },
+        { name: "已办", active: 1, url: "/done" },
+      ],
     };
   },
-  mounted () {
-    let path = this.$route.path
-    this.TabsObj.forEach(item => {
-      if(path.includes(item.url)) {
-        this.asideClickItems.push(item)
+  mounted() {
+    // 初次加载页面时将默认激活的tabs加入到asideClickItems中并设置session
+    let path = this.$route.path;
+    this.TabsObj.forEach((item) => {
+      if (path.includes(item.url)) {
+        this.asideClickItems.push(item);
       }
-    })
-    this.$cookies.set('activeTabs',JSON.stringify(this.asideClickItems))
+    });
+    // 防止以后刷新后session被重置
+    if (this.$session.get("activeTabs") == undefined) {
+      this.$session.set("activeTabs", JSON.stringify(this.asideClickItems));
+    }
   },
   methods: {
+    // addAsideClickItem主要功能：将点击过的tab添加到asideClickItems中并设置到session
     addAsideClickItem() {
-      let text = event.target.innerText
+      this.asideClickItems =
+        this.$session.get("activeTabs").length > 1
+          ? JSON.parse(this.$session.get("activeTabs"))
+          : this.$session.get("activeTabs");
+      let text = event.target.innerText;
       // 获取兄弟节点个数，由于该组件渲染出来之后外层多包裹了一个div，因此要获取两次parentNode
       let menuItemLen = event.target.parentNode.parentNode.childNodes.length;
       let asideClickItemsLen = this.asideClickItems.length;
@@ -84,6 +101,7 @@ export default {
           this.asideClickItems.push(clickItem);
         }
       }
+      // 设置active方便排序，点击的tab设置为1，未点击的则加1
       this.asideClickItems.map((item) => {
         if (item.name == text) {
           item.active = 1;
@@ -91,7 +109,7 @@ export default {
           item.active += 1;
         }
       });
-      this.$cookies.set('activeTabs',JSON.stringify(this.asideClickItems))
+      this.$session.set("activeTabs", JSON.stringify(this.asideClickItems));
     },
   },
   computed: {},

@@ -11,8 +11,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './plugins/element.js'
 // 导入VueCookies
 import cookies from 'vue-cookie'
-
-Vue.prototype.$cookies = cookies;
+import session from 'vue-session'
+Vue.use(cookies)
+Vue.use(session)
 Vue.prototype.$eventBus = new Vue()
 Vue.config.productionTip = false
 
