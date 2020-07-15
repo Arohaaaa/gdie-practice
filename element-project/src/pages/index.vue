@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="body">
     <v-header></v-header>
 
     <div class="container">
@@ -27,6 +27,17 @@
             <template slot="title">
               <div class="aside__title-box">
                 <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <span class="title-box__title">任务管理</span>
+              </div>
+            </template>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/task">创建任务</router-link>
+            </div>
+          </el-collapse-item>
+          <el-collapse-item class="collapse_item" name="3">
+            <template slot="title">
+              <div class="aside__title-box">
+                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
                 <span class="title-box__title">测试一</span>
               </div>
             </template>
@@ -37,7 +48,7 @@
               <router-link class="collapse-subitem__title" to="/test2">选项二</router-link>
             </div>
           </el-collapse-item>
-          <el-collapse-item class="collapse_item" name="3">
+          <el-collapse-item class="collapse_item" name="4">
             <template slot="title">
               <div class="aside__title-box">
                 <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
@@ -51,7 +62,7 @@
               <router-link class="collapse-subitem__title" to="/test4">选项四</router-link>
             </div>
           </el-collapse-item>
-          <el-collapse-item class="collapse_item" name="4">
+          <el-collapse-item class="collapse_item" name="5">
             <template slot="title">
               <div class="aside__title-box">
                 <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
@@ -87,6 +98,7 @@ export default {
       TabsObj: [
         { name: "待办", active: 1, url: "/todo" },
         { name: "已办", active: 1, url: "/done" },
+        { name: "创建任务", active: 1, url: "/task" },
         { name: "选项一", active: 1, url: "/test1" },
         { name: "选项二", active: 1, url: "/test2" },
         { name: "选项三", active: 1, url: "/test3" },
@@ -169,13 +181,19 @@ export default {
   .body--state{}  标识修饰符
 
  */
+#body {
+  width: 100%;
+  height: 100%;
+}
 .container {
-  position: relative;
-  display: flex;
+  display: block;
+  height: 100%;
+  overflow: hidden;
 }
 .aside {
   position: fixed;
   top: 60px;
+  border-right: 1px solid #dae0e5;
   width: 244px;
   background-color: #fff;
 }

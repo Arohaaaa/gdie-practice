@@ -1,8 +1,16 @@
 @font-face {
   font-family: "MF LangQian";
   src: url("../font/MFLangQian_Noncommercial-regular.otf");
+  font-family: "PingFangSC-Medium";
+  src: url("../font/PingFang Medium_downcc.otf");
+  font-family: "PingFangSC-Regular";
+  src: url("../font/PingFang Regular.otf");
 }
 
+body::-webkit-scrollbar {display:none}
+* {
+  user-select: none;
+}
 .wh_33 {
   width: 33%;
 }
@@ -11,4 +19,16 @@
 }
 .wh {
   width: 100%;
+}
+.font--normal {
+  line-height: 20px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+  color: #212b36;
+}
+.font--active {
+  line-height: 20px;
+  font-family: 'PingFangSC-Regular';
+  font-size: 14px;
+  color: #45484b;
 }

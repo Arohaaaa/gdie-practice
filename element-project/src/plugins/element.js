@@ -4,7 +4,7 @@ import {
   Container, Header, Aside, Main, Collapse, CollapseItem, Card, Input,
   Menu, MenuItem, Submenu, MenuItemGroup, Col, Row, Table, TableColumn, Pagination,
   Form, FormItem, Button, Dialog, Dropdown, DropdownItem, DropdownMenu, Breadcrumb, BreadcrumbItem,
-  Steps, Step, Select, Option, DatePicker
+  Steps, Step, Select, Option, DatePicker, Checkbox
 } from 'element-ui'
 
 Vue.use(Container)
@@ -38,5 +38,6 @@ Vue.use(Step)
 Vue.use(Select)
 Vue.use(Option)
 Vue.use(DatePicker)
+Vue.use(Checkbox)
 
 
