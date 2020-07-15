@@ -22,7 +22,7 @@
                 <span>分类</span>
               </template>
               <el-menu-item-group>
-                <template slot="title" class="el-submenu__top">
+                <template slot="title">
                   <img class="el-submenu__triangle" src="../assets/img/多边形 1@2X.png" />
                   <img class="el-submenu__fileFolder" src="../assets/img/文件夹.png" />
                   <span>一级分类</span>
@@ -113,6 +113,11 @@ export default {
 }
 .aside .search-input {
   color: #212b36;
+}
+.aside .el-input-group__append {
+  padding: 8px 14px;
+  background-color: #eef1f4;
+  border-color: #c4cdd5;
 }
 .el-main {
   border-left: 1px solid #dae0e5;

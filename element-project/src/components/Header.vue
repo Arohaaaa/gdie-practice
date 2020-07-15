@@ -3,11 +3,7 @@
     <div class="header-left">
       <div class="header-left-wrapper">
         <div class="left-wrapper__logoBox">
-          <img
-            class="logoBox__logo"
-            src="../assets/img/logo@2X.png"
-            alt="省信LOGO"
-          />
+          <img class="logoBox__logo" src="../assets/img/logo@2X.png" alt="省信LOGO" />
           <img class="logoBox__logoTop" src="../assets/img/R.png" />
         </div>
         <span class="left-wrapper__title">省信一体化平台</span>
@@ -19,11 +15,7 @@
           <span>统一待办</span>
         </div>
         <div class="right-wrapper__loginBox">
-          <img
-            class="loginBox__avatar"
-            src="../assets/img/avatar9@2X.png"
-            alt="头像"
-          />
+          <img class="loginBox__avatar" src="../assets/img/avatar9@2X.png" alt="头像" />
           <span class="loginBox__role">管理员</span>
           <span class="loginBox__btn">退出</span>
         </div>
@@ -38,18 +30,22 @@ export default {};
 
 <style scope>
 .header {
+  position: fixed;
   display: flex;
   background-color: #5077aa;
   height: 60px;
+  width: 100%;
+  z-index: 100000;
 }
 .header-left {
   position: relative;
   display: flex;
+  width: 244px;
 }
 .header-left-wrapper {
   display: flex;
   align-items: center;
-  margin: 0 20px;
+  margin-left: 20px;
 }
 .left-wrapper__logoBox {
   position: relative;
@@ -83,14 +79,14 @@ export default {};
 }
 
 .header-right {
-  flex-grow: 1;
+  width: calc(100% - 244px);
 }
 .header-right-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  margin: 0 18px;
+  padding: 0 18px;
 }
 .right-wrapper__title {
   font-size: 20px;

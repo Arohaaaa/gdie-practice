@@ -1,6 +1,6 @@
 .content--wrapper {
   background-color: #f5f5f5;
-  padding: 20px 30px 100px 30px;
+  padding: 20px 30px 50px 30px;
 }
 .content__title {
   font-size: 26px;
@@ -11,10 +11,12 @@
   margin-top: 18px;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0px 0px 3px#dae0e5;
+  border: 1px solid #dae0e5;
+  box-shadow: 0px 0px 3px#e0e0e1;
 }
 .classify-menu--wrapper {
   border-right: 1px solid #dae0e5;
+  width: 300px;
 }
 .classify-menu {
   margin: 24px;
@@ -24,8 +26,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 34px;
-  border: 1px solid #dae0e5;
+  width: 252px;
+  height: 36px;
+  border: 1px solid #c4cdd5;
   border-radius: 4px;
 }
 .classify-menu__search {
@@ -33,27 +36,29 @@
 }
 .classify-menu__search input {
   border: none;
+  outline: none;
   color: #919eab;
 }
 .classify-menu__btnBox {
-  border-left: 1px solid #dae0e5;
   border-radius: 0 4px 4px 0;
   background-color: #eef1f4;
   color: #212b36;
-  flex-shrink: 0;
 }
 .classify-menu__btn {
   line-height: 36px;
   margin: 0 14px;
 }
-/* 存疑 */
 .classify-menu__nav {
   margin-top: 20px;
 }
+.classify-title-box,
 .classify-menu--titleBox {
   display: flex;
   height: 28px;
   align-items: center;
+}
+.classify-menu--titleBox {
+  padding-left: 24px;
 }
 .classify-menu--iconBox {
   display: flex;
@@ -73,11 +78,11 @@
   color: #212b36;
   font-size: 14px;
 }
-.classify-menu__navList-item {
-  margin-left: 24px;
+.classify-menu--actived {
+  background-color: #eef1f4;
 }
 .classify-menu__sublist {
-  margin-left: 52px;
+  margin-left: 74px;
 }
 .classify-menu__sublist-item {
   margin: 10px 0;
@@ -105,8 +110,12 @@
   align-items: center;
   border-left: 1px solid #dae0e5;
 }
+.table-search--searchBox {
+  width: 300px;
+}
 .table-search--selectBox {
-  cursor: pointer
+  width: 94px;
+  cursor: pointer;
 }
 .table-search__searchImg {
   margin-left: 12px;
@@ -115,6 +124,7 @@
 }
 .table-search__input {
   margin: 0 42px 0 12px;
+  width: 100%;
   border: none;
   outline: none;
   color: rgba#919eab;
@@ -142,7 +152,7 @@
   position: absolute;
   top: 84px;
   background-color: #fff;
-  box-shadow: -2px 2px 2px #2d363f;
+  box-shadow: -2px 2px 2px #e0e0e1;
   width: 350px;
 }
 .select-form--titleBox {
@@ -210,7 +220,7 @@
   border: 1px solid #c4cdd5;
   border-radius: 4px;
 }
-.select-form--btnBox btn:nth-child(1) {
+.select-form--btnBox .btn:nth-child(1) {
   background-color: #0270e0;
   color: #fff;
 }
@@ -276,6 +286,7 @@
   justify-content: flex-end;
   margin: 20px 20px 20px 0;
   height: 28px;
+  width: 430px;
 }
 .pageIndex__num {
   display: flex;
@@ -308,7 +319,7 @@
   border-radius: 5px;
 }
 .pageIndex__icon-left,
-.pageIndex__icon-right{
+.pageIndex__icon-right {
   height: 10px;
 }
 .pageIndex__jump {

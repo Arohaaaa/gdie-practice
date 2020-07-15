@@ -222,7 +222,8 @@ export default {
   margin-top: 18px;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0px 0px 3px#dae0e5;
+  border: 1px solid #dae0e5;
+  box-shadow: 0px 0px 3px#e0e0e1;
 }
 
 .table-search-wrapper {
@@ -238,6 +239,9 @@ export default {
   border-left: 1px solid #dae0e5;
   cursor: pointer;
 }
+.search-input-box {
+  width: 300px;
+}
 .search-input-box .icon-search {
   margin-left: 12px;
   width: 14px;
@@ -245,6 +249,7 @@ export default {
 }
 .search-input-box input {
   margin: 0 42px 0 12px;
+  width: 100%;
   border: none;
   outline: none;
   color: rgba(145, 158, 171, 1);
@@ -310,11 +315,6 @@ export default {
   margin-right: 12px;
   width: 8px;
   height: 4px;
-}
-.icon-calendar {
-  margin-right: 12px;
-  width: 16px;
-  height: 16px;
 }
 .hiddenItem-btn-box {
   display: flex;

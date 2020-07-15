@@ -2,7 +2,7 @@
   <div>
     <div class="tabBar">
       <div class="tabBar-icon-wrapper">
-        <div class="tabBar-icon-box">
+        <div class="tabBar-icon-box" style="border-left:none">
           <img class="icon-box__task" src="../assets/img/icon 2 – 41@2X.png" />
         </div>
         <div class="tabBar-icon-box">
@@ -15,11 +15,7 @@
             <template v-if="item.active !== 1">
               <div class="nav__item--others" @click="enableActive(item)">
                 <span class="nav__item__title">{{ item.name }}</span>
-                <img
-                  class="nav__item__close"
-                  src="../assets/img/叉.png"
-                  @click.stop="closeTab"
-                />
+                <img class="nav__item__close" src="../assets/img/叉.png" @click.stop="closeTab" />
               </div>
             </template>
             <template v-else>
@@ -38,10 +34,7 @@
         </div>
         <div class="tabBar-close">
           <span class="tabBar-close__title">关闭操作</span>
-          <img
-            class="tabBar-close__triangle"
-            src="../assets/img/多边形 1@2X.png"
-          />
+          <img class="tabBar-close__triangle" src="../assets/img/多边形 1@2X.png" />
         </div>
       </div>
     </div>
@@ -128,16 +121,17 @@ export default {
   justify-content: space-between;
   font-size: 14px;
   height: 44px;
+  border-bottom: 1px solid #dae0e5;
 }
 .tabBar-icon-wrapper {
   display: flex;
 }
 .tabBar-icon-box {
-  height: 43px;
-  line-height: 43px;
-  padding: 0 15px;
+  height: 44px;
+  line-height: 44px;
+  width: 40px;
+  text-align: center;
   border-left: 1px solid #dae0e5;
-  border-bottom: 1px solid #dae0e5;
 }
 .icon-box__task {
   width: 12px;
@@ -170,17 +164,16 @@ export default {
 .nav__item {
   border-left: 1px solid #dae0e5;
   flex-shrink: 0;
-  height: 43px;
-  line-height: 43px;
+  width: 134px;
+  height: 44px;
+  line-height: 44px;
 }
 .nav--border-bottom {
   flex: 1;
-  border-bottom: 1px solid #dae0e5;
 }
 .nav__item--active {
   display: block;
   background-color: #f5f5f5;
-  border-bottom: 1px solid #f5f5f5;
   width: 134px;
   flex-shrink: 0;
   text-align: center;
@@ -188,7 +181,6 @@ export default {
 }
 .nav__item--others {
   padding: 0 12px 0 42px;
-  border-bottom: 1px solid #dae0e5;
 }
 .nav__item__title {
   color: #212b36;
@@ -203,10 +195,9 @@ export default {
 .tabBar-close {
   display: flex;
   align-items: center;
-  flex-shrink: 0;
-  padding: 0 15px;
+  justify-content: center;
+  width: 80px;
   border-left: 1px solid #dae0e5;
-  border-bottom: 1px solid #dae0e5;
 }
 .tabBar-close__title {
   color: #919eab;
