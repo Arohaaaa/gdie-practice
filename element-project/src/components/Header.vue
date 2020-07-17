@@ -40,7 +40,7 @@ export default {};
 .header-left {
   position: relative;
   display: flex;
-  width: 244px;
+  width: 250px;
 }
 .header-left-wrapper {
   display: flex;
@@ -79,7 +79,7 @@ export default {};
 }
 
 .header-right {
-  width: calc(100% - 244px);
+  width: calc(100% - 250px);
 }
 .header-right-wrapper {
   display: flex;

@@ -1,0 +1,388 @@
+.wrapper {
+  background: #f5f5f5;
+  padding: 30px;
+}
+.baseInfo--wrapper,
+.subTask--wrapper,
+.copy--wrapper {
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: 4px;
+}
+.baseInfo--wrapper {
+  margin-top: 25px;
+  box-shadow: 0 0 4px 0 rgba(63, 63, 68, 0.15);
+}
+.baseInfo--wrapper,
+.subTask--wrapper {
+  padding: 30px;
+}
+.subTask--wrapper,
+.copy--wrapper {
+  border: 1px solid #dae0e5;
+  box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+}
+.item-title {
+  display: flex;
+  align-content: center;
+  padding-left: 15px;
+  line-height: 26px;
+  font-family: "PingFangSC-Medium";
+  font-weight: 600;
+  font-size: 18px;
+  color: #2e3133;
+}
+.item-title::before {
+  content: "";
+  position: relative;
+  left: -12px;
+  display: inline-block;
+  width: 3px;
+  height: 24px;
+  background-image: linear-gradient(-59deg, #5c99f5 0%, #4a61e7 100%);
+}
+
+/* 基本信息 */
+.baseInfo__subItem {
+  margin-bottom: 30px;
+}
+.baseInfo__subItem-title {
+  display: block;
+  margin-bottom: 10px;
+  line-height: 20px;
+  font-family: "PingFangSC-Medium";
+  font-size: 14px;
+  font-weight: 600;
+  color: #212b36;
+}
+.baseInfo__subItem--link {
+  color: #0270e0;
+  cursor: pointer;
+}
+.baseInfo__subItem-tips {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  width: calc(100% - 200px);
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #919eab;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.baseInfo__input--taskTitle,
+.baseInfo__input--taskContent {
+  padding-left: 8px;
+  border: 1px solid #c4cdd5;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.25),
+    inset 0 1px 2px 0 rgba(102, 113, 123, 0.21);
+}
+.baseInfo__input--undefined {
+  background: #f9fafb;
+}
+.baseInfo__input--taskTitle {
+  box-sizing: border-box;
+  height: 36px;
+}
+.baseInfo__input--taskContent {
+  box-sizing: border-box;
+  height: 70px;
+}
+.baseInfo__input--taskTitle input,
+.baseInfo__input--taskContent textarea {
+  width: 99%;
+  height: 100%;
+  color: #212b36;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+input.el-input__inner::placeholder,
+.baseInfo__input--taskTitle input::placeholder,
+.baseInfo__input--taskContent textarea::placeholder {
+  color: #919eab;
+}
+.baseInfo__input--taskContent textarea {
+  padding-top: 8px;
+  font-family: "PingFangSC-Medium";
+  overflow: hidden;
+  resize: none;
+  border: none;
+}
+.baseInfo__subItem-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  background: #ffffff;
+  border: 1px dashed #0270e0;
+  border-radius: 2px;
+}
+.baseInfo__subItem-upload .upload-introduction {
+  line-height: 22px;
+  font-size: 14px;
+  color: #3e5c80;
+}
+.baseInfo__subItem-upload .upload {
+  line-height: 22px;
+  font-size: 14px;
+  color: #0079e2;
+  cursor: pointer;
+}
+.baseInfo__subItem-upload .upload-tips {
+  line-height: 16px;
+  font-size: 12px;
+  color: #3e5c80;
+}
+.addition {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  font-size: 14px;
+}
+.addition__title,
+.addition__list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px 0 15px;
+}
+.addition__title {
+  height: 32px;
+  border: 1px solid #dae0e5;
+  border-radius: 4px 4px 0 0;
+  background: #eef1f4;
+}
+.addition__title--left,
+.addition__title--right {
+  line-height: 16px;
+  color: #637381;
+}
+.addition__title--right,
+.addition__list--right {
+  width: 80px;
+}
+.addition__list-item {
+  height: 50px;
+  line-height: 22px;
+  border-right: 1px solid #dae0e5;
+  border-left: 1px solid #dae0e5;
+  border-bottom: 1px solid #dae0e5;
+}
+.addition__list--left {
+  color: #212b36;
+}
+.addition__file--pdf {
+  display: inline-block;
+  width: 14px;
+  height: 10px;
+  margin-right: 10px;
+  padding: 2px 0;
+  line-height: 10px;
+  text-align: center;
+  color: #fff;
+  background: #ec5d78;
+  border-radius: 1px;
+}
+.addition__item-title {
+  margin-right: 10px;
+}
+.addition__item-title--uploading {
+  color: #919eab;
+}
+.addition__upload-progress {
+  color: #212b36;
+}
+.addition__fileSize {
+  color: #919eab;
+}
+.addition__list--right {
+  color: #0270e0;
+}
+.addition__list--right span {
+  cursor: pointer;
+}
+/* 子任务 */
+.addItem--placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 260px;
+  height: 290px;
+  margin: 0 auto;
+}
+.addItem-img--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 160px;
+}
+.addItem__placehoder {
+  width: 80px;
+  height: 80px;
+}
+.addItem__title {
+  margin-bottom: 4px;
+  font-family: "PingFangSC-Medium";
+  line-height: 26px;
+  font-size: 16px;
+  color: #2e3133;
+}
+.addItem__tips {
+  margin-bottom: 22px;
+  font-family: "PingFangSC-Medium";
+  line-height: 22px;
+  font-size: 12px;
+  color: #5c6166;
+}
+.addItem__btn {
+  position: relative;
+  width: 118px;
+  height: 36px;
+  padding-left: 32px;
+  border: 1px solid #c4cdd5;
+  border-radius: 4px;
+  outline: none;
+  box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
+  background-image: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+}
+.addItem__btn::before {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 14px;
+  font-size: 26px;
+  color: #0270e0;
+}
+.addItem__tips--added {
+  display: inline-flex;
+  align-items: center;
+  line-height: 22px;
+  font-size: 12px;
+  color: #9ea4a9;
+}
+.addItem__btn--added {
+  margin-right: 20px;
+}
+.addItem__tips-icon {
+  margin-right: 8px;
+  width: 12px;
+  height: 12px;
+}
+/* 抄送 */
+.copy--wrapper {
+  padding: 20px 30px;
+}
+.copy__title-box {
+  margin-bottom: 10px;
+}
+.copy__title {
+  font-family: "PingFangSC-Medium";
+  font-weight: 600;
+}
+.copy__select-box {
+  display: flex;
+}
+.copy__select-btn {
+  width: 106px;
+  height: 36px;
+  margin-right: 16px;
+  text-align: center;
+  font-family: "PingFangSC-Medium";
+  border-radius: 4px;
+  border: 1px solid #dae0e5;
+  outline: none;
+  background: #fcfcfd;
+}
+.copy__select-input {
+  flex-grow: 1;
+  padding-left: 10px;
+  line-height: 20px;
+  color: #919eab;
+  border: 1px solid #c4cdd5;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(102, 113, 123, 0.25),
+    inset 0 1px 2px 0 rgba(102, 113, 123, 0.21);
+  outline: none;
+  background: #ffffff;
+}
+/* 按钮 */
+.btn--wrapper .btn {
+  width: 96px;
+  height: 36px;
+  margin-right: 16px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 36px;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+.btn--wrapper .btn:nth-child(-n + 2) {
+  background: #0270e0;
+  color: #fff;
+}
+.btn--wrapper .btn:nth-child(n + 3) {
+  background: #fff;
+  border: 1px solid #c4cdd5;
+  color: #212b36;
+}
+
+.title-input-box .el-input__inner {
+  height: 36px;
+}
+.title-input-box .el-select {
+  width: 100%;
+}
+.title-input-box .el-select input {
+  color: #212b36;
+}
+.title-input-box .el-input--suffix .el-input__inner {
+  background-image: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid #c4cdd5;
+  box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
+  border-radius: 3px;
+  padding: 0 12px;
+}
+.title-input-box .el-input--suffix .el-input__inner::placeholder {
+  color: #212b36;
+}
+.title-input-box .input--limitDate .el-input__inner,
+.title-input-box .input--meetUnit .el-input__inner {
+  background-color: #f9fafb;
+  border: none;
+  border-radius: 3px;
+}
+.title-input-box .el-date-editor.el-input {
+  width: 100%;
+}
+.title-input-box .el-date-editor .el-input__inner {
+  padding: 0 15px;
+}
+.title-input-box .el-date-editor .el-input__prefix {
+  right: -90%;
+}
+.title-input-box .input--hostUnit .el-input__inner {
+  background-image: linear-gradient(180deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid #c4cdd5;
+  box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
+  border-radius: 3px;
+  text-align: center;
+  color: #212b36;
+}
+#task .title-input-box .superviseCycle {
+  width: 150px;
+}
+.title-input-box .input--limitDate .el-input__inner,
+.title-input-box .input--meetUnit .el-input__inner {
+  background-color: #f9fafb;
+  border: none;
+  border-radius: 3px;
+}

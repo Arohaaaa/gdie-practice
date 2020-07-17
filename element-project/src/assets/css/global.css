@@ -1,12 +1,15 @@
 @font-face {
   font-family: "MF LangQian";
   src: url("../font/MFLangQian_Noncommercial-regular.otf");
+}
+@font-face {
   font-family: "PingFangSC-Medium";
   src: url("../font/PingFang Medium_downcc.otf");
+}
+@font-face {
   font-family: "PingFangSC-Regular";
   src: url("../font/PingFang Regular.otf");
 }
-
 body::-webkit-scrollbar {display:none}
 * {
   user-select: none;

@@ -194,7 +194,8 @@ export default {
   position: fixed;
   top: 60px;
   border-right: 1px solid #dae0e5;
-  width: 244px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
+  width: 250px;
   background-color: #fff;
 }
 .aside__title {
@@ -267,8 +268,8 @@ export default {
 .main {
   position: absolute;
   top: 60px;
-  left: 244px;
-  width: calc(100% - 244px);
+  left: 250px;
+  width: calc(100% - 250px);
 }
 </style>
 
