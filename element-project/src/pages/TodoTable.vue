@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="todotable">
     <div class="title">
       <span>待办</span>
     </div>
@@ -180,11 +180,11 @@ export default {
 </script>
 
 <style scoped>
-#main {
+#todotable {
   background-color: #f5f5f5;
   padding: 20px 30px 60px 30px;
 }
-#main > .title {
+#todotable > .title {
   font-size: 26px;
 }
 .title {
@@ -386,9 +386,7 @@ export default {
 .aside .el-aside {
   padding: 24px;
 }
-.el-main {
-  border-left: 1px solid #dae0e5;
-}
+
 .menu .el-menu {
   border-right: 0;
 }

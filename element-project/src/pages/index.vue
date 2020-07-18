@@ -1,5 +1,5 @@
 <template>
-  <div id="body">
+  <div class="top-wrapper">
     <v-header></v-header>
 
     <div class="container">
@@ -79,10 +79,8 @@
         </el-collapse>
       </div>
       <div class="main">
-        <el-main>
-          <v-tabbar :activeTabs="asideClickItems"></v-tabbar>
-          <router-view></router-view>
-        </el-main>
+        <v-tabbar :activeTabs="asideClickItems"></v-tabbar>
+        <router-view class="page-content"></router-view>
       </div>
     </div>
   </div>
@@ -179,24 +177,24 @@ export default {
   .body{} 标识块
   .body__element{}  标识元素
   .body--state{}  标识修饰符
-
  */
-#body {
-  width: 100%;
+.top-wrapper {
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }
 .container {
-  display: block;
+  display: flex;
   height: 100%;
   overflow: hidden;
 }
 .aside {
-  position: fixed;
-  top: 60px;
+  flex-shrink: 0;
   border-right: 1px solid #dae0e5;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
   width: 250px;
   background-color: #fff;
+  z-index: 1;
 }
 .aside__title {
   position: relative;
@@ -266,10 +264,11 @@ export default {
   background-color: #0270e0;
 }
 .main {
-  position: absolute;
-  top: 60px;
-  left: 250px;
-  width: calc(100% - 250px);
+  flex: 1;
+}
+.page-content {
+  height: calc(100% - 45px);
+  overflow-y: auto;
 }
 </style>
 

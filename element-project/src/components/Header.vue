@@ -30,12 +30,10 @@ export default {};
 
 <style scope>
 .header {
-  position: fixed;
+  flex-shrink: 0;
   display: flex;
   background-color: #5077aa;
   height: 60px;
-  width: 100%;
-  z-index: 100000;
 }
 .header-left {
   position: relative;

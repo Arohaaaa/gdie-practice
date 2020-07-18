@@ -119,7 +119,7 @@ export default {
   background-color: #eef1f4;
   border-color: #c4cdd5;
 }
-.el-main {
+.content .el-main {
   border-left: 1px solid #dae0e5;
 }
 .menu .el-menu {

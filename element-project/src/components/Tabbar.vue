@@ -1,41 +1,39 @@
 <template>
-  <div>
-    <div class="tabBar">
-      <div class="tabBar-icon-wrapper">
-        <div class="tabBar-icon-box" style="border-left:none">
-          <img class="icon-box__task" src="../assets/img/icon 2 – 41@2X.png" />
-        </div>
-        <div class="tabBar-icon-box">
-          <img class="icon-box__back" src="../assets/img/后退.png" />
-        </div>
+  <div class="tabBar">
+    <div class="tabBar-icon-wrapper">
+      <div class="tabBar-icon-box" style="border-left: none">
+        <img class="icon-box__task" src="../assets/img/icon 2 – 41@2X.png" />
       </div>
-      <div class="tabBar-nav">
-        <div class="nav__item-wrapper">
-          <div class="nav__item" v-for="item in tabs">
-            <template v-if="item.active !== 1">
-              <div class="nav__item--others" @click="enableActive(item)">
-                <span class="nav__item__title">{{ item.name }}</span>
-                <img class="nav__item__close" src="../assets/img/叉.png" @click.stop="closeTab" />
-              </div>
-            </template>
-            <template v-else>
-              <span class="nav__item--active">{{ item.name }}</span>
-            </template>
-          </div>
-          <div class="nav--border-bottom"></div>
-        </div>
+      <div class="tabBar-icon-box">
+        <img class="icon-box__back" src="../assets/img/后退.png" />
       </div>
-      <div class="tabBar-icon-wrapper">
-        <div class="tabBar-icon-box">
-          <img class="icon-box__forward" src="../assets/img/快进.png" />
+    </div>
+    <div class="tabBar-nav">
+      <div class="nav__item-wrapper">
+        <div class="nav__item" v-for="item in tabs">
+          <template v-if="item.active !== 1">
+            <div class="nav__item--others" @click="enableActive(item)">
+              <span class="nav__item__title">{{ item.name }}</span>
+              <img class="nav__item__close" src="../assets/img/叉.png" @click.stop="closeTab" />
+            </div>
+          </template>
+          <template v-else>
+            <span class="nav__item--active">{{ item.name }}</span>
+          </template>
         </div>
-        <div class="tabBar-icon-box">
-          <img class="icon-box__refresh" src="../assets/img/刷新@2X.png" />
-        </div>
-        <div class="tabBar-close">
-          <span class="tabBar-close__title">关闭操作</span>
-          <img class="tabBar-close__triangle" src="../assets/img/多边形 1@2X.png" />
-        </div>
+        <div class="nav--border-bottom"></div>
+      </div>
+    </div>
+    <div class="tabBar-icon-wrapper">
+      <div class="tabBar-icon-box">
+        <img class="icon-box__forward" src="../assets/img/快进.png" />
+      </div>
+      <div class="tabBar-icon-box">
+        <img class="icon-box__refresh" src="../assets/img/刷新@2X.png" />
+      </div>
+      <div class="tabBar-close">
+        <span class="tabBar-close__title">关闭操作</span>
+        <img class="tabBar-close__triangle" src="../assets/img/多边形 1@2X.png" />
       </div>
     </div>
   </div>

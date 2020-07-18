@@ -10,10 +10,18 @@
   font-family: "PingFangSC-Regular";
   src: url("../font/PingFang Regular.otf");
 }
-body::-webkit-scrollbar {display:none}
+body::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   user-select: none;
 }
+html,
+body {
+  height: 100%;
+}
+
 .wh_33 {
   width: 33%;
 }
@@ -25,13 +33,13 @@ body::-webkit-scrollbar {display:none}
 }
 .font--normal {
   line-height: 20px;
-  font-family: 'PingFangSC-Regular';
+  font-family: "PingFangSC-Regular";
   font-size: 14px;
   color: #212b36;
 }
 .font--active {
   line-height: 20px;
-  font-family: 'PingFangSC-Regular';
+  font-family: "PingFangSC-Regular";
   font-size: 14px;
   color: #45484b;
 }

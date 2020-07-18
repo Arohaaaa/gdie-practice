@@ -1,5 +1,5 @@
 <template>
-  <div id="main">
+  <div id="donetable">
     <div class="title">
       <span>已办</span>
     </div>
@@ -207,11 +207,11 @@ export default {
 </script>
 
 <style scoped>
-#main {
+#donetable {
   background-color: #f5f5f5;
   padding: 20px 30px 60px 30px;
 }
-#main > .title {
+#donetable > .title {
   font-size: 26px;
 }
 .title {
@@ -346,9 +346,6 @@ export default {
  */
 .aside .el-aside {
   padding: 24px;
-}
-.el-main {
-  border-left: 1px solid #dae0e5;
 }
 .menu .el-menu {
   border-right: 0;
