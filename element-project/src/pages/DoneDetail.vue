@@ -4,11 +4,9 @@
       <el-breadcrumb-item to="/done/doneTable">已办</el-breadcrumb-item>
       <el-breadcrumb-item to="/done/donedetail">已办详情</el-breadcrumb-item>
     </el-breadcrumb>
-    <div class="content">
+    <div class="content-detail">
       <div class="content__title-box">
-        <span class="content__title"
-          >标题名称标题名称标题名称标题名称标题名称标题名称标题名称标题名称</span
-        >
+        <span class="content__title">标题名称标题名称标题名称标题名称标题名称标题名称标题名称标题名称</span>
       </div>
       <v-item title="基本信息">
         <template>
@@ -65,9 +63,7 @@
                     <div class="item__addition--left">
                       <div class="item__addition--word">w</div>
                       <div class="item__addition-name">
-                        <span
-                          >加快建设为产业发展和产品准入提供质量检测支持.docx</span
-                        >&nbsp;
+                        <span>加快建设为产业发展和产品准入提供质量检测支持.docx</span>&nbsp;
                         <span>(1.8MB)</span>
                       </div>
                     </div>
@@ -81,9 +77,7 @@
                     <div class="item__addition--left">
                       <div class="item__addition--pdf">p</div>
                       <div class="item__addition-name">
-                        <span
-                          >加快建设为产业发展和产品准入提供质量检测支持加快建设为产业发展和产品准入提供质量检测.pdf</span
-                        >&nbsp;
+                        <span>加快建设为产业发展和产品准入提供质量检测支持加快建设为产业发展和产品准入提供质量检测.pdf</span>&nbsp;
                         <span>(1.46MB)</span>
                       </div>
                     </div>
@@ -112,9 +106,7 @@
                 <div class="verify-segment--verticalLine"></div>
               </div>
               <div class="verify-segment__right">
-                <span class="verify-segment--fontbold verify-segment--verifying"
-                  >领导审批</span
-                >
+                <span class="verify-segment--fontbold verify-segment--verifying">领导审批</span>
                 <span class="verify-segment__dapartment">审核部门：综合部</span>
               </div>
             </div>
@@ -124,18 +116,15 @@
                 <span class="verify-segment__verifyDate">2020-04-22 17:50</span>
               </div>
               <div class="verify-segment__center">
-                <img
-                  class="verify-segment__centerimg"
-                  src="../assets/img/组 805@2X.png"
-                />
+                <img class="verify-segment__centerimg" src="../assets/img/组 805@2X.png" />
                 <div class="verify-segment--verticalLine"></div>
               </div>
               <div class="verify-segment__right">
                 <span class="verify-segment--fontbold">部门审批</span>
                 <span class="verify-segment__dapartment">审核部门：综合部</span>
-                <span class="verify-segment__dapartment"
-                  >审核部门：审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见</span
-                >
+                <span
+                  class="verify-segment__dapartment"
+                >审核部门：审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见审批意见</span>
               </div>
             </div>
             <div class="verify-ellipsis">
@@ -144,22 +133,14 @@
                 <span class="verify-segment__verifyDate">2020-04-22 17:50</span>
               </div>
               <div class="verify-segment__center">
-                <img
-                  class="verify-segment--ellipsis"
-                  src="../assets/img/组 810@2X.png"
-                />
+                <img class="verify-segment--ellipsis" src="../assets/img/组 810@2X.png" />
                 <div class="verify-segment--verticalLineUp"></div>
-                <img
-                  class="verify-segment__centerimg"
-                  src="../assets/img/组 805@2X.png"
-                />
+                <img class="verify-segment__centerimg" src="../assets/img/组 805@2X.png" />
               </div>
               <div class="verify-segment__right">
                 <span class="verify-segment--fontbold">拟稿</span>
                 <span class="verify-segment__dapartment">审核部门：综合部</span>
-                <span class="verify-segment__dapartment"
-                  >审核部门：审批意见审批意见审批意见审批意见审批意见审批意见</span
-                >
+                <span class="verify-segment__dapartment">审核部门：审批意见审批意见审批意见审批意见审批意见审批意见</span>
               </div>
             </div>
           </div>

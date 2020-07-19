@@ -120,6 +120,7 @@ export default {
   font-size: 14px;
   height: 44px;
   border-bottom: 1px solid #dae0e5;
+  border-left: 1px solid #dae0e5;
 }
 .tabBar-icon-wrapper {
   display: flex;

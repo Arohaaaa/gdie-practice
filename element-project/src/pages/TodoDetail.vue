@@ -4,7 +4,7 @@
       <el-breadcrumb-item to="/todo/todotable">待办</el-breadcrumb-item>
       <el-breadcrumb-item to="/todo/tododetail">待办详情</el-breadcrumb-item>
     </el-breadcrumb>
-    <div class="content">
+    <div class="content-detail">
       <div class="content__title-box">
         <span class="content__title">标题名称标题名称标题名称标题名称标题名称标题名称标题名称标题名称</span>
       </div>

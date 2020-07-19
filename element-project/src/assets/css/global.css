@@ -10,10 +10,10 @@
   font-family: "PingFangSC-Regular";
   src: url("../font/PingFang Regular.otf");
 }
-body::-webkit-scrollbar {
-  display: none;
+.icon-wenjianjia-copy:before,
+.icon-wenjian:before {
+  color: #7da4d1;
 }
-
 * {
   user-select: none;
 }
@@ -21,7 +21,10 @@ html,
 body {
   height: 100%;
 }
-
+input::placeholder,
+textarea::placeholder {
+  color: #919eab !important;
+}
 .wh_33 {
   width: 33%;
 }

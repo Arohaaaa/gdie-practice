@@ -100,11 +100,6 @@
   outline: none;
   border: none;
 }
-input.el-input__inner::placeholder,
-.baseInfo__input--taskTitle input::placeholder,
-.baseInfo__input--taskContent textarea::placeholder {
-  color: #919eab;
-}
 .baseInfo__input--taskContent textarea {
   padding-top: 8px;
   font-family: "PingFangSC-Medium";
@@ -313,6 +308,9 @@ input.el-input__inner::placeholder,
   background: #ffffff;
 }
 /* 按钮 */
+.btn--wrapper {
+  margin-bottom: 60px;
+}
 .btn--wrapper .btn {
   width: 96px;
   height: 36px;

@@ -120,6 +120,7 @@ export default {
   border-color: #c4cdd5;
 }
 .content .el-main {
+  padding: 0;
   border-left: 1px solid #dae0e5;
 }
 .menu .el-menu {

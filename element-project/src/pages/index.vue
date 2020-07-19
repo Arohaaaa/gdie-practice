@@ -80,7 +80,7 @@
       </div>
       <div class="main">
         <v-tabbar :activeTabs="asideClickItems"></v-tabbar>
-        <router-view class="page-content"></router-view>
+        <router-view class="page-content--wrapper"></router-view>
       </div>
     </div>
   </div>
@@ -190,7 +190,6 @@ export default {
 }
 .aside {
   flex-shrink: 0;
-  border-right: 1px solid #dae0e5;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
   width: 250px;
   background-color: #fff;
@@ -266,27 +265,18 @@ export default {
 .main {
   flex: 1;
 }
-.page-content {
+.page-content--wrapper {
   height: calc(100% - 45px);
   overflow-y: auto;
 }
 </style>
 
 <style>
-.aside .el-collapse-item__wrap {
-  border-bottom: none;
-}
 .aside .el-collapse-item__content {
   padding-bottom: 0;
 }
-.el-collapse-item__header.is-active {
-  border-bottom-color: #ebeef5;
-}
 .container .el-main {
-  padding: 0;
   overflow: hidden;
-}
-.container > .el-main {
   border-left: 0;
 }
 </style>

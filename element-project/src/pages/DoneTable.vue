@@ -1,10 +1,26 @@
 <template>
-  <div id="donetable">
+  <div id="page-table">
     <div class="title">
       <span>已办</span>
     </div>
-    <div class="content">
-      <v-aside></v-aside>
+    <div class="content-table">
+      <el-aside>
+        <el-input placeholder="请输入分类名称进行搜索">
+          <template slot="append">
+            <span class="search-input">搜索</span>
+          </template>
+        </el-input>
+        <div class="tree">
+          <el-tree :data="data" node-key="id" default-expand-all :expand-on-click-node="false">
+            <span class="custom-tree-node" slot-scope="{ node, data }">
+              <span>
+                <i :class="['iconfont',data.icon]"></i>
+                {{ node.label }}
+              </span>
+            </span>
+          </el-tree>
+        </div>
+      </el-aside>
       <el-main>
         <div class="table-search-wrapper">
           <div class="search-input-box">
@@ -87,12 +103,82 @@
 </template>
 
 <script>
-import TableAside from '../components/TableAside.vue'
+import '../assets/css/table.css'
 import Table from '../components/Table.vue'
 export default {
 
   data () {
     return {
+      data: [{
+        id: 1,
+        label: '分类',
+        icon: 'icon-wenjianjia-copy',
+        children: [{
+          id: 2,
+          label: '一级分类',
+          icon: 'icon-wenjianjia-copy',
+          children: [{
+            id: 6,
+            label: '二级分类名称',
+            icon: 'icon-wenjian'
+          }, {
+            id: 7,
+            label: '二级分类名称',
+            icon: 'icon-wenjian'
+          },{
+            id: 8,
+            label: '二级分类名称',
+            icon: 'icon-wenjian'
+          }, {
+            id: 9,
+            label: '二级分类名称',
+            icon: 'icon-wenjian'
+          }]
+        },{
+          id: 3,
+          label: '一级分类',
+          icon: 'icon-wenjianjia-copy',
+          children: [{
+            id: 10,
+            label: '二级分类名称',
+            icon: 'icon-wenjian'
+          }, {
+            id: 11,
+            label: '二级分类名称',
+            icon: 'icon-wenjian'
+          }]
+        },{
+          id: 4,
+          label: '一级分类',
+          icon: 'icon-wenjianjia-copy',
+          children: [{
+            id: 12,
+            label: '二级分类名称',
+            icon: 'icon-wenjian'
+          }, {
+            id: 13,
+            label: '二级分类名称',
+            icon: 'icon-wenjian'
+          }]
+        },{
+          id: 5,
+          label: '一级分类',
+          icon: 'icon-wenjianjia-copy',
+          children: [{
+            id: 14,
+            label: '二级分类名称',
+            icon: 'icon-wenjian'
+          }, {
+            id: 15,
+            label: '二级分类名称',
+            icon: 'icon-wenjian'
+          }]
+        }]
+      }],
+      defaultProps: {
+          children: 'children',
+          label: 'label'
+        },
       dialogFormVisible: true,
       categories: [{
         value: '选项1',
@@ -197,238 +283,16 @@ export default {
   methods: {
     viewDetail (url) {
       this.$router.push(url)
+    },
+    handleNodeClick(data){
+      console.log(data)
     }
   },
   components: {
-    'v-aside': TableAside,
     'v-table': Table
   }
 }
 </script>
 
 <style scoped>
-#donetable {
-  background-color: #f5f5f5;
-  padding: 20px 30px 60px 30px;
-}
-#donetable > .title {
-  font-size: 26px;
-}
-.title {
-  color: #212b36;
-}
-.content {
-  display: flex;
-  margin-top: 18px;
-  background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid #dae0e5;
-  box-shadow: 0px 0px 3px#e0e0e1;
-}
-
-.table-search-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  height: 82px;
-}
-.search-input-box,
-.search-select-box {
-  display: flex;
-  align-items: center;
-  border-left: 1px solid #dae0e5;
-  cursor: pointer;
-}
-.search-input-box {
-  width: 300px;
-}
-.search-input-box .icon-search {
-  margin-left: 12px;
-  width: 14px;
-  height: 14px;
-}
-.search-input-box input {
-  margin: 0 42px 0 12px;
-  width: 100%;
-  border: none;
-  outline: none;
-  color: rgba(145, 158, 171, 1);
-  font-size: 14px;
-}
-.search-select-box .icon-select {
-  margin-left: 12px;
-  width: 16px;
-  height: 16px;
-}
-.search-select-box .title {
-  margin-left: 8px;
-  font-size: 14px;
-  color: rgba(33, 43, 54, 1);
-}
-.search-select-box .icon-arrow {
-  margin: 0 12px 0 8px;
-  width: 10px;
-  height: 6px;
-}
-
-.search__hidden {
-  visibility: hidden;
-}
-.search__hiddenItem {
-  position: absolute;
-  top: 84px;
-  background-color: #fff;
-  box-shadow: -2px 2px 2px rgba(63, 63, 68, 0.16);
-  width: 350px;
-  z-index: 2008;
-}
-.hiddenItem-title-box {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 24px;
-  margin-top: 18px;
-}
-.hiddenItem-title-box .title {
-  font-weight: bold;
-  font-size: 16px;
-  color: rgba(33, 43, 54, 1);
-}
-.hiddenItem-title-box .icon-close {
-  width: 12px;
-  height: 12px;
-}
-.hiddenItem-form-box {
-  margin-top: 33px;
-  padding: 0 24px;
-  font-size: 14px;
-}
-.hiddenItem-form-box label {
-  display: block;
-  color: rgba(33, 43, 54, 1);
-  margin-bottom: 8px;
-}
-.form__input-box {
-  margin-bottom: 16px;
-}
-
-.form__input-box .icon_triangle {
-  margin-right: 12px;
-  width: 8px;
-  height: 4px;
-}
-.hiddenItem-btn-box {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  border-top: 1px solid rgba(217, 217, 217, 1);
-  padding: 16px 24px 16px 0;
-}
-.hiddenItem-btn-box .btn {
-  padding: 8px 22px;
-  margin-left: 10px;
-  background-color: #fff;
-  outline: none;
-  border: 1px solid rgba(196, 205, 213, 1);
-  border-radius: 4px;
-}
-.hiddenItem-btn-box .btn:nth-child(1) {
-  background-color: #0270e0;
-  color: #fff;
-}
-</style>
-
-
-<style>
-/* 
-  通过写在无scoped的style元素里的样式来覆盖
-  element默认样式同时在父级元素上定义一个类
-  名防止污染全局样式。
- */
-.aside .el-aside {
-  padding: 24px;
-}
-.menu .el-menu {
-  border-right: 0;
-}
-.menu .el-submenu__title {
-  margin: 20px 0 8px 0;
-  height: auto;
-  line-height: 0;
-  padding-left: 8px !important;
-}
-.menu .el-submenu__triangle {
-  margin-left: 8px;
-  width: 8px;
-  height: 6px;
-}
-.menu .el-submenu__fileFolder {
-  margin: 0 6px 0 10px;
-  width: 14px;
-}
-
-.menu .el-menu-item-group__title {
-  display: flex;
-  align-items: center;
-  margin: 8px 0 8px 6px;
-  padding-left: 8px !important;
-  padding: 0;
-  font-size: 14px;
-  color: #212b36;
-}
-.menu .el-submenu__top {
-  background-color: #eef1f4;
-}
-.menu .el-submenu__subTitle {
-  color: #212b36 !important;
-}
-.menu .el-submenu__file {
-  margin-right: 6px;
-  width: 10px;
-  height: 12px;
-}
-.menu .el-submenu .el-menu-item {
-  height: auto;
-  line-height: 0;
-  padding-left: 65px !important;
-  padding: 0;
-  margin-bottom: 18px;
-}
-.menu .el-icon-arrow-down:before {
-  content: "";
-}
-.search__hiddenItem .el-select {
-  width: 100%;
-}
-.el-select-dropdown {
-  z-index: 2021 !important;
-}
-.search__hiddenItem .el-date-editor--daterange.el-input__inner {
-  width: 100%;
-}
-.el-picker-panel {
-  z-index: 2010 !important;
-}
-.table-pagination-wrapper {
-  margin: 20px 20px 12px 0;
-  display: flex;
-  justify-content: flex-end;
-}
-.table-pagination-wrapper .el-pagination {
-  font-weight: normal;
-}
-.table-pagination-wrapper .el-pagination .el-input__inner {
-  border: none;
-}
-.table-pagination-wrapper .el-pagination__sizes {
-  margin: 0;
-}
-.table-pagination-wrapper .el-pager li.active {
-  border-radius: 5px;
-  background-color: #5077aa;
-  color: #fff;
-}
-.table-pagination-wrapper .el-pager li {
-  font-size: 14px;
-  color: #5077aa;
-}
 </style>
