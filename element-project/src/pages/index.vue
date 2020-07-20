@@ -12,68 +12,106 @@
           <el-collapse-item class="collapse_item" name="1">
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
                 <span class="title-box__title">统一待办</span>
               </div>
             </template>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/todo">待办</router-link>
+              <router-link class="collapse-subitem__title" to="/todo"
+                >待办</router-link
+              >
             </div>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/done">已办</router-link>
+              <router-link class="collapse-subitem__title" to="/done"
+                >已办</router-link
+              >
             </div>
           </el-collapse-item>
           <el-collapse-item class="collapse_item" name="2">
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
                 <span class="title-box__title">任务管理</span>
               </div>
             </template>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/task">创建任务</router-link>
+              <router-link class="collapse-subitem__title" to="/task"
+                >创建任务</router-link
+              >
             </div>
           </el-collapse-item>
           <el-collapse-item class="collapse_item" name="3">
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
                 <span class="title-box__title">测试一</span>
               </div>
             </template>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test1">选项一</router-link>
+              <router-link class="collapse-subitem__title" to="/test1"
+                >选项一</router-link
+              >
             </div>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test2">选项二</router-link>
+              <router-link class="collapse-subitem__title" to="/test2"
+                >选项二</router-link
+              >
             </div>
           </el-collapse-item>
           <el-collapse-item class="collapse_item" name="4">
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
                 <span class="title-box__title">测试二</span>
               </div>
             </template>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test3">选项三</router-link>
+              <router-link class="collapse-subitem__title" to="/test3"
+                >选项三</router-link
+              >
             </div>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test4">选项四</router-link>
+              <router-link class="collapse-subitem__title" to="/test4"
+                >选项四</router-link
+              >
             </div>
           </el-collapse-item>
           <el-collapse-item class="collapse_item" name="5">
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
                 <span class="title-box__title">测试三</span>
               </div>
             </template>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test5">选项五</router-link>
+              <router-link class="collapse-subitem__title" to="/test5"
+                >选项五</router-link
+              >
             </div>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test6">选项六</router-link>
+              <router-link class="collapse-subitem__title" to="/test6"
+                >选项六</router-link
+              >
             </div>
           </el-collapse-item>
         </el-collapse>
@@ -190,7 +228,7 @@ export default {
 }
 .aside {
   flex-shrink: 0;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 44px 2px rgba(0, 0, 0, 0.05);
   width: 250px;
   background-color: #fff;
   z-index: 1;

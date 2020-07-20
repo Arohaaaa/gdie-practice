@@ -11,13 +11,18 @@
     <div class="tabBar-nav">
       <div class="nav__item-wrapper">
         <div class="nav__item" v-for="item in tabs">
-          <template v-if="item.active !== 1">
-            <div class="nav__item--others" @click="enableActive(item)">
-              <span class="nav__item__title">{{ item.name }}</span>
-              <img class="nav__item__close" src="../assets/img/叉.png" @click.stop="closeTab" />
-            </div>
-          </template>
-          <template v-else>
+          <transition name="fade"
+            ><template v-if="item.active !== 1">
+              <div class="nav__item--others" @click="enableActive(item)">
+                <span class="nav__item__title">{{ item.name }}</span>
+                <img
+                  class="nav__item__close"
+                  src="../assets/img/叉.png"
+                  @click.stop="closeTab"
+                />
+              </div> </template
+          ></transition>
+          <template v-if="item.active == 1">
             <span class="nav__item--active">{{ item.name }}</span>
           </template>
         </div>
@@ -33,7 +38,10 @@
       </div>
       <div class="tabBar-close">
         <span class="tabBar-close__title">关闭操作</span>
-        <img class="tabBar-close__triangle" src="../assets/img/多边形 1@2X.png" />
+        <img
+          class="tabBar-close__triangle"
+          src="../assets/img/多边形 1@2X.png"
+        />
       </div>
     </div>
   </div>
@@ -119,11 +127,11 @@ export default {
   justify-content: space-between;
   font-size: 14px;
   height: 44px;
-  border-bottom: 1px solid #dae0e5;
   border-left: 1px solid #dae0e5;
 }
 .tabBar-icon-wrapper {
   display: flex;
+  border-bottom: 1px solid #dae0e5;
 }
 .tabBar-icon-box {
   height: 44px;
@@ -164,11 +172,11 @@ export default {
   border-left: 1px solid #dae0e5;
   flex-shrink: 0;
   width: 134px;
-  height: 44px;
   line-height: 44px;
 }
 .nav--border-bottom {
   flex: 1;
+  border-bottom: 1px solid #dae0e5;
 }
 .nav__item--active {
   display: block;
@@ -180,6 +188,8 @@ export default {
 }
 .nav__item--others {
   padding: 0 12px 0 42px;
+  height: 43px;
+  border-bottom: 1px solid #dae0e5;
 }
 .nav__item__title {
   color: #212b36;
@@ -205,5 +215,12 @@ export default {
   margin-left: 4px;
   width: 8px;
   height: 4px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
