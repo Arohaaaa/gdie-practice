@@ -1,6 +1,9 @@
 #page-table {
-  background-color: #f5f5f5;
-  padding: 20px 30px 60px 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px 0px 30px;
+  height: 100%;
+  box-sizing: border-box;
 }
 #page-table > .title {
   font-size: 26px;
@@ -10,13 +13,17 @@
 }
 .content-table {
   display: flex;
-  margin-top: 18px;
+  flex: 1;
+  box-sizing: border-box;
+  margin: 18px 0 60px 0;
   background-color: #fff;
   border-radius: 4px;
   border: 1px solid #dae0e5;
   box-shadow: 0px 0px 3px#e0e0e1;
 }
 .content-table .el-main {
+  display: flex;
+  flex-direction: column;
   padding: 0;
   border-left: 1px solid #dae0e5;
 }
@@ -28,12 +35,16 @@
 .el-aside .search-input {
   color: #212b36;
 }
+.el-aside .el-input--suffix .el-input__inner {
+  padding-right: 0;
+}
 .el-aside .el-input-group__append {
   padding: 8px 14px;
   background-color: #eef1f4;
   border-color: #c4cdd5;
 }
-.tree {
+.tree,
+.searchTree {
   margin-top: 20px;
 }
 .tree .el-tree-node:focus > .el-tree-node__content {
@@ -43,7 +54,18 @@
   font-size: 14px;
   color: #212b36;
 }
-
+.searchTree li.resultNode {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  height: 24px;
+  font-size: 14px;
+  color: #212b36;
+  background: #eef1f4;
+}
+.typeName {
+  margin-left: 6px;
+}
 /* 表格侧边树形组件 end */
 /* 表格上方的搜索栏 start */
 .table-search-wrapper {
@@ -163,7 +185,21 @@
   width: 100%;
 }
 /* 表格上方的搜索栏 end */
-
+.table {
+  border-top: 1px solid #dae0e5;
+  flex: 1;
+}
+.noData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: #909399;
+  box-sizing: border-box;
+}
 /* 表格下方的分页 start */
 .table-pagination-wrapper {
   margin: 20px 20px 12px 0;

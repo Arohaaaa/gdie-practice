@@ -305,7 +305,11 @@ export default {
 }
 .page-content--wrapper {
   height: calc(100% - 45px);
+  background: #f5f5f5;
   overflow-y: auto;
+}
+.page-content--wrapper::-webkit-scrollbar {
+  width: 0;
 }
 </style>
 
