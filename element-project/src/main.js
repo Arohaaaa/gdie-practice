@@ -3,16 +3,17 @@ import App from './App.vue'
 import router from './router/router'
 import axios from 'axios';
 import store from './vuex/store';
+import Element from 'element-ui'
 // 导入样式表
 import './assets/css/global.css'
 import './assets/css/reset.css'
 import 'element-ui/lib/theme-chalk/index.css'
 // 导入插件
-// 导入element.js
-import './plugins/element.js'
+
 // 导入VueCookies
 import cookies from 'vue-cookie'
 import session from 'vue-session'
+Vue.use(Element)
 Vue.use(cookies)
 Vue.use(session)
 Vue.prototype.$eventBus = new Vue()

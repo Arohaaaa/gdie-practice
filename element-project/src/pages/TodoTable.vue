@@ -102,7 +102,13 @@
           </div>
         </div>
         <div class="table">
-          <el-table v-if="tableShow" :data="tableData" style="width: 100%">
+          <el-table
+            v-loading="loading"
+            class="el-table"
+            v-if="tableShow"
+            :data="tableData"
+            style="width: 100%"
+          >
             <el-table-column label="标题" width="180">
               <template slot-scope="scope"
                 ><span>{{ scope.row.instName }}</span></template
@@ -160,6 +166,7 @@
 </template>
 
 <script>
+import { Loading } from "element-ui";
 import { ESTAxios } from "../plugins/public";
 import "../assets/css/table.css";
 export default {
@@ -198,6 +205,7 @@ export default {
       createValue: "",
       tableData: [],
       tableShow: true,
+      loading: false,
     };
   },
   methods: {
@@ -268,6 +276,7 @@ export default {
       this.sendRequestForTable(typeKey);
     },
     sendRequestForTable(typeKey) {
+      this.loading = true;
       let that = this;
       ESTAxios({
         url: "/workitem/pages",
@@ -276,6 +285,7 @@ export default {
         },
         success: function(res) {
           if (res.data.length > 0) {
+            that.loading = false;
             that.tableData = res.data;
             that.tableShow = true;
           } else {
