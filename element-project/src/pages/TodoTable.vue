@@ -10,6 +10,7 @@
           v-model="categorySearch"
           clearable
           @clear="showCom = true"
+          @change="searchClassify"
         >
           <template slot="append">
             <span class="search-input" @click="searchClassify">搜索</span>
@@ -39,8 +40,8 @@
             class="resultNode"
             @click="getTableListFromSearchTree(item.typeKey)"
           >
-            <i class="iconfont icon-wenjian"></i
-            ><span class="typeName">{{ item.typeName }}</span>
+            <i class="iconfont icon-wenjian"></i>
+            <span class="typeName">{{ item.typeName }}</span>
           </li>
         </div>
       </el-aside>
@@ -48,7 +49,12 @@
         <div class="table-search-wrapper">
           <div class="search-input-box">
             <img class="icon-search" src="../assets/img/搜索.png" />
-            <input placeholder="请输入标题/环节/应用名称进行搜索" type="text" />
+            <input
+              placeholder="请输入标题/环节/应用名称进行搜索"
+              v-model="searchInfo"
+              type="text"
+              @change="searchByInfo"
+            />
           </div>
           <div
             class="search-select-box"
@@ -66,7 +72,11 @@
           >
             <div class="hiddenItem-title-box">
               <div class="title">筛选</div>
-              <img class="icon-close" src="../assets/img/关闭@2X.png" />
+              <img
+                class="icon-close pointer"
+                src="../assets/img/关闭@2X.png"
+                @click="dialogFormVisible = true"
+              />
             </div>
             <div class="hiddenItem-form-box">
               <label for="classify">分类</label>
@@ -87,77 +97,84 @@
               <label for="createtime">创建时间</label>
               <div class="form__input-box">
                 <el-date-picker
-                  v-model="createValue"
+                  v-model="dateRange"
                   type="daterange"
                   range-separator="至"
                   start-placeholder="开始日期"
                   end-placeholder="结束日期"
+                  value-format="yyyy-MM-dd HH:mm:ss"
                 ></el-date-picker>
               </div>
             </div>
             <div class="hiddenItem-btn-box">
-              <button class="btn">确定</button>
-              <button class="btn">取消</button>
+              <button class="btn" @click="submitSelect()">确定</button>
+              <button class="btn" @click="dialogFormVisible = true">
+                取消
+              </button>
             </div>
           </div>
         </div>
         <div class="table">
           <el-table
+            stripe
             v-loading="loading"
             class="el-table"
             v-if="tableShow"
             :data="tableData"
             style="width: 100%"
           >
-            <el-table-column label="标题" width="180">
-              <template slot-scope="scope"
-                ><span>{{ scope.row.instName }}</span></template
-              >
+            <el-table-column label="标题">
+              <template slot-scope="scope">
+                <span>{{ scope.row.instName }}</span>
+              </template>
             </el-table-column>
-            <el-table-column label="环节" width="180">
-              <template slot-scope="scope">{{ scope.row.nodeName }} </template>
+            <el-table-column label="环节">
+              <template slot-scope="scope">{{ scope.row.nodeName }}</template>
             </el-table-column>
             <el-table-column label="应用">
-              <template slot-scope="scope"
-                >{{ scope.row.applicationName }}
-              </template>
+              <template slot-scope="scope">{{
+                scope.row.applicationName
+              }}</template>
             </el-table-column>
             <el-table-column label="分类">
-              <template slot-scope="scope"> {{ scope.row.typeName }}</template>
+              <template slot-scope="scope">{{ scope.row.typeName }}</template>
             </el-table-column>
-            <el-table-column label="处理时间">
-              <template slot-scope="scope"
-                >{{ scope.row.createTime }}
+            <el-table-column label="处理时间" width="180">
+              <template slot-scope="scope">{{ scope.row.createTime }}</template>
+            </el-table-column>
+            <el-table-column label="操作" width="60">
+              <template slot-scope="scope">
+                <span @click="viewDetail(scope.row.serialNumber)">查看</span>
               </template>
-            </el-table-column>
-            <el-table-column label="操作">
-              <template slot-scope="scope"> 查看</template>
             </el-table-column>
           </el-table>
           <div v-else class="noData">
-            <img src="../assets/img/noData2.6dcf2e3.png" /><span>暂无数据</span>
+            <img src="../assets/img/noData2.6dcf2e3.png" />
+            <span>暂无数据</span>
           </div>
         </div>
         <div class="table-pagination-wrapper">
           <el-pagination
-            :page-sizes="[10, 30, 50, 100]"
-            :page-size="10"
+            @size-change="sizeChange"
+            @current-change="currentChange"
+            :page-sizes="[5, 10, 30, 50]"
+            :page-size="pageSize"
             :pager-count="5"
+            :current-page="currentPage"
+            :total="total"
             layout="sizes, prev, pager, next"
-            :total="1000"
           ></el-pagination>
           <!-- 存疑 -->
           <span class="el-pagination__jump">
             <div class="el-input el-pagination__editor is-in-pagination">
               <input
                 type="number"
-                autocomplete="off"
-                min="1"
-                max="100"
+                @blur="jumpTo"
+                v-model="toPage"
                 class="el-input__inner"
               />
             </div>
-            跳转
+            <span class="pointer" @click="jumpTo">跳转</span>
           </span>
         </div>
       </el-main>
@@ -189,31 +206,44 @@ export default {
       level: "",
       searchTreeData: [],
       showCom: true,
+      typeKey: "",
       // 分类树 end
+      // 筛选 start
+      searchInfo: "",
       dialogFormVisible: true,
       categories: [
         {
-          value: "选项1",
-          label: "分类一",
+          value: "default",
+          label: "默认分类",
         },
         {
-          value: "选项2",
-          label: "分类二",
+          value: "level2",
+          label: "level2",
         },
       ],
       categoryValue: "",
-      createValue: "",
+      dateRange: "",
+      // 筛选 end
+      // table start
       tableData: [],
       tableShow: true,
       loading: false,
+      // table end
+      // 分页栏 start
+      currentPage: 1,
+      pageSize: 5,
+      total: 0,
+      toPage: "",
+      // 分页栏 end
     };
   },
   methods: {
-    viewDetail(url) {
-      this.$router.push(url);
-    },
     // 搜索
     searchClassify() {
+      if (this.categorySearch.length == 0) {
+        this.showCom = true;
+        return;
+      }
       var that = this;
       let typeName = this.categorySearch;
       ESTAxios({
@@ -269,35 +299,131 @@ export default {
       }
       return childDataList;
     },
+    // 默认分类菜单点击事件处理
     getTableListFromTree(data) {
-      this.sendRequestForTable(data.typeKey);
+      this.typeKey = data.typeKey;
     },
+    // 搜索后的分类菜单点击事件处理
     getTableListFromSearchTree(typeKey) {
-      this.sendRequestForTable(typeKey);
+      this.typeKey = typeKey;
     },
-    sendRequestForTable(typeKey) {
+    searchByInfo() {
+      this.fuzzyParam = this.searchInfo;
+    },
+    submitSelect() {
+      if (Array.isArray(this.dateRange)) {
+        this.sendRequestForTable({
+          typeKey: this.categoryValue,
+          createTimeStart: this.dateRange[0],
+          createTimeEnd: this.dateRange[1],
+        });
+      } else {
+        this.sendRequestForTable({
+          typeKey: this.categoryValue,
+        });
+      }
+      this.dialogFormVisible = true;
+    },
+    // 查看详情
+    viewDetail(serialNumber) {
+      this.$router.push({
+        name: "tododetail",
+        params: { serialNumber: serialNumber },
+      });
+    },
+    sizeChange(val) {
+      this.pageSize = val;
+    },
+    currentChange(val) {
+      this.currentPage = val;
+    },
+    jumpTo() {
+      if (this.toPage > this.total / this.pageSize) {
+        this.toPage = Math.ceil(this.total / this.pageSize);
+      }
+      this.currentPage = this.toPage;
+    },
+    // 获取table数据
+    sendRequestForTable({
+      typeKey = this.categoryValue || this.typeKey,
+      limit = this.pageSize,
+      page = this.currentPage,
+      fuzzyParam = this.searchInfo,
+      createTimeStart = typeof this.dateRange == "object"
+        ? this.dateRange[0]
+        : undefined,
+      createTimeEnd = typeof this.dateRange == "object"
+        ? this.dateRange[1]
+        : undefined,
+    } = {}) {
       this.loading = true;
       let that = this;
       ESTAxios({
         url: "/workitem/pages",
         data: {
           typeKey: typeKey,
+          limit: limit,
+          page: page,
+          fuzzyParam: fuzzyParam,
+          createTimeStart: createTimeStart,
+          createTimeEnd: createTimeEnd,
         },
         success: function(res) {
+          console.log(res);
+          //请求成功且正常返回数据
           if (res.data.length > 0) {
+            that.$notify({
+              message: "请求成功，返回数据正常",
+              position: "top-right",
+              duration: 5000,
+            });
+
             that.loading = false;
             that.tableData = res.data;
             that.tableShow = true;
-          } else {
-            that.tableData = [];
+          }
+          // 请求成功但是无返回数据，原因是由于上一次请求成功后返回的页码page超出
+          // 了本次请求返回数据时的页码而无查询不到，但是count正常返回，因此通过
+          // res.count来做判断，并且重新设置页码为1从而重新触发请求。
+          else if (res.count > 0) {
+            that.$notify({
+              message:
+                "请求成功，因页码超出范围无匹配数据，正重新设置页码并发送请求",
+              position: "top-right",
+              duration: 5000,
+            });
+            that.currentPage = 1;
+          }
+          // 请求成功但是查询不到数据。
+          else {
+            that.$notify({
+              message: "请求成功，无匹配数据",
+              position: "top-right",
+              duration: 5000,
+            });
             that.tableShow = false;
           }
+          that.total = res.count;
         },
       });
     },
   },
   mounted() {
     this.sendRequestForTable();
+  },
+  watch: {
+    typeKey: function() {
+      this.sendRequestForTable({});
+    },
+    pageSize: function() {
+      this.sendRequestForTable({});
+    },
+    currentPage: function() {
+      this.sendRequestForTable({});
+    },
+    searchInfo: function() {
+      this.sendRequestForTable({});
+    },
   },
 };
 </script>

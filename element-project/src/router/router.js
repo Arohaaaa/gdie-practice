@@ -41,18 +41,20 @@ const routes = [
       {
         path: '/todo',
         component: Todo,
+        name: 'todo',
         redirect: '/todo/todotable',
         children:
-          [{ path: '/todo/tododetail', component: TodoDetail },
-          { path: '/todo/todotable', component: TodoTable }]
+          [{ path: '/todo/tododetail', name: 'tododetail', component: TodoDetail },
+          { path: '/todo/todotable', name: 'tdotable', component: TodoTable }]
       },
       {
         path: '/done',
         component: Done,
+        name: 'done',
         redirect: '/done/donetable',
         children:
-          [{ path: '/done/donedetail', component: DoneDetail },
-          { path: '/done/donetable', component: DoneTable }]
+          [{ path: '/done/donedetail', name: 'donedetail', component: DoneDetail },
+          { path: '/done/donetable', name: 'donetable', component: DoneTable }]
       },
       {
         path: '/task',

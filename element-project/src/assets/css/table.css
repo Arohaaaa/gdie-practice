@@ -38,10 +38,16 @@
 .el-aside .el-input--suffix .el-input__inner {
   padding-right: 0;
 }
+.el-aside .el-input--suffix .el-input__inner:focus {
+  border-color: #dae0e5;
+}
 .el-aside .el-input-group__append {
   padding: 8px 14px;
   background-color: #eef1f4;
   border-color: #c4cdd5;
+}
+.el-aside .el-input-group__append:hover {
+  border: 1px solid #13a7ff;
 }
 .tree,
 .searchTree {
@@ -58,6 +64,7 @@
   display: flex;
   align-items: center;
   list-style: none;
+  margin-bottom: 10px;
   height: 24px;
   font-size: 14px;
   color: #212b36;
@@ -181,13 +188,61 @@
 .el-select-dropdown {
   z-index: 2021 !important;
 }
+.el-picker-panel__body-wrapper {
+  z-index: 2022;
+}
 .search__hiddenItem .el-date-editor--daterange.el-input__inner {
   width: 100%;
+}
+.el-input__icon {
+  transition: none;
 }
 /* 表格上方的搜索栏 end */
 .table {
   border-top: 1px solid #dae0e5;
   flex: 1;
+}
+.table .el-table th {
+  height: 42px;
+  font-size: 12px;
+  color: #637381;
+  background: #eef1f4;
+  border-right: 1px solid #dae0e5;
+}
+.table .el-table tr {
+  height: 60px;
+  background: #fff;
+}
+.table .el-table__row--striped td {
+  background: #f5f7fa;
+}
+.table .el-table td {
+  font-size: 14px;
+  color: #212b36;
+  border-right: 1px solid #dae0e5;
+}
+.table .el-table td:nth-last-child(1) {
+  color: #0270e0;
+}
+.table .el-table .cell {
+  white-space: nowrap;
+}
+
+.table .td_handled {
+  padding: 6px 12px;
+  background-color: #f0f9eb;
+  border: 1px solid #e1f3d8;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #67c23a;
+}
+.table .td_abolish {
+  padding: 6px 12px;
+  background-color: #f4f4f5;
+  border: 1px solid #e9e9eb;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #919eab;
 }
 .noData {
   display: flex;
@@ -223,5 +278,8 @@
 .table-pagination-wrapper .el-pager li {
   font-size: 14px;
   color: #5077aa;
+}
+.pointer {
+  cursor: pointer;
 }
 /* 表格下方的分页 end */

@@ -144,5 +144,8 @@ export default {
   components: {
     "v-item": DetailSubItem,
   },
+  mounted(){
+    console.log(this.$route.params)
+  }
 };
 </script>
