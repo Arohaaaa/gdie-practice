@@ -9,7 +9,7 @@
           <span class="aside__title">统一待办</span>
         </div>
         <!-- 折叠面板组件 -->
-        <el-collapse accordion>
+        <el-collapse accordion></el-collapse>
           <el-collapse-item
             class="collapse_item"
             name="1"
