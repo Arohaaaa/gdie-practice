@@ -151,6 +151,7 @@ export default {
 }
 
 .tabBar-nav {
+  flex-grow: 1;
   overflow: hidden;
 }
 .nav__item-wrapper {
