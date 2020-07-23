@@ -11,17 +11,14 @@
     <div class="tabBar-nav">
       <div class="nav__item-wrapper">
         <div class="nav__item" v-for="item in tabs">
-          <transition name="fade"
-            ><template v-if="item.active !== 1">
+          <transition name="fade">
+            <template v-if="item.active !== 1">
               <div class="nav__item--others" @click="enableActive(item)">
                 <span class="nav__item__title">{{ item.name }}</span>
-                <img
-                  class="nav__item__close"
-                  src="../assets/img/叉.png"
-                  @click.stop="closeTab"
-                />
-              </div> </template
-          ></transition>
+                <img class="nav__item__close" src="../assets/img/叉.png" @click.stop="closeTab" />
+              </div>
+            </template>
+          </transition>
           <template v-if="item.active == 1">
             <span class="nav__item--active">{{ item.name }}</span>
           </template>
@@ -38,10 +35,7 @@
       </div>
       <div class="tabBar-close">
         <span class="tabBar-close__title">关闭操作</span>
-        <img
-          class="tabBar-close__triangle"
-          src="../assets/img/多边形 1@2X.png"
-        />
+        <img class="tabBar-close__triangle" src="../assets/img/多边形 1@2X.png" />
       </div>
     </div>
   </div>
@@ -157,16 +151,10 @@ export default {
 }
 
 .tabBar-nav {
-  flex-grow: 1;
-  flex-basis: 0;
-  display: flex;
   overflow: hidden;
 }
 .nav__item-wrapper {
-  flex-grow: 1;
   display: flex;
-  flex-wrap: nowrap;
-  overflow: hidden;
 }
 .nav__item {
   border-left: 1px solid #dae0e5;
