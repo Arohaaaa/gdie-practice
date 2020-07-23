@@ -22,6 +22,11 @@ axios.defaults.withCredentials = true;//允许跨域
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';//设置请求头
 Vue.config.productionTip = false
 
+// 错误监控
+// Vue.config.errorHandler = (err, vm, info) => {
+//   alert(err + '&' + vm + '&' + info)
+// }
+
 // router.beforeEach((to, from, next) => {
 //   const user = sessionStorage.getItem('user');
 //   console.log(to);

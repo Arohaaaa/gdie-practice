@@ -3,83 +3,178 @@
     <v-header></v-header>
 
     <div class="container">
-      <div class="aside">
+      <div :class="['aside', isFold ? 'expand' : '']">
         <div class="aside__title-wrapper">
+          <div :class="!isFold ? 'aside__title--line' : ''"></div>
           <span class="aside__title">统一待办</span>
         </div>
         <!-- 折叠面板组件 -->
-        <el-collapse value="1" accordion>
-          <el-collapse-item class="collapse_item" name="1">
+        <el-collapse accordion>
+          <el-collapse-item
+            class="collapse_item"
+            name="1"
+            :value="activeCollapseItem"
+            :class="isFold ? 'hoverItem' : ''"
+          >
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
-                <span class="title-box__title">统一待办</span>
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span
+                  :class="[
+                    'title-box__title',
+                    isFold ? 'move-right--hidden' : '',
+                  ]"
+                  >统一待办</span
+                >
               </div>
             </template>
-            <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/todo">待办</router-link>
+            <div
+              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
+              @click="addAsideClickItem()"
+            >
+              <router-link class="collapse-subitem__title" to="/todo"
+                >待办</router-link
+              >
             </div>
-            <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/done">已办</router-link>
+            <div
+              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
+              @click="addAsideClickItem()"
+            >
+              <router-link class="collapse-subitem__title" to="/done"
+                >已办</router-link
+              >
             </div>
           </el-collapse-item>
           <el-collapse-item class="collapse_item" name="2">
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
-                <span class="title-box__title">任务管理</span>
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span
+                  :class="[
+                    'title-box__title',
+                    isFold ? 'move-right--hidden' : '',
+                  ]"
+                  >任务管理</span
+                >
               </div>
             </template>
-            <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/task">创建任务</router-link>
+            <div
+              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
+              @click="addAsideClickItem()"
+            >
+              <router-link class="collapse-subitem__title" to="/task"
+                >创建任务</router-link
+              >
             </div>
           </el-collapse-item>
           <el-collapse-item class="collapse_item" name="3">
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
-                <span class="title-box__title">测试一</span>
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span
+                  :class="[
+                    'title-box__title',
+                    isFold ? 'move-right--hidden' : '',
+                  ]"
+                  >测试一</span
+                >
               </div>
             </template>
-            <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test1">选项一</router-link>
+            <div
+              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
+              @click="addAsideClickItem()"
+            >
+              <router-link class="collapse-subitem__title" to="/test1"
+                >选项一</router-link
+              >
             </div>
-            <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test2">选项二</router-link>
+            <div
+              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
+              @click="addAsideClickItem()"
+            >
+              <router-link class="collapse-subitem__title" to="/test2"
+                >选项二</router-link
+              >
             </div>
           </el-collapse-item>
           <el-collapse-item class="collapse_item" name="4">
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
-                <span class="title-box__title">测试二</span>
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span
+                  :class="[
+                    'title-box__title',
+                    isFold ? 'move-right--hidden' : '',
+                  ]"
+                  >测试二</span
+                >
               </div>
             </template>
-            <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test3">选项三</router-link>
+            <div
+              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
+              @click="addAsideClickItem()"
+            >
+              <router-link class="collapse-subitem__title" to="/test3"
+                >选项三</router-link
+              >
             </div>
-            <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test4">选项四</router-link>
+            <div
+              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
+              @click="addAsideClickItem()"
+            >
+              <router-link class="collapse-subitem__title" to="/test4"
+                >选项四</router-link
+              >
             </div>
           </el-collapse-item>
           <el-collapse-item class="collapse_item" name="5">
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
-                <span class="title-box__title">测试三</span>
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span
+                  :class="[
+                    'title-box__title',
+                    isFold ? 'move-right--hidden' : '',
+                  ]"
+                  >测试三</span
+                >
               </div>
             </template>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test5">选项五</router-link>
+              <router-link class="collapse-subitem__title" to="/test5"
+                >选项五</router-link
+              >
             </div>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test6">选项六</router-link>
+              <router-link class="collapse-subitem__title" to="/test6"
+                >选项六</router-link
+              >
             </div>
           </el-collapse-item>
         </el-collapse>
       </div>
       <div class="main">
-        <v-tabbar :activeTabs="asideClickItems"></v-tabbar>
+        <v-tabbar :activeTabs="asideClickItems" @enfold="enfold"></v-tabbar>
         <router-view class="page-content--wrapper"></router-view>
       </div>
     </div>
@@ -93,6 +188,8 @@ export default {
   data() {
     return {
       asideClickItems: [],
+      isFold: false,
+      activeCollapseItem: 0,
       TabsObj: [
         { name: "待办", active: 1, url: "/todo" },
         { name: "已办", active: 1, url: "/done" },
@@ -162,6 +259,20 @@ export default {
       });
       this.$session.set("activeTabs", JSON.stringify(this.asideClickItems));
     },
+    enfold() {
+      this.activeCollapseItem = "";
+      let asideObj = document.querySelector(".aside");
+      let arrowObj = document.querySelectorAll(".el-collapse-item__arrow");
+      arrowObj.forEach((item) => {
+        if (item.style.visibility != "hidden") {
+          item.style = "visibility: hidden";
+        } else {
+          item.style = "visibility: visible";
+        }
+      });
+      // this.collapseItemDisable = !this.collapseItemDisable;
+      this.isFold = !this.isFold;
+    },
   },
   computed: {},
   components: {
@@ -172,7 +283,7 @@ export default {
 </script>
 
 <style scoped>
-/* 
+/*
   BEM命名规范
   .body{} 标识块
   .body__element{}  标识元素
@@ -195,23 +306,32 @@ export default {
   background-color: #fff;
   z-index: 1;
 }
-.aside__title {
+.expand {
+  width: 95px !important;
+  /* overflow: hidden; */
+}
+.expand:hover {
+  overflow: initial;
+}
+.aside__title-wrapper {
   position: relative;
-  display: block;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.aside__title {
+  padding: 0 10px;
   height: 60px;
   line-height: 60px;
   color: #637381;
+  background: #fff;
+  z-index: 1;
 }
-.aside__title::before,
-.aside__title::after {
-  content: "";
+.aside__title--line {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
+  top: 30px;
+  width: 200px;
   height: 1px;
-  background-color: #ecf0f3;
+  background: #dae0e5;
 }
 .aside__title::before {
   left: 30px;
@@ -232,6 +352,14 @@ export default {
 .title-box__title {
   font-size: 18px;
   margin-left: 14px;
+}
+.aside >>> .el-collapse-item__content {
+  position: absolute;
+  left: 95px;
+  width: 250px;
+}
+.collapse_item {
+  overflow: hidden;
 }
 .collapse-subitem__title {
   display: block;
@@ -263,7 +391,7 @@ export default {
   background-color: #0270e0;
 }
 .main {
-  width: calc(100% - 250px);
+  flex-grow: 1;
 }
 .page-content--wrapper {
   height: calc(100% - 45px);
