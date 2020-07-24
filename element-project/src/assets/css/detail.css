@@ -303,3 +303,6 @@
 .breadcrumb .el-icon-arrow-right:before {
   color: #212b36;
 }
+.el-checkbox__inner {
+  z-index: 0 !important;
+}

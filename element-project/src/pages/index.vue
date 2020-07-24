@@ -2,173 +2,65 @@
   <div class="top-wrapper">
     <v-header></v-header>
 
-    <div class="container">
-      <div :class="['aside', isFold ? 'expand' : '']">
+    <div class="container" @click="hiddenCollapseItem">
+      <div :class="['aside',isFold?'enfold':'']">
         <div class="aside__title-wrapper">
           <div :class="!isFold ? 'aside__title--line' : ''"></div>
           <span class="aside__title">统一待办</span>
         </div>
         <!-- 折叠面板组件 -->
-        <el-collapse accordion></el-collapse>
+        <div v-if="isFold" class="collapse-placeholder-img">
+          <div class="collapse-placeholder-img--box">
+            <img
+              class="icon-gear"
+              src="../assets/img/peizhi@2X.png"
+              alt="配置"
+              :imgKey="matchImgArr[0].img"
+              @mouseover="showCollapseItem"
+            />
+          </div>
+          <div class="collapse-placeholder-img--box">
+            <img
+              class="icon-gear"
+              src="../assets/img/peizhi@2X.png"
+              alt="配置"
+              :imgKey="matchImgArr[1].img"
+              @mouseover="showCollapseItem"
+            />
+          </div>
+        </div>
+        <el-collapse accordion :value="activeCollapseItem" @change="handleChange">
           <el-collapse-item
-            class="collapse_item"
-            name="1"
-            :value="activeCollapseItem"
-            :class="isFold ? 'hoverItem' : ''"
+            :class="['collapse_item',isFold?'collapse_item--hover':'']"
+            :name="matchImgArr[0].collapseItemName"
+            :ref="matchImgArr[0].collapseItemName"
           >
             <template slot="title">
               <div class="aside__title-box">
-                <img
-                  class="icon-gear"
-                  src="../assets/img/peizhi@2X.png"
-                  alt="配置"
-                />
-                <span
-                  :class="[
-                    'title-box__title',
-                    isFold ? 'move-right--hidden' : '',
-                  ]"
-                  >统一待办</span
-                >
-              </div>
-            </template>
-            <div
-              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
-              @click="addAsideClickItem()"
-            >
-              <router-link class="collapse-subitem__title" to="/todo"
-                >待办</router-link
-              >
-            </div>
-            <div
-              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
-              @click="addAsideClickItem()"
-            >
-              <router-link class="collapse-subitem__title" to="/done"
-                >已办</router-link
-              >
-            </div>
-          </el-collapse-item>
-          <el-collapse-item class="collapse_item" name="2">
-            <template slot="title">
-              <div class="aside__title-box">
-                <img
-                  class="icon-gear"
-                  src="../assets/img/peizhi@2X.png"
-                  alt="配置"
-                />
-                <span
-                  :class="[
-                    'title-box__title',
-                    isFold ? 'move-right--hidden' : '',
-                  ]"
-                  >任务管理</span
-                >
-              </div>
-            </template>
-            <div
-              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
-              @click="addAsideClickItem()"
-            >
-              <router-link class="collapse-subitem__title" to="/task"
-                >创建任务</router-link
-              >
-            </div>
-          </el-collapse-item>
-          <el-collapse-item class="collapse_item" name="3">
-            <template slot="title">
-              <div class="aside__title-box">
-                <img
-                  class="icon-gear"
-                  src="../assets/img/peizhi@2X.png"
-                  alt="配置"
-                />
-                <span
-                  :class="[
-                    'title-box__title',
-                    isFold ? 'move-right--hidden' : '',
-                  ]"
-                  >测试一</span
-                >
-              </div>
-            </template>
-            <div
-              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
-              @click="addAsideClickItem()"
-            >
-              <router-link class="collapse-subitem__title" to="/test1"
-                >选项一</router-link
-              >
-            </div>
-            <div
-              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
-              @click="addAsideClickItem()"
-            >
-              <router-link class="collapse-subitem__title" to="/test2"
-                >选项二</router-link
-              >
-            </div>
-          </el-collapse-item>
-          <el-collapse-item class="collapse_item" name="4">
-            <template slot="title">
-              <div class="aside__title-box">
-                <img
-                  class="icon-gear"
-                  src="../assets/img/peizhi@2X.png"
-                  alt="配置"
-                />
-                <span
-                  :class="[
-                    'title-box__title',
-                    isFold ? 'move-right--hidden' : '',
-                  ]"
-                  >测试二</span
-                >
-              </div>
-            </template>
-            <div
-              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
-              @click="addAsideClickItem()"
-            >
-              <router-link class="collapse-subitem__title" to="/test3"
-                >选项三</router-link
-              >
-            </div>
-            <div
-              :class="['collapse-subitem', isFold ? 'move-right--hidden' : '']"
-              @click="addAsideClickItem()"
-            >
-              <router-link class="collapse-subitem__title" to="/test4"
-                >选项四</router-link
-              >
-            </div>
-          </el-collapse-item>
-          <el-collapse-item class="collapse_item" name="5">
-            <template slot="title">
-              <div class="aside__title-box">
-                <img
-                  class="icon-gear"
-                  src="../assets/img/peizhi@2X.png"
-                  alt="配置"
-                />
-                <span
-                  :class="[
-                    'title-box__title',
-                    isFold ? 'move-right--hidden' : '',
-                  ]"
-                  >测试三</span
-                >
+                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <span class="title-box__title">统一待办</span>
               </div>
             </template>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test5"
-                >选项五</router-link
-              >
+              <router-link class="collapse-subitem__title" to="/todo">待办</router-link>
             </div>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/test6"
-                >选项六</router-link
-              >
+              <router-link class="collapse-subitem__title" to="/done">已办</router-link>
+            </div>
+          </el-collapse-item>
+          <el-collapse-item
+            :class="['collapse_item',isFold?'collapse_item--hover':'']"
+            :name="matchImgArr[1].collapseItemName"
+            :ref="matchImgArr[1].collapseItemName"
+          >
+            <template slot="title">
+              <div class="aside__title-box">
+                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <span class="title-box__title">任务管理</span>
+              </div>
+            </template>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/task">创建任务</router-link>
             </div>
           </el-collapse-item>
         </el-collapse>
@@ -189,7 +81,12 @@ export default {
     return {
       asideClickItems: [],
       isFold: false,
-      activeCollapseItem: 0,
+      showCollapseItemflag: true,
+      matchImgArr: [
+        {img:'1',collapseItemName:'unitTodo'},
+        {img:'2',collapseItemName:'taskManagement'}
+      ],
+      activeCollapseItem: '',
       TabsObj: [
         { name: "待办", active: 1, url: "/todo" },
         { name: "已办", active: 1, url: "/done" },
@@ -244,7 +141,6 @@ export default {
           clickItem.url = this.TabsObj.filter((item) => {
             return item.name == text;
           })[0].url;
-          console.log(clickItem.url);
           this.asideClickItems.push(clickItem);
         }
       }
@@ -259,20 +155,42 @@ export default {
       });
       this.$session.set("activeTabs", JSON.stringify(this.asideClickItems));
     },
-    enfold() {
-      this.activeCollapseItem = "";
-      let asideObj = document.querySelector(".aside");
-      let arrowObj = document.querySelectorAll(".el-collapse-item__arrow");
-      arrowObj.forEach((item) => {
-        if (item.style.visibility != "hidden") {
-          item.style = "visibility: hidden";
-        } else {
-          item.style = "visibility: visible";
-        }
-      });
-      // this.collapseItemDisable = !this.collapseItemDisable;
-      this.isFold = !this.isFold;
+    enfold (){
+      this.isFold = !this.isFold
     },
+    showCollapseItem () {
+      if(this.showCollapseItemflag){
+        let imgKey = event.currentTarget.getAttribute('imgKey')
+        let matchObj = this.matchImgArr.filter(item => {
+          return item.img == imgKey
+        })[0]
+        let matchName = matchObj.collapseItemName
+        let obj = this.$refs[matchName]
+        let style = obj.$el.style
+        if(style.visibility != 'visible'){
+          style.visibility = 'visible'
+        }else {
+          style.visibility = ''
+        }
+        this.activeCollapseItem = matchName
+        this.showCollapseItemflag = false
+      }
+    },
+    hiddenCollapseItem () {    
+      if(this.isFold && this.activeCollapseItem){
+        let imgObjArr = document.querySelectorAll('.icon-gear')
+        let collapseObj = this.$refs[this.activeCollapseItem]
+        let style = collapseObj.$el.style
+        if(event.target !=imgObjArr[0] && event.target!=imgObjArr[1]){
+          style.visibility = ''
+          this.activeCollapseItem = ''
+          this.showCollapseItemflag = true
+        }
+      }
+    },
+    handleChange (val) {
+      console.log(val)
+    } 
   },
   computed: {},
   components: {
@@ -305,13 +223,7 @@ export default {
   width: 250px;
   background-color: #fff;
   z-index: 1;
-}
-.expand {
-  width: 95px !important;
-  /* overflow: hidden; */
-}
-.expand:hover {
-  overflow: initial;
+  transition: 0.5s;
 }
 .aside__title-wrapper {
   position: relative;
@@ -353,14 +265,6 @@ export default {
   font-size: 18px;
   margin-left: 14px;
 }
-.aside >>> .el-collapse-item__content {
-  position: absolute;
-  left: 95px;
-  width: 250px;
-}
-.collapse_item {
-  overflow: hidden;
-}
 .collapse-subitem__title {
   display: block;
   position: relative;
@@ -369,6 +273,7 @@ export default {
   line-height: 48px;
   font-size: 16px;
   color: #000;
+  background: #fff;
   text-decoration: none;
 }
 .collapse-subitem__title::before {
@@ -404,11 +309,35 @@ export default {
 </style>
 
 <style>
+.aside .el-collapse {
+  border-bottom: none;
+}
 .aside .el-collapse-item__content {
+  left: 95px;
+  width: 250px;
   padding-bottom: 0;
 }
 .container .el-main {
   overflow: hidden;
   border-left: 0;
+}
+.enfold {
+  width: 95px !important;
+}
+.collapse_item--hover {
+  position: relative;
+  left: 95px;
+  width: 250px;
+  visibility: hidden;
+}
+.collapse-placeholder-img {
+  position: absolute;
+}
+.collapse-placeholder-img--box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 49px;
+  width: 95px;
 }
 </style>
