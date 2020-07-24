@@ -27,10 +27,9 @@
             <span class="nav__item--active">{{ item.name }}</span>
           </template>
         </div>
-        <div class="nav--border-bottom"></div>
       </div>
     </div>
-    <div class="tabBar-icon-wrapper">
+    <div class="tabBar-icon-wrapper close-box--fl">
       <div class="tabBar-icon-box">
         <i class="iconfont icon-kuaijin"></i>
       </div>
@@ -172,17 +171,18 @@ export default {
 
 <style scoped>
 .tabBar {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
   font-size: 14px;
   height: 44px;
   border-left: 1px solid #dae0e5;
 }
 .tabBar-icon-wrapper {
-  display: flex;
+  display: inline-flex;
   border-bottom: 1px solid #dae0e5;
+  z-index: 1;
 }
 .tabBar-icon-box {
+  float: left;
   height: 44px;
   line-height: 44px;
   width: 40px;
@@ -216,21 +216,22 @@ export default {
 }
 
 .tabBar-nav {
-  flex-grow: 1;
-  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 81px;
+  width: 100%;
+  border-bottom: 1px solid #dae0e5;
 }
 .nav__item-wrapper {
-  display: flex;
+  width: 100%;
+  height: 44px;
+  overflow: hidden;
 }
 .nav__item {
+  display: inline-block;
   border-left: 1px solid #dae0e5;
-  flex-shrink: 0;
   width: 134px;
   line-height: 44px;
-}
-.nav--border-bottom {
-  flex: 1;
-  border-bottom: 1px solid #dae0e5;
 }
 .nav__item--active {
   display: block;
@@ -243,7 +244,6 @@ export default {
 .nav__item--others {
   padding: 0 12px 0 42px;
   height: 43px;
-  border-bottom: 1px solid #dae0e5;
 }
 .nav__item__title {
   color: #212b36;
@@ -262,6 +262,12 @@ export default {
   width: 80px;
   border-left: 1px solid #dae0e5;
   overflow: hidden;
+}
+.close-box--fl {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: white;
 }
 .tabBar-close:hover {
   overflow: initial;

@@ -195,7 +195,7 @@
   width: 100%;
 }
 .el-input__icon {
-  transition: none;
+  transition: none !important;
 }
 /* 表格上方的搜索栏 end */
 .table {

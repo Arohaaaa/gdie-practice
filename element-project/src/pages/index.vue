@@ -28,6 +28,33 @@
               @mouseover="showCollapseItem"
             />
           </div>
+          <div class="collapse-placeholder-img--box">
+            <img
+              class="icon-gear"
+              src="../assets/img/peizhi@2X.png"
+              alt="配置"
+              :imgKey="matchImgArr[2].img"
+              @mouseover="showCollapseItem"
+            />
+          </div>
+          <div class="collapse-placeholder-img--box">
+            <img
+              class="icon-gear"
+              src="../assets/img/peizhi@2X.png"
+              alt="配置"
+              :imgKey="matchImgArr[3].img"
+              @mouseover="showCollapseItem"
+            />
+          </div>
+          <div class="collapse-placeholder-img--box">
+            <img
+              class="icon-gear"
+              src="../assets/img/peizhi@2X.png"
+              alt="配置"
+              :imgKey="matchImgArr[4].img"
+              @mouseover="showCollapseItem"
+            />
+          </div>
         </div>
         <el-collapse
           accordion
@@ -60,6 +87,7 @@
               >
             </div>
           </el-collapse-item>
+
           <el-collapse-item
             :class="['collapse_item', isFold ? 'collapse_item--hover' : '']"
             :name="matchImgArr[1].collapseItemName"
@@ -78,6 +106,87 @@
             <div class="collapse-subitem" @click="addAsideClickItem()">
               <router-link class="collapse-subitem__title" to="/task"
                 >创建任务</router-link
+              >
+            </div>
+          </el-collapse-item>
+
+          <el-collapse-item
+            :class="['collapse_item', isFold ? 'collapse_item--hover' : '']"
+            :name="matchImgArr[2].collapseItemName"
+            :ref="matchImgArr[2].collapseItemName"
+          >
+            <template slot="title">
+              <div class="aside__title-box">
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span class="title-box__title">测试一</span>
+              </div>
+            </template>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test1"
+                >选项一</router-link
+              >
+            </div>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test2"
+                >选项二</router-link
+              >
+            </div>
+          </el-collapse-item>
+
+          <el-collapse-item
+            :class="['collapse_item', isFold ? 'collapse_item--hover' : '']"
+            :name="matchImgArr[3].collapseItemName"
+            :ref="matchImgArr[3].collapseItemName"
+          >
+            <template slot="title">
+              <div class="aside__title-box">
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span class="title-box__title">测试二</span>
+              </div>
+            </template>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test3"
+                >选项三</router-link
+              >
+            </div>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test4"
+                >选项四</router-link
+              >
+            </div>
+          </el-collapse-item>
+
+          <el-collapse-item
+            :class="['collapse_item', isFold ? 'collapse_item--hover' : '']"
+            :name="matchImgArr[4].collapseItemName"
+            :ref="matchImgArr[4].collapseItemName"
+          >
+            <template slot="title">
+              <div class="aside__title-box">
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
+                <span class="title-box__title">测试三</span>
+              </div>
+            </template>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test5"
+                >选项五</router-link
+              >
+            </div>
+            <div class="collapse-subitem" @click="addAsideClickItem()">
+              <router-link class="collapse-subitem__title" to="/test6"
+                >选项六</router-link
               >
             </div>
           </el-collapse-item>
@@ -110,6 +219,9 @@ export default {
       matchImgArr: [
         { img: "1", collapseItemName: "unitTodo" },
         { img: "2", collapseItemName: "taskManagement" },
+        { img: "3", collapseItemName: "test1" },
+        { img: "4", collapseItemName: "test2" },
+        { img: "5", collapseItemName: "test3" },
       ],
       activeCollapseItem: "",
       tabBarKey: 1,
@@ -329,6 +441,8 @@ export default {
 }
 .page-content--wrapper {
   height: calc(100% - 45px);
+  width: 100%;
+  box-sizing: border-box;
   background: #f5f5f5;
   overflow-y: auto;
 }
