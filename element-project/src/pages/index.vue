@@ -3,7 +3,7 @@
     <v-header></v-header>
 
     <div class="container" @click="hiddenCollapseItem">
-      <div :class="['aside',isFold?'enfold':'']">
+      <div :class="['aside', isFold ? 'enfold' : '']">
         <div class="aside__title-wrapper">
           <div :class="!isFold ? 'aside__title--line' : ''"></div>
           <span class="aside__title">统一待办</span>
@@ -29,45 +29,70 @@
             />
           </div>
         </div>
-        <el-collapse accordion :value="activeCollapseItem" @change="handleChange">
+        <el-collapse
+          accordion
+          :value="activeCollapseItem"
+          @change="handleChange"
+        >
           <el-collapse-item
-            :class="['collapse_item',isFold?'collapse_item--hover':'']"
+            :class="['collapse_item', isFold ? 'collapse_item--hover' : '']"
             :name="matchImgArr[0].collapseItemName"
             :ref="matchImgArr[0].collapseItemName"
           >
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
                 <span class="title-box__title">统一待办</span>
               </div>
             </template>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/todo">待办</router-link>
+              <router-link class="collapse-subitem__title" to="/todo"
+                >待办</router-link
+              >
             </div>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/done">已办</router-link>
+              <router-link class="collapse-subitem__title" to="/done"
+                >已办</router-link
+              >
             </div>
           </el-collapse-item>
           <el-collapse-item
-            :class="['collapse_item',isFold?'collapse_item--hover':'']"
+            :class="['collapse_item', isFold ? 'collapse_item--hover' : '']"
             :name="matchImgArr[1].collapseItemName"
             :ref="matchImgArr[1].collapseItemName"
           >
             <template slot="title">
               <div class="aside__title-box">
-                <img class="icon-gear" src="../assets/img/peizhi@2X.png" alt="配置" />
+                <img
+                  class="icon-gear"
+                  src="../assets/img/peizhi@2X.png"
+                  alt="配置"
+                />
                 <span class="title-box__title">任务管理</span>
               </div>
             </template>
             <div class="collapse-subitem" @click="addAsideClickItem()">
-              <router-link class="collapse-subitem__title" to="/task">创建任务</router-link>
+              <router-link class="collapse-subitem__title" to="/task"
+                >创建任务</router-link
+              >
             </div>
           </el-collapse-item>
         </el-collapse>
       </div>
       <div class="main">
-        <v-tabbar :activeTabs="asideClickItems" @enfold="enfold"></v-tabbar>
-        <router-view class="page-content--wrapper"></router-view>
+        <v-tabbar
+          :activeTabs="asideClickItems"
+          @enfold="enfold"
+          @render="render"
+        ></v-tabbar>
+        <router-view
+          :key="tabBarKey"
+          class="page-content--wrapper"
+        ></router-view>
       </div>
     </div>
   </div>
@@ -83,10 +108,11 @@ export default {
       isFold: false,
       showCollapseItemflag: true,
       matchImgArr: [
-        {img:'1',collapseItemName:'unitTodo'},
-        {img:'2',collapseItemName:'taskManagement'}
+        { img: "1", collapseItemName: "unitTodo" },
+        { img: "2", collapseItemName: "taskManagement" },
       ],
-      activeCollapseItem: '',
+      activeCollapseItem: "",
+      tabBarKey: 1,
       TabsObj: [
         { name: "待办", active: 1, url: "/todo" },
         { name: "已办", active: 1, url: "/done" },
@@ -155,42 +181,45 @@ export default {
       });
       this.$session.set("activeTabs", JSON.stringify(this.asideClickItems));
     },
-    enfold (){
-      this.isFold = !this.isFold
+    enfold() {
+      this.isFold = !this.isFold;
     },
-    showCollapseItem () {
-      if(this.showCollapseItemflag){
-        let imgKey = event.currentTarget.getAttribute('imgKey')
-        let matchObj = this.matchImgArr.filter(item => {
-          return item.img == imgKey
-        })[0]
-        let matchName = matchObj.collapseItemName
-        let obj = this.$refs[matchName]
-        let style = obj.$el.style
-        if(style.visibility != 'visible'){
-          style.visibility = 'visible'
-        }else {
-          style.visibility = ''
+    render() {
+      ++this.tabBarKey;
+    },
+    showCollapseItem() {
+      if (this.showCollapseItemflag) {
+        let imgKey = event.currentTarget.getAttribute("imgKey");
+        let matchObj = this.matchImgArr.filter((item) => {
+          return item.img == imgKey;
+        })[0];
+        let matchName = matchObj.collapseItemName;
+        let obj = this.$refs[matchName];
+        let style = obj.$el.style;
+        if (style.visibility != "visible") {
+          style.visibility = "visible";
+        } else {
+          style.visibility = "";
         }
-        this.activeCollapseItem = matchName
-        this.showCollapseItemflag = false
+        this.activeCollapseItem = matchName;
+        this.showCollapseItemflag = false;
       }
     },
-    hiddenCollapseItem () {    
-      if(this.isFold && this.activeCollapseItem){
-        let imgObjArr = document.querySelectorAll('.icon-gear')
-        let collapseObj = this.$refs[this.activeCollapseItem]
-        let style = collapseObj.$el.style
-        if(event.target !=imgObjArr[0] && event.target!=imgObjArr[1]){
-          style.visibility = ''
-          this.activeCollapseItem = ''
-          this.showCollapseItemflag = true
+    hiddenCollapseItem() {
+      if (this.isFold && this.activeCollapseItem) {
+        let imgObjArr = document.querySelectorAll(".icon-gear");
+        let collapseObj = this.$refs[this.activeCollapseItem];
+        let style = collapseObj.$el.style;
+        if (event.target != imgObjArr[0] && event.target != imgObjArr[1]) {
+          style.visibility = "";
+          this.activeCollapseItem = "";
+          this.showCollapseItemflag = true;
         }
       }
     },
-    handleChange (val) {
-      console.log(val)
-    } 
+    handleChange(val) {
+      console.log(val);
+    },
   },
   computed: {},
   components: {

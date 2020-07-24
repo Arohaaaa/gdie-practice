@@ -34,15 +34,28 @@
       <div class="tabBar-icon-box">
         <i class="iconfont icon-kuaijin"></i>
       </div>
-      <div class="tabBar-icon-box">
+      <div class="tabBar-icon-box" @click="render">
         <i class="iconfont icon-refresh"></i>
       </div>
       <div class="tabBar-close">
-        <span class="tabBar-close__title">关闭操作</span>
-        <img
-          class="tabBar-close__triangle"
-          src="../assets/img/多边形 1@2X.png"
-        />
+        <div class="tabBar-close-visiblePart">
+          <span class="tabBar-close__title">关闭操作</span>
+          <img
+            class="tabBar-close__triangle"
+            src="../assets/img/多边形 1@2X.png"
+          />
+        </div>
+        <div class="tabBar-close-hiddenPart">
+          <span @click="closeTabs('others')" class="hiddenTitle"
+            >关闭其它标签</span
+          >
+          <span @click="closeTabs('left')" class="hiddenTitle"
+            >关闭左侧标签</span
+          >
+          <span @click="closeTabs('right')" class="hiddenTitle"
+            >关闭右侧标签</span
+          >
+        </div>
       </div>
     </div>
   </div>
@@ -67,6 +80,34 @@ export default {
       this.tabs = this.tabs.filter((item) => {
         return item.name != tabName;
       });
+      this.$session.set("activeTabs", this.tabs);
+    },
+    closeTabs(where) {
+      let fromSession = this.$session.get("activeTabs");
+      let sessionTabs, activeTabIdx;
+      if (Array.isArray(fromSession)) {
+        sessionTabs = this.$session.get("activeTabs");
+      } else {
+        sessionTabs = JSON.parse(this.$session.get("activeTabs"));
+      }
+      sessionTabs.forEach((item, index) => {
+        if (item.active == 1) {
+          activeTabIdx = index;
+        }
+      });
+      if (where == "others") {
+        this.tabs = sessionTabs.filter((item) => {
+          return item.active == 1;
+        });
+      } else if (where == "left") {
+        this.tabs = sessionTabs.filter((item, index) => {
+          return index >= activeTabIdx;
+        });
+      } else {
+        this.tabs = sessionTabs.filter((item, index) => {
+          return index <= activeTabIdx;
+        });
+      }
       this.$session.set("activeTabs", this.tabs);
     },
     enableActive(obj) {
@@ -99,6 +140,10 @@ export default {
     },
     enfold() {
       this.$emit("enfold");
+    },
+    render() {
+      this.$emit("render");
+      console.log("子组件点击了");
     },
   },
   mounted() {
@@ -212,10 +257,37 @@ export default {
 
 .tabBar-close {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  height: 43px;
   width: 80px;
   border-left: 1px solid #dae0e5;
+  overflow: hidden;
+}
+.tabBar-close:hover {
+  overflow: initial;
+}
+.tabBar-close-visiblePart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 43px;
+  width: 100%;
+}
+.tabBar-close-hiddenPart {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-left: 1px solid #dae0e5;
+  z-index: 1;
+}
+.tabBar-close-hiddenPart .hiddenTitle {
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+  background: white;
+  border-bottom: 1px solid #d8e0e5;
 }
 .tabBar-close__title {
   color: #919eab;
